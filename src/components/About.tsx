@@ -71,8 +71,8 @@ const About = () => {
           <div className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
               <img 
-                src="/lovable-uploads/da454e5e-aac2-4d8a-9922-df932df8e088.png" 
-                alt="Raksha Hostel Building" 
+                src="/lovable-uploads/ddbc9905-e1c3-4fd3-8e0b-9d9c26953481.png" 
+                alt="Raksha Hostel Building Exterior" 
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
@@ -97,6 +97,42 @@ const About = () => {
             {/* Decorative elements */}
             <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full opacity-20 animate-pulse"></div>
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full opacity-20 animate-pulse delay-1000"></div>
+          </div>
+        </div>
+
+        {/* Add a new section showcasing hostel interior */}
+        <div className="mt-24">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">Modern Reception & Common Areas</h3>
+            <p className="text-xl text-gray-600">Experience luxury from the moment you step in</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+              <img 
+                src="/lovable-uploads/2cfae154-534d-4f4c-b685-c21810f0e69f.png" 
+                alt="Modern Reception Area" 
+                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 text-white">
+                <h4 className="text-2xl font-bold mb-2">Reception Lounge</h4>
+                <p className="text-gray-200">24/7 friendly staff assistance</p>
+              </div>
+            </div>
+            
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+              <img 
+                src="/lovable-uploads/319d623b-4de6-4a4f-a319-5a5d4e70e2c4.png" 
+                alt="Study Area with Colorful Ambiance" 
+                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 text-white">
+                <h4 className="text-2xl font-bold mb-2">Study Areas</h4>
+                <p className="text-gray-200">Comfortable spaces for focused learning</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

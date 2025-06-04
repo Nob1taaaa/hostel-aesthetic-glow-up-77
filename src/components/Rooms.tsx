@@ -13,7 +13,7 @@ const Rooms = () => {
       price: "₹8,000",
       originalPrice: "₹10,000",
       period: "per month",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600&h=400&fit=crop",
+      image: "/lovable-uploads/30b955b7-2351-41bb-8ff0-bfec4bd773a3.png",
       features: ["King Size Bed", "Personal Study Desk", "High-Speed WiFi", "Premium AC", "Private Washroom", "Mini Fridge"],
       popular: false,
       badge: "Premium",
@@ -26,7 +26,7 @@ const Rooms = () => {
       price: "₹6,000",
       originalPrice: "₹8,000",
       period: "per month",
-      image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=600&h=400&fit=crop",
+      image: "/lovable-uploads/319d623b-4de6-4a4f-a319-5a5d4e70e2c4.png",
       features: ["2 Comfortable Beds", "Shared Study Area", "Ultra-Fast WiFi", "Smart AC", "Designer Washroom", "Locker Facility"],
       popular: true,
       badge: "Most Popular",
@@ -39,7 +39,7 @@ const Rooms = () => {
       price: "₹4,500",
       originalPrice: "₹6,000",
       period: "per month",
-      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=400&fit=crop",
+      image: "/lovable-uploads/30b955b7-2351-41bb-8ff0-bfec4bd773a3.png",
       features: ["3 Cozy Beds", "Common Study Space", "Free WiFi", "AC/Fan Options", "Shared Facilities", "Storage Space"],
       popular: false,
       badge: "Best Value",
@@ -134,6 +134,42 @@ const Rooms = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Food Services Section */}
+        <div className="mt-24">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">Delicious Mess Facility</h3>
+            <p className="text-xl text-gray-600">Nutritious and tasty meals prepared with love</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+              <img 
+                src="/lovable-uploads/954857bf-0625-4be6-8f51-3a97f36b7195.png" 
+                alt="Delicious Food Options" 
+                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 text-white">
+                <h4 className="text-2xl font-bold mb-2">Traditional Meals</h4>
+                <p className="text-gray-200">Authentic flavors from home</p>
+              </div>
+            </div>
+            
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+              <img 
+                src="/lovable-uploads/bc23d8eb-dbb9-4294-9147-c12bff26f456.png" 
+                alt="Healthy Meal Options" 
+                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 text-white">
+                <h4 className="text-2xl font-bold mb-2">Healthy Options</h4>
+                <p className="text-gray-200">Balanced nutrition for students</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Additional CTA section */}
