@@ -1,72 +1,110 @@
 
 import { Button } from "@/components/ui/button";
-import { Star, MapPin, Wifi, Coffee } from "lucide-react";
+import { Star, MapPin, Wifi, Coffee, Users, Shield } from "lucide-react";
 
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-600 via-teal-700 to-slate-800"></div>
-      <div className="absolute inset-0 bg-black/20"></div>
+      {/* Enhanced gradient background with more colors */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 via-teal-800 to-emerald-900"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 via-pink-500/20 to-purple-500/20"></div>
+      <div className="absolute inset-0 bg-black/30"></div>
       
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-20 h-20 border border-white rounded-full animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 border border-white rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-20 w-24 h-24 border border-white rounded-full animate-pulse delay-2000"></div>
+      {/* Enhanced animated background pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 border-2 border-orange-300 rounded-full animate-pulse delay-1000"></div>
+        <div className="absolute bottom-40 left-1/4 w-28 h-28 border-2 border-teal-300 rounded-full animate-pulse delay-2000"></div>
+        <div className="absolute bottom-20 right-1/3 w-20 h-20 border-2 border-pink-300 rounded-full animate-pulse delay-3000"></div>
+        <div className="absolute top-1/3 left-1/2 w-16 h-16 border-2 border-yellow-300 rounded-full animate-pulse delay-500"></div>
+      </div>
+
+      {/* Floating particles effect */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-2 h-2 bg-white rounded-full opacity-60 animate-bounce" style={{top: '20%', left: '10%', animationDelay: '0s'}}></div>
+        <div className="absolute w-1 h-1 bg-orange-300 rounded-full opacity-80 animate-bounce" style={{top: '60%', left: '80%', animationDelay: '1s'}}></div>
+        <div className="absolute w-3 h-3 bg-teal-300 rounded-full opacity-40 animate-bounce" style={{top: '80%', left: '20%', animationDelay: '2s'}}></div>
+        <div className="absolute w-1.5 h-1.5 bg-pink-300 rounded-full opacity-70 animate-bounce" style={{top: '30%', left: '70%', animationDelay: '1.5s'}}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          {/* Enhanced title with better typography */}
+          <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-teal-200 mb-6 leading-tight tracking-tight">
             RAKSHA HOSTEL
-            <span className="block text-3xl md:text-4xl font-normal text-orange-300 mt-2">
-              & HOTEL SERVICES
+            <span className="block text-4xl md:text-5xl font-light text-orange-300 mt-4 tracking-wider">
+              & LUXURY SERVICES
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto">
-            Experience the new way of living
+          <p className="text-2xl md:text-3xl text-gray-100 mb-4 max-w-4xl mx-auto font-light">
+            Experience the <span className="text-orange-400 font-semibold">revolutionary way</span> of living
           </p>
           
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-            Modern accommodation with world-class amenities. Your comfort is our priority.
+          <p className="text-lg text-gray-200 mb-8 max-w-3xl mx-auto">
+            Premium accommodation with world-class amenities designed for the modern student lifestyle
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-              <Star className="w-5 h-5 text-yellow-400 mr-2" />
-              <span className="text-white">4.8 Rating</span>
+          {/* Enhanced feature badges */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex items-center bg-white/15 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <Star className="w-6 h-6 text-yellow-400 mr-2" />
+              <span className="text-white font-medium">4.9★ Premium Rating</span>
             </div>
-            <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-              <MapPin className="w-5 h-5 text-orange-400 mr-2" />
-              <span className="text-white">Prime Location</span>
+            <div className="flex items-center bg-white/15 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <MapPin className="w-6 h-6 text-orange-400 mr-2" />
+              <span className="text-white font-medium">Prime Delhi Location</span>
             </div>
-            <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-              <Wifi className="w-5 h-5 text-teal-400 mr-2" />
-              <span className="text-white">Free WiFi</span>
+            <div className="flex items-center bg-white/15 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <Wifi className="w-6 h-6 text-teal-400 mr-2" />
+              <span className="text-white font-medium">High-Speed Internet</span>
+            </div>
+            <div className="flex items-center bg-white/15 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <Shield className="w-6 h-6 text-purple-400 mr-2" />
+              <span className="text-white font-medium">24/7 Security</span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg hover-scale">
-              Book Your Stay
+          {/* Enhanced CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Button size="lg" className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-10 py-4 text-xl font-semibold rounded-full shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 hover:scale-110 border-2 border-white/20">
+              Book Your Dream Stay
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-teal-700 px-8 py-3 text-lg"
+              className="border-2 border-white/50 text-white hover:bg-white/20 hover:text-white px-10 py-4 text-xl font-semibold rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-white"
             >
-              Take a Tour
+              Virtual Tour 360°
             </Button>
+          </div>
+
+          {/* Add trust indicators */}
+          <div className="mt-16 flex flex-wrap justify-center items-center gap-8 opacity-80">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white">500+</div>
+              <div className="text-sm text-gray-300">Happy Students</div>
+            </div>
+            <div className="w-px h-12 bg-white/30"></div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white">5</div>
+              <div className="text-sm text-gray-300">Years Excellence</div>
+            </div>
+            <div className="w-px h-12 bg-white/30"></div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white">24/7</div>
+              <div className="text-sm text-gray-300">Support</div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Enhanced scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+        <div className="w-8 h-12 border-2 border-white/70 rounded-full flex justify-center backdrop-blur-sm bg-white/10">
+          <div className="w-1.5 h-4 bg-gradient-to-b from-white to-orange-400 rounded-full mt-2 animate-pulse"></div>
         </div>
+        <p className="text-white/70 text-sm mt-2 font-medium">Scroll to explore</p>
       </div>
     </section>
   );
