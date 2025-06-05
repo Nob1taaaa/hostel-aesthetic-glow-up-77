@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Ultra Enhanced gradient background with multiple layers */}
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-900 via-emerald-800 via-cyan-700 to-orange-700"></div>
-      <div className="absolute inset-0 bg-gradient-to-tr from-teal-600/60 via-emerald-500/40 via-cyan-400/30 to-orange-500/50"></div>
-      <div className="absolute inset-0 bg-gradient-to-bl from-purple-600/20 via-pink-500/30 to-orange-600/40"></div>
+      {/* Ultra Enhanced gradient background with hostel official colors */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-teal-800 via-cyan-700 to-orange-600"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-teal-600/60 via-orange-500/40 via-cyan-400/30 to-orange-500/50"></div>
+      <div className="absolute inset-0 bg-gradient-to-bl from-slate-600/20 via-orange-500/30 to-orange-600/40"></div>
       <div className="absolute inset-0 bg-black/15"></div>
       
       {/* Advanced animated background patterns */}
@@ -39,7 +39,7 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Mesmerizing floating particles with different shapes */}
+      {/* Mesmerizing floating particles with official colors */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(50)].map((_, i) => (
           <motion.div
@@ -51,8 +51,8 @@ const Hero = () => {
             } ${
               i % 5 === 0 ? 'bg-white' :
               i % 5 === 1 ? 'bg-teal-300' :
-              i % 5 === 2 ? 'bg-orange-300' :
-              i % 5 === 3 ? 'bg-emerald-300' : 'bg-cyan-300'
+              i % 5 === 2 ? 'bg-orange-400' :
+              i % 5 === 3 ? 'bg-slate-300' : 'bg-cyan-300'
             }`}
             style={{
               width: `${Math.random() * 8 + 2}px`,
@@ -76,7 +76,7 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Magical aurora effect */}
+      {/* Magical aurora effect with official colors */}
       <div className="absolute inset-0 opacity-60">
         <motion.div 
           className="absolute w-full h-full bg-gradient-to-r from-teal-400/30 via-transparent to-orange-400/30"
@@ -90,7 +90,7 @@ const Hero = () => {
           }}
         />
         <motion.div 
-          className="absolute w-full h-full bg-gradient-to-l from-purple-400/20 via-transparent to-cyan-400/20"
+          className="absolute w-full h-full bg-gradient-to-l from-slate-400/20 via-transparent to-cyan-400/20"
           animate={{
             opacity: [0.7, 0.3, 0.7],
           }}
@@ -109,7 +109,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
         >
-          {/* Ultra Premium Title with multiple gradient layers */}
+          {/* Ultra Premium Title with official colors */}
           <motion.h1 
             className="text-7xl md:text-9xl font-black mb-8 leading-tight tracking-tight relative"
             initial={{ scale: 0.8, opacity: 0 }}
@@ -129,19 +129,19 @@ const Hero = () => {
                 animate={{ rotate: [0, 360], scale: [1, 1.2, 1] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                <Sparkles className="w-8 h-8 text-yellow-300" />
+                <Sparkles className="w-8 h-8 text-orange-300" />
               </motion.div>
               <motion.div
                 className="absolute -bottom-4 -left-4"
                 animate={{ rotate: [360, 0], scale: [1, 1.3, 1] }}
                 transition={{ duration: 4, repeat: Infinity, delay: 1 }}
               >
-                <Crown className="w-6 h-6 text-orange-300" />
+                <Crown className="w-6 h-6 text-orange-400" />
               </motion.div>
             </span>
             
             <motion.span 
-              className="block text-4xl md:text-6xl font-light text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-emerald-300 to-orange-300 mt-6 tracking-[0.2em]"
+              className="block text-4xl md:text-6xl font-light text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-orange-300 to-orange-400 mt-6 tracking-[0.2em]"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.5, delay: 1 }}
@@ -155,16 +155,16 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.5 }}
           >
-            <p className="text-3xl md:text-4xl text-gray-100 mb-6 max-w-5xl mx-auto font-light leading-relaxed">
-              Experience the <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-400 to-red-400 font-bold text-4xl md:text-5xl">revolutionary dimension</span> of living
+            <p className="text-3xl md:text-4xl text-gray-100 dark:text-gray-200 mb-6 max-w-5xl mx-auto font-light leading-relaxed">
+              Experience the <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-500 to-red-400 font-bold text-4xl md:text-5xl">revolutionary dimension</span> of living
             </p>
             
-            <p className="text-xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-200 dark:text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
               Premium luxury accommodation with world-class amenities designed for the extraordinary student lifestyle
             </p>
           </motion.div>
 
-          {/* Enhanced Premium feature badges with icons */}
+          {/* Enhanced Premium feature badges with official colors */}
           <motion.div 
             className="flex flex-wrap justify-center gap-6 mb-16"
             initial={{ opacity: 0, y: 40 }}
@@ -172,11 +172,11 @@ const Hero = () => {
             transition={{ duration: 1, delay: 2 }}
           >
             {[
-              { icon: Star, text: "4.9★ Premium Rating", color: "from-yellow-400 to-orange-400" },
-              { icon: MapPin, text: "Prime Delhi Location", color: "from-teal-400 to-cyan-400" },
-              { icon: Wifi, text: "High-Speed Internet", color: "from-blue-400 to-purple-400" },
-              { icon: Shield, text: "24/7 Security", color: "from-green-400 to-emerald-400" },
-              { icon: Heart, text: "Home Away From Home", color: "from-pink-400 to-red-400" }
+              { icon: Star, text: "4.9★ Premium Rating", color: "from-orange-400 to-orange-500" },
+              { icon: MapPin, text: "Prime Location", color: "from-teal-500 to-cyan-400" },
+              { icon: Wifi, text: "High-Speed Internet", color: "from-slate-400 to-slate-500" },
+              { icon: Shield, text: "24/7 Security", color: "from-orange-500 to-orange-600" },
+              { icon: Heart, text: "Home Away From Home", color: "from-teal-400 to-teal-500" }
             ].map((badge, index) => (
               <motion.div 
                 key={index}
@@ -185,16 +185,16 @@ const Hero = () => {
                 transition={{ duration: 0.3 }}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                delay={2.5 + index * 0.2}
+                style={{ transitionDelay: `${2.5 + index * 0.2}s` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-20 transition-opacity duration-300" style={{backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))`}} />
+                <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
                 <badge.icon className={`w-7 h-7 mr-3 bg-gradient-to-r ${badge.color} rounded-full p-1`} />
                 <span className="text-white font-semibold text-lg">{badge.text}</span>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Ultra Premium CTA buttons */}
+          {/* Ultra Premium CTA buttons with official colors */}
           <motion.div 
             className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16"
             initial={{ opacity: 0, y: 50 }}
@@ -206,7 +206,7 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.3 }}
             >
-              <Button size="lg" className="relative bg-gradient-to-r from-teal-500 via-emerald-500 to-orange-500 hover:from-teal-600 hover:via-emerald-600 hover:to-orange-600 text-white px-12 py-6 text-2xl font-bold rounded-full shadow-2xl hover:shadow-teal-500/50 border-2 border-white/30 backdrop-blur-sm overflow-hidden group">
+              <Button size="lg" className="relative bg-gradient-to-r from-teal-500 via-orange-500 to-orange-600 hover:from-teal-600 hover:via-orange-600 hover:to-orange-700 text-white px-12 py-6 text-2xl font-bold rounded-full shadow-2xl hover:shadow-orange-500/50 border-2 border-white/30 backdrop-blur-sm overflow-hidden group">
                 <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative flex items-center gap-3">
                   <Sparkles className="w-6 h-6" />
@@ -235,7 +235,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Enhanced trust indicators with animations */}
+          {/* Enhanced trust indicators with official colors */}
           <motion.div 
             className="flex flex-wrap justify-center items-center gap-12 opacity-90"
             initial={{ opacity: 0, y: 30 }}
@@ -256,10 +256,10 @@ const Hero = () => {
               >
                 <div className="bg-white/15 backdrop-blur-lg rounded-2xl p-6 border border-white/20 group-hover:bg-white/25 transition-all duration-300 group-hover:shadow-xl">
                   <div className="text-3xl mb-2">{stat.icon}</div>
-                  <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-teal-300 mb-2">
+                  <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-orange-300 mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-gray-300 font-medium">
+                  <div className="text-sm text-gray-300 dark:text-gray-400 font-medium">
                     {stat.label}
                   </div>
                 </div>
@@ -270,7 +270,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Ultra Enhanced scroll indicator */}
+      {/* Ultra Enhanced scroll indicator with official colors */}
       <motion.div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
@@ -284,7 +284,7 @@ const Hero = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-teal-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
         </div>
-        <p className="text-white/80 text-sm mt-3 font-semibold tracking-wide">Scroll to explore paradise</p>
+        <p className="text-white/80 dark:text-white/90 text-sm mt-3 font-semibold tracking-wide">Scroll to explore paradise</p>
       </motion.div>
 
       {/* Background video overlay effect simulation */}

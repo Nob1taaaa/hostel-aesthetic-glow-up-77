@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,7 +21,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-sm border-b border-gray-200/50 dark:border-gray-700/50 transition-colors duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm shadow-sm border-b border-gray-200/50 dark:border-slate-700/50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -62,7 +63,7 @@ const Navigation = () => {
               onClick={toggleTheme}
               variant="outline"
               size="sm"
-              className="w-10 h-10 rounded-full p-0 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
+              className="w-10 h-10 rounded-full p-0 border-gray-300 dark:border-slate-600 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors duration-300"
             >
               {theme === "light" ? (
                 <Moon className="h-4 w-4 text-gray-600 dark:text-gray-400" />
@@ -70,7 +71,7 @@ const Navigation = () => {
                 <Sun className="h-4 w-4 text-gray-600 dark:text-gray-400" />
               )}
             </Button>
-            <Button className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               Book Now
             </Button>
           </div>
@@ -80,12 +81,12 @@ const Navigation = () => {
               onClick={toggleTheme}
               variant="outline"
               size="sm"
-              className="w-8 h-8 rounded-full p-0"
+              className="w-8 h-8 rounded-full p-0 border-gray-300 dark:border-slate-600"
             >
               {theme === "light" ? (
-                <Moon className="h-3 w-3" />
+                <Moon className="h-3 w-3 text-gray-600 dark:text-gray-400" />
               ) : (
-                <Sun className="h-3 w-3" />
+                <Sun className="h-3 w-3 text-gray-600 dark:text-gray-400" />
               )}
             </Button>
             <button
@@ -99,7 +100,7 @@ const Navigation = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-t border-gray-200/50 dark:border-gray-700/50">
+        <div className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border-t border-gray-200/50 dark:border-slate-700/50">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <a
@@ -111,7 +112,7 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
-            <Button className="w-full mt-4 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white">
+            <Button className="w-full mt-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white">
               Book Now
             </Button>
           </div>

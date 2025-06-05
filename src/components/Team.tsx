@@ -8,36 +8,36 @@ const Team = () => {
       name: "Mr. MISHAL SINGH",
       role: "Chief Managing Director",
       image: "/lovable-uploads/ec084b60-df21-48e8-8504-d9db8e43d3b8.png",
-      bgColor: "from-purple-400 to-pink-400",
-      textColor: "text-purple-800"
+      bgColor: "from-slate-400 to-slate-500",
+      textColor: "text-slate-800"
     },
     {
       name: "Mrs. NUTAN SINGH",
       role: "Associate Director & Vice President",
       image: "/lovable-uploads/5e3d6542-3440-421e-8dd0-51e86507f418.png",
-      bgColor: "from-orange-400 to-red-400",
+      bgColor: "from-orange-400 to-orange-500",
       textColor: "text-orange-800"
     },
     {
       name: "Er. RAKSHA SINGH",
       role: "Chief Hiring Officer",
       image: "/lovable-uploads/92b80640-a417-464d-b653-d82c9d773183.png",
-      bgColor: "from-teal-400 to-blue-400",
+      bgColor: "from-teal-400 to-teal-500",
       textColor: "text-teal-800"
     },
     {
       name: "Mr. DEVANAND SINGH",
       role: "President",
       image: "/lovable-uploads/0d1254f5-9469-4b78-a296-3adbf6782545.png",
-      bgColor: "from-green-400 to-emerald-400",
-      textColor: "text-green-800"
+      bgColor: "from-orange-500 to-orange-600",
+      textColor: "text-orange-800"
     },
     {
       name: "Er. SATYAM KUMAR",
       role: "CEO & CAO",
       image: "/lovable-uploads/3d7d66a1-4446-4934-a1a3-42deca215a74.png",
-      bgColor: "from-blue-400 to-indigo-400",
-      textColor: "text-blue-800"
+      bgColor: "from-teal-500 to-cyan-500",
+      textColor: "text-teal-800"
     }
   ];
 
@@ -72,15 +72,15 @@ const Team = () => {
   };
 
   return (
-    <section className="py-32 bg-gradient-to-br from-gray-50 via-white to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
-      {/* Enhanced background decorations */}
+    <section className="py-32 bg-gradient-to-br from-gray-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 relative overflow-hidden">
+      {/* Enhanced background decorations with official colors */}
       <div className="absolute inset-0 opacity-40 dark:opacity-20">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-teal-300 to-orange-300 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-orange-300 to-pink-300 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-br from-purple-300 to-blue-300 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse delay-2000"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-orange-300 to-slate-300 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2 animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-br from-slate-300 to-teal-300 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse delay-2000"></div>
       </div>
 
-      {/* Floating particles */}
+      {/* Floating particles with official colors */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <div
@@ -111,7 +111,7 @@ const Team = () => {
           <h2 className="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-800 via-teal-600 to-orange-500 dark:from-white dark:via-teal-400 dark:to-orange-400 mb-8 tracking-tight">
             OUR TEAM
           </h2>
-          <div className="w-40 h-3 bg-gradient-to-r from-teal-500 via-orange-400 to-pink-400 mx-auto mb-10 rounded-full shadow-lg"></div>
+          <div className="w-40 h-3 bg-gradient-to-r from-teal-500 via-orange-400 to-orange-500 mx-auto mb-10 rounded-full shadow-lg"></div>
           <p className="text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
             Meet the visionary leaders who transform <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-orange-500 font-bold text-3xl">Raksha Hostel</span> into your dream home
           </p>
@@ -142,8 +142,8 @@ const Team = () => {
                   {/* Dynamic gradient background */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${member.bgColor} opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
                   
-                  {/* Animated border */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-orange-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[2px] rounded-lg">
+                  {/* Animated border with official colors */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-orange-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[2px] rounded-lg">
                     <div className="w-full h-full bg-white dark:bg-gray-800 rounded-lg"></div>
                   </div>
                   
@@ -153,13 +153,13 @@ const Team = () => {
                       <img 
                         src={member.image} 
                         alt={member.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter group-hover:brightness-110"
+                        className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 filter group-hover:brightness-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                       
                       {/* Floating status indicator */}
                       <div className="absolute top-4 right-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-500 delay-200">
-                        <div className="w-4 h-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-full animate-pulse"></div>
+                        <div className="w-4 h-4 bg-gradient-to-r from-teal-400 to-orange-500 rounded-full animate-pulse"></div>
                       </div>
 
                       {/* Animated overlay icons */}
@@ -183,7 +183,7 @@ const Team = () => {
                     {/* Animated decorative elements */}
                     <div className="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-400">
                       <div className="w-2 h-2 bg-gradient-to-r from-teal-500 to-orange-400 rounded-full animate-pulse"></div>
-                      <div className="w-2 h-2 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full animate-pulse delay-100"></div>
+                      <div className="w-2 h-2 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full animate-pulse delay-100"></div>
                       <div className="w-2 h-2 bg-gradient-to-r from-teal-500 to-orange-400 rounded-full animate-pulse delay-200"></div>
                     </div>
                     
@@ -192,42 +192,6 @@ const Team = () => {
                   </div>
                 </CardContent>
               </Card>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Enhanced team stats with animations */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          {[
-            { number: "50+", label: "Years Combined Experience", icon: "🏆" },
-            { number: "1000+", label: "Students Guided", icon: "🎓" },
-            { number: "15+", label: "Awards Won", icon: "⭐" },
-            { number: "24/7", label: "Support Available", icon: "🔒" }
-          ].map((stat, index) => (
-            <motion.div 
-              key={index} 
-              className="text-center group cursor-pointer"
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl p-8 shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-gray-200/50 dark:border-gray-700/50 group-hover:border-teal-400/50 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                  {stat.icon}
-                </div>
-                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-orange-500 mb-3 group-hover:from-teal-400 group-hover:to-orange-400 transition-all duration-300">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 font-semibold leading-relaxed">
-                  {stat.label}
-                </div>
-              </div>
             </motion.div>
           ))}
         </motion.div>
