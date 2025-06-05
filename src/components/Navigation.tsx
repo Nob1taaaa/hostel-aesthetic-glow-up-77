@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -26,11 +25,17 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <div className="flex items-center space-x-2">
-                <div className="w-10 h-10 bg-gradient-to-r from-teal-500 to-orange-400 rounded-lg flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-lg">R</span>
+              <div className="flex items-center space-x-3">
+                {/* Hostel Logo */}
+                <div className="w-12 h-12 relative group">
+                  <img 
+                    src="/lovable-uploads/a54a5c5d-b32e-46e9-94ef-1eff409c145b.png" 
+                    alt="Raksha Hostel Logo"
+                    className="w-full h-full object-contain rounded-lg shadow-lg group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-orange-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <span className="text-xl font-bold text-gray-800 dark:text-white transition-colors duration-300">
+                <span className="text-xl font-bold text-gray-800 dark:text-white transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-orange-500">
                   RAKSHA HOSTEL
                 </span>
               </div>
