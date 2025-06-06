@@ -1,34 +1,20 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  Wifi, 
-  Car, 
-  Utensils, 
-  Shirt, 
-  Shield, 
-  Clock, 
-  Gamepad2, 
-  BookOpen,
-  Coffee,
-  AirVent,
-  Tv,
-  Bath
-} from "lucide-react";
 
 const Facilities = () => {
   const facilities = [
-    { icon: <Wifi className="w-8 h-8" />, title: "High-Speed WiFi", description: "Free unlimited internet access" },
-    { icon: <Car className="w-8 h-8" />, title: "Parking", description: "Secure parking for bikes & cars" },
-    { icon: <Utensils className="w-8 h-8" />, title: "Mess Facility", description: "Nutritious meals available" },
-    { icon: <Shirt className="w-8 h-8" />, title: "Laundry", description: "Washing & drying services" },
-    { icon: <Shield className="w-8 h-8" />, title: "24/7 Security", description: "CCTV monitoring & guards" },
-    { icon: <Clock className="w-8 h-8" />, title: "24/7 Access", description: "No time restrictions" },
-    { icon: <Gamepad2 className="w-8 h-8" />, title: "Recreation", description: "Games room & entertainment" },
-    { icon: <BookOpen className="w-8 h-8" />, title: "Study Area", description: "Quiet spaces for studying" },
-    { icon: <Coffee className="w-8 h-8" />, title: "Common Kitchen", description: "Fully equipped kitchen" },
-    { icon: <AirVent className="w-8 h-8" />, title: "AC Rooms", description: "Climate controlled comfort" },
-    { icon: <Tv className="w-8 h-8" />, title: "Entertainment", description: "TV lounge & streaming" },
-    { icon: <Bath className="w-8 h-8" />, title: "Clean Washrooms", description: "Hygienic facilities" }
+    { icon: "wifi", title: "High-Speed WiFi", description: "Free unlimited internet access" },
+    { icon: "car", title: "Parking", description: "Secure parking for bikes & cars" },
+    { icon: "utensils", title: "Mess Facility", description: "Nutritious meals available" },
+    { icon: "tshirt", title: "Laundry", description: "Washing & drying services" },
+    { icon: "shield", title: "24/7 Security", description: "CCTV monitoring & guards" },
+    { icon: "clock", title: "24/7 Access", description: "No time restrictions" },
+    { icon: "ac", title: "AC Rooms", description: "Climate controlled comfort" },
+    { icon: "bath", title: "Clean Washrooms", description: "Hygienic facilities" },
+    { icon: "bus", title: "Bus Service", description: "Transportation facility" },
+    { icon: "tiffin", title: "Tiffin Service", description: "Home-style meal delivery" },
+    { icon: "pool", title: "Swimming Pool", description: "Recreational swimming facility" },
+    { icon: "sports", title: "Sports Ground", description: "Open area for sports & activities" }
   ];
 
   return (
@@ -44,22 +30,40 @@ const Facilities = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {facilities.map((facility, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-0 bg-white/80 backdrop-blur-sm">
-              <CardContent className="p-6 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-100 to-orange-100 rounded-2xl mb-4 group-hover:scale-110 transition-transform text-teal-600">
-                  {facility.icon}
+            <div key={index} className="flex flex-col items-center text-center">
+              <div className="mb-4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl flex items-center justify-center shadow-sm">
+                <div className={`text-teal-600 text-xl sm:text-2xl facility-icon ${facility.icon}`}>
+                  {getIconForFacility(facility.icon)}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">{facility.title}</h3>
-                <p className="text-sm text-gray-600">{facility.description}</p>
-              </CardContent>
-            </Card>
+              </div>
+              <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1">{facility.title}</h3>
+              <p className="text-xs sm:text-sm text-gray-600">{facility.description}</p>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
+};
+
+const getIconForFacility = (iconName: string) => {
+  switch (iconName) {
+    case 'wifi': return '📶';
+    case 'car': return '🚗';
+    case 'utensils': return '🍴';
+    case 'tshirt': return '👕';
+    case 'shield': return '🛡️';
+    case 'clock': return '🕒';
+    case 'ac': return '❄️';
+    case 'bath': return '🚿';
+    case 'bus': return '🚌';
+    case 'tiffin': return '🍱';
+    case 'pool': return '🏊';
+    case 'sports': return '🏏';
+    default: return '✨';
+  }
 };
 
 export default Facilities;

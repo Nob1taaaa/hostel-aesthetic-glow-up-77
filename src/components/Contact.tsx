@@ -10,17 +10,20 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Location",
-      details: "Greater Noida, Uttar Pradesh\nNear Pari Chowk, Behind Jagat Farm Market"
+      details: "Greater Noida, Uttar Pradesh\nNear Pari Chowk, Behind Jagat Farm Market",
+      action: () => window.open("https://www.google.com/maps/search/Greater+Noida,+Pari+Chowk,+Behind+Jagat+Farm+Market", "_blank")
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      details: "+91 9876543210\n+91 9876543211"
+      details: "+91 8743-836-836\n+91 8750-836-836",
+      action: () => window.location.href = "tel:+918743836836"
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      details: "info@rakshahostel.com\nbooking@rakshahostel.com"
+      details: "Info.rakshahostels@gmail.com",
+      action: () => window.location.href = "mailto:Info.rakshahostels@gmail.com"
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -48,7 +51,11 @@ const Contact = () => {
             
             <div className="grid sm:grid-cols-2 gap-6 mb-8">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
+                <Card 
+                  key={index} 
+                  className={`hover:shadow-lg transition-shadow ${info.action ? 'cursor-pointer' : ''}`}
+                  onClick={info.action}
+                >
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center text-teal-600">
@@ -64,9 +71,12 @@ const Contact = () => {
               ))}
             </div>
 
-            <div className="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-lg">
+            <div 
+              className="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-lg cursor-pointer"
+              onClick={() => window.open("https://www.google.com/maps/search/Greater+Noida,+Pari+Chowk,+Behind+Jagat+Farm+Market", "_blank")}
+            >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.7047863506973!2d77.23115!3d28.6139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzUwLjAiTiA3N8KwMTMnNTIuMSJF!5e0!3m2!1sen!2sin!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28022.76785258089!2d77.51289234041996!3d28.45521772304731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cbeda8e144bf9%3A0x9335b014e76b5a7f!2sPari%20Chowk%2C%20Greater%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1716152214953!5m2!1sen!2sin"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}

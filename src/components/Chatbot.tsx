@@ -1,259 +1,189 @@
 
-import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-
-interface Message {
-  id: string;
-  text: string;
-  isBot: boolean;
-  timestamp: Date;
-  buttons?: Array<{
-    text: string;
-    action: string;
-  }>;
-}
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MessageCircle, X, Send, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      text: "Hello! 👋 Welcome to RAKSHA HOSTEL! I'm here to help you with facilities, bookings, and any questions you have. How can I assist you today?",
-      isBot: true,
-      timestamp: new Date(),
-      buttons: [
-        { text: "📅 Book Now", action: "booking" },
-        { text: "👨‍👩‍👧‍👦 Parent Support", action: "parent" },
-        { text: "🎓 Student Assist", action: "student" }
-      ]
+  const [messages, setMessages] = useState([
+    { 
+      text: "👋 Hello! Welcome to Raksha Hostel. How can I assist you today?", 
+      sender: "bot"
     }
   ]);
-  const [inputValue, setInputValue] = useState('');
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
-  const addMessage = (text: string, isBot: boolean, buttons?: Array<{text: string; action: string}>) => {
-    const newMessage: Message = {
-      id: Date.now().toString(),
-      text,
-      isBot,
-      timestamp: new Date(),
-      buttons
-    };
-    setMessages(prev => [...prev, newMessage]);
-  };
-
-  const handleButtonClick = (action: string) => {
-    switch (action) {
-      case 'booking':
-        addMessage("Let's get you booked! Please provide your preferred dates and contact details.", true, [
-          { text: "📅 Submit Booking Form", action: "booking_form" },
-          { text: "📱 WhatsApp Booking", action: "whatsapp_booking" },
-          { text: "📞 Call Now", action: "call_booking" }
-        ]);
-        break;
-
-      case 'whatsapp_booking':
-        addMessage("Tap to book instantly via WhatsApp:", true, [
-          { text: "💬 WhatsApp +91 8743-836-836", action: "open_whatsapp" }
-        ]);
-        break;
-
-      case 'open_whatsapp':
-        window.open('https://wa.me/918743836836?text=Hi! I want to book a room at Raksha Hostel', '_blank');
-        addMessage("Thank you! Your request has been received. We'll confirm within 2 hours via WhatsApp/SMS.", true);
-        break;
-
-      case 'parent':
-        addMessage("How can I help you as a parent?", true, [
-          { text: "🔒 Security Measures", action: "security" },
-          { text: "👥 Staff Details", action: "staff" },
-          { text: "🚗 How to Reach", action: "directions" },
-          { text: "🎒 Packing Guide", action: "packing" },
-          { text: "📞 Emergency Numbers", action: "emergency" }
-        ]);
-        break;
-
-      case 'security':
-        addMessage("We have 24x7 CCTV surveillance, biometric entry, and on-site wardens for complete safety.", true);
-        break;
-
-      case 'staff':
-        addMessage("Our staff is trained in hospitality, safety, and first aid. They are kind, supportive, and always ready to listen to your problems.", true);
-        break;
-
-      case 'directions':
-        addMessage("Near Pari Chowk Metro Station and Bus Stop. Jagat Market is nearby for auto access. Address: 12A, Raksha Hostels, Knowledge Park 3, Greater Noida", true);
-        break;
-
-      case 'emergency':
-        addMessage("Emergency Numbers:\nHostel Warden: +91-7703929254\nMain Office: +91 8743-836-836", true);
-        break;
-
-      case 'student':
-        addMessage("What do you need help with?", true, [
-          { text: "📏 Hostel Rules", action: "rules" },
-          { text: "🍽️ Mess Timings", action: "mess" },
-          { text: "📚 Study Area", action: "study" },
-          { text: "🎉 Events", action: "events" },
-          { text: "🔍 Lost & Found", action: "lost_found" },
-          { text: "🛠️ Complaint/Support", action: "support" }
-        ]);
-        break;
-
-      case 'rules':
-        addMessage("Quiet hours start at 10 PM. Visitors are allowed until 7 PM. No smoking or drinking is allowed inside the premises.", true);
-        break;
-
-      case 'mess':
-        addMessage("Mess Timings:\n🌅 Breakfast: 8-10 AM\n🌞 Lunch: 1-2:30 PM\n🌙 Dinner: 8-9:30 PM", true);
-        break;
-
-      case 'study':
-        addMessage("We have a 24x7 quiet study lounge with free WiFi and air-conditioning.", true);
-        break;
-
-      case 'events':
-        addMessage("We have weekend nights, festival celebrations, and shows. You'll get reminders.", true);
-        break;
-
-      case 'lost_found':
-        addMessage("Please describe the item and where you last saw it. We'll instantly notify the warden and alert our internal support team for faster recovery.", true);
-        break;
-
-      case 'support':
-        addMessage("Please fill this form with the issue details at the counter or with the warden. It will be resolved within 24 hours.", true);
-        break;
-
-      default:
-        addMessage("I'm here to help! Please choose from the options or ask me anything about Raksha Hostel.", true, [
-          { text: "📅 Book Now", action: "booking" },
-          { text: "👨‍👩‍👧‍👦 Parent Support", action: "parent" },
-          { text: "🎓 Student Assist", action: "student" }
-        ]);
-    }
-  };
-
+  const [newMessage, setNewMessage] = useState("");
+  
   const handleSendMessage = () => {
-    if (inputValue.trim()) {
-      addMessage(inputValue, false);
-      setInputValue('');
+    if (!newMessage.trim()) return;
+    
+    setMessages([...messages, { text: newMessage, sender: "user" }]);
+    setNewMessage("");
+    
+    // Simulate bot response
+    setTimeout(() => {
+      const botResponses = [
+        "Thank you for your message! Our team will get back to you shortly.",
+        "I understand you're looking for more information. Let me help you with that!",
+        "Great question! Raksha Hostel offers various room types starting from ₹6,000/month.",
+        "Yes, we have 24/7 security and all modern amenities for students.",
+        "Would you like to book a visit to see our facilities?"
+      ];
       
-      setTimeout(() => {
-        addMessage("Thanks for your message! Let me help you with that.", true, [
-          { text: "📅 Book Now", action: "booking" },
-          { text: "👨‍👩‍👧‍👦 Parent Support", action: "parent" },
-          { text: "🎓 Student Assist", action: "student" }
-        ]);
-      }, 1000);
+      const randomResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
+      setMessages(prev => [...prev, { text: randomResponse, sender: "bot" }]);
+    }, 1000);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
     }
+  };
+
+  const handleCall = () => {
+    window.location.href = "tel:+918743836836";
   };
 
   return (
     <>
-      {/* Chat Button - Mobile optimized */}
-      <div className="fixed bottom-4 right-4 z-50">
-        <Button
-          onClick={() => setIsOpen(true)}
-          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
-        >
-          <div className="flex flex-col items-center">
-            <img 
-              src="/lovable-uploads/a54a5c5d-b32e-46e9-94ef-1eff409c145b.png" 
-              alt="Raksha Chatbot"
-              className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
-            />
-            <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 mt-1" />
-          </div>
-        </Button>
-      </div>
+      {/* Chat bubble button */}
+      <motion.button
+        className="fixed right-4 bottom-4 z-40 bg-gradient-to-r from-teal-600 to-orange-500 rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:shadow-xl"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? (
+          <X className="text-white w-6 h-6" />
+        ) : (
+          <MessageCircle className="text-white w-6 h-6" />
+        )}
+      </motion.button>
 
-      {/* Chat Window - Mobile responsive */}
-      {isOpen && (
-        <div className="fixed bottom-4 right-4 w-[calc(100vw-2rem)] max-w-96 h-[70vh] sm:h-[500px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-slate-700 z-50 flex flex-col overflow-hidden">
-          {/* Header */}
-          <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-3 sm:p-4 flex items-center justify-between">
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              <img 
-                src="/lovable-uploads/a54a5c5d-b32e-46e9-94ef-1eff409c145b.png" 
-                alt="Raksha Chatbot"
-                className="w-6 h-6 sm:w-8 sm:h-8 object-contain rounded-full"
-              />
-              <div>
-                <h3 className="text-white font-semibold text-sm sm:text-base">RAKSHA CHATBOT</h3>
-                <p className="text-orange-100 text-xs">Online • Ready to help</p>
-              </div>
-            </div>
-            <Button
-              onClick={() => setIsOpen(false)}
-              variant="ghost"
-              size="sm"
-              className="text-white hover:bg-orange-600 p-1"
-            >
-              <X className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Button>
-          </div>
-
-          {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
-            {messages.map((message) => (
-              <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
-                <div className={`max-w-[85%] p-2 sm:p-3 rounded-2xl ${
-                  message.isBot 
-                    ? 'bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-gray-200' 
-                    : 'bg-gradient-to-r from-orange-500 to-orange-600 text-white'
-                }`}>
-                  <p className="text-xs sm:text-sm whitespace-pre-line">{message.text}</p>
-                  {message.buttons && (
-                    <div className="mt-2 sm:mt-3 space-y-1 sm:space-y-2">
-                      {message.buttons.map((button, index) => (
-                        <Button
-                          key={index}
-                          onClick={() => handleButtonClick(button.action)}
-                          variant="outline"
-                          size="sm"
-                          className="w-full text-xs h-7 sm:h-8 border-orange-500 text-orange-600 hover:bg-orange-50 dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-950"
-                        >
-                          {button.text}
-                        </Button>
-                      ))}
-                    </div>
-                  )}
+      {/* Chatbot window */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed right-4 bottom-20 z-40 w-80 sm:w-96 rounded-lg shadow-2xl bg-white border border-gray-200 overflow-hidden flex flex-col"
+            initial={{ opacity: 0, y: 20, height: 0 }}
+            animate={{ opacity: 1, y: 0, height: "500px" }}
+            exit={{ opacity: 0, y: 20, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* Header */}
+            <div className="bg-gradient-to-r from-teal-600 to-orange-500 p-4 text-white flex justify-between items-center">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-full bg-white/30 flex items-center justify-center">
+                  <MessageCircle className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Raksha Support</h3>
+                  <p className="text-xs opacity-80">We typically reply within minutes</p>
                 </div>
               </div>
-            ))}
-            <div ref={messagesEndRef} />
-          </div>
-
-          {/* Input */}
-          <div className="p-3 sm:p-4 border-t border-gray-200 dark:border-slate-700">
-            <div className="flex space-x-2">
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-                placeholder="Type your message..."
-                className="flex-1 px-2 sm:px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
-              />
-              <Button
-                onClick={handleSendMessage}
-                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 p-2"
+              <button 
+                onClick={() => setIsOpen(false)}
+                className="text-white/80 hover:text-white"
               >
-                <Send className="w-3 h-3 sm:w-4 sm:h-4" />
-              </Button>
+                <X className="w-5 h-5" />
+              </button>
             </div>
-          </div>
-        </div>
-      )}
+
+            {/* Message area */}
+            <div className="flex-grow overflow-y-auto p-4 space-y-4 bg-gray-50">
+              {messages.map((message, index) => (
+                <div 
+                  key={index}
+                  className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
+                >
+                  <div 
+                    className={`max-w-[80%] p-3 rounded-lg ${
+                      message.sender === "user" 
+                        ? "bg-gradient-to-r from-teal-600 to-orange-500 text-white rounded-br-none" 
+                        : "bg-white border border-gray-200 text-gray-800 rounded-bl-none shadow-sm"
+                    }`}
+                  >
+                    {message.text}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Quick actions */}
+            <div className="bg-gray-50 p-3 border-t border-gray-200">
+              <div className="flex space-x-2 mb-3 overflow-x-auto pb-2">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="whitespace-nowrap border-teal-300 text-teal-700 hover:bg-teal-50"
+                  onClick={() => {
+                    setMessages([...messages, 
+                      { text: "I'd like to book a room", sender: "user" }
+                    ]);
+                    setTimeout(() => {
+                      setMessages(prev => [...prev, { 
+                        text: "Great! Please call us at +91-8743-836-836 or send us your details and requirements. We'll get back to you quickly!", 
+                        sender: "bot" 
+                      }]);
+                    }, 1000);
+                  }}
+                >
+                  Book a Room
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="whitespace-nowrap border-orange-300 text-orange-700 hover:bg-orange-50"
+                  onClick={handleCall}
+                >
+                  <Phone className="w-3 h-3 mr-1" /> Call Now
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="whitespace-nowrap border-blue-300 text-blue-700 hover:bg-blue-50"
+                  onClick={() => {
+                    setMessages([...messages, 
+                      { text: "What facilities do you offer?", sender: "user" }
+                    ]);
+                    setTimeout(() => {
+                      setMessages(prev => [...prev, { 
+                        text: "We offer high-speed WiFi, 24/7 security, AC rooms, home-style meals, laundry, and much more! Check our facilities section for the full list.", 
+                        sender: "bot" 
+                      }]);
+                    }, 1000);
+                  }}
+                >
+                  Facilities
+                </Button>
+              </div>
+            </div>
+
+            {/* Input area */}
+            <div className="p-3 border-t border-gray-200 bg-white">
+              <div className="flex items-end space-x-2">
+                <Textarea
+                  className="flex-grow resize-none border-gray-300 focus:border-teal-500 focus:ring-teal-500 min-h-[60px] max-h-[120px]"
+                  placeholder="Type your message..."
+                  value={newMessage}
+                  onChange={(e) => setNewMessage(e.target.value)}
+                  onKeyDown={handleKeyPress}
+                />
+                <Button 
+                  size="icon" 
+                  className="bg-gradient-to-r from-teal-600 to-orange-500 hover:from-teal-700 hover:to-orange-600 h-10 w-10 rounded-full flex-shrink-0"
+                  onClick={handleSendMessage}
+                >
+                  <Send className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

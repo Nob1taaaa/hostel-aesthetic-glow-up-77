@@ -1,0 +1,13 @@
+
+.facility-icon {
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .facility-icon {
+    font-size: 24px;
+  }
+}

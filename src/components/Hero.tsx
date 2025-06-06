@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Star, MapPin, Wifi, Coffee, Users, Shield, Sparkles, Heart, Crown } from "lucide-react";
+import { Star, MapPin, Wifi, Shield, Sparkles, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-8">
+    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Clean gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-teal-900 to-orange-800"></div>
       <div className="absolute inset-0 bg-gradient-to-tr from-teal-800/40 via-orange-600/30 to-cyan-600/20"></div>
@@ -45,38 +45,7 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className={`absolute rounded-full ${
-              i % 3 === 0 ? 'bg-white/30' :
-              i % 3 === 1 ? 'bg-teal-300/40' : 'bg-orange-300/40'
-            }`}
-            style={{
-              width: `${Math.random() * 4 + 2}px`,
-              height: `${Math.random() * 4 + 2}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, Math.random() * 15 - 7.5, 0],
-              opacity: [0.2, 0.6, 0.2],
-              scale: [1, 1.3, 1],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -84,7 +53,7 @@ const Hero = () => {
         >
           {/* Logo Section */}
           <motion.div
-            className="mb-8 sm:mb-12"
+            className="mb-4 sm:mb-6"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ 
@@ -95,117 +64,58 @@ const Hero = () => {
               stiffness: 100
             }}
           >
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-4">
               <motion.div 
                 className="relative group"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 relative">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 relative">
                   <img 
                     src="/lovable-uploads/82aba63a-f897-4470-87eb-5eda225868c3.png" 
                     alt="Raksha Hostel Logo"
                     className="w-full h-full object-contain rounded-3xl shadow-2xl group-hover:shadow-3xl transition-all duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-orange-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute inset-0 bg-white/10 rounded-3xl backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-                
-                {/* Animated rings around logo */}
-                <motion.div
-                  className="absolute inset-0 border-2 border-teal-400/50 rounded-3xl"
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.5, 0.8, 0.5],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-                <motion.div
-                  className="absolute inset-0 border-2 border-orange-400/50 rounded-3xl"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.6, 0.3],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                  }}
-                />
               </motion.div>
             </div>
           </motion.div>
 
-          {/* Title with left-to-right scroll animation */}
+          {/* Heading */}
           <motion.div
-            className="overflow-hidden mb-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="mb-2"
           >
-            <motion.h1 
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight tracking-tight"
-              initial={{ x: "100%" }}
-              animate={{ x: "0%" }}
-              transition={{ 
-                duration: 1.5, 
-                ease: "easeOut",
-                type: "spring",
-                damping: 20,
-                stiffness: 100
-              }}
-            >
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-teal-200 to-orange-200">
-                RAKSHA HOSTEL
-              </span>
-            </motion.h1>
-            
-            <motion.span 
-              className="block text-xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-orange-300 mt-4 tracking-wider"
-              initial={{ x: "-100%" }}
-              animate={{ x: "0%" }}
-              transition={{ 
-                duration: 1.5, 
-                delay: 0.3,
-                ease: "easeOut",
-                type: "spring",
-                damping: 20,
-                stiffness: 100
-              }}
-            >
-              Your Home Away From Home
-            </motion.span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+              RAKSHA HOSTEL
+            </h1>
+            <p className="text-xl sm:text-2xl text-green-200 italic mt-1">
+              itself reflects security
+            </p>
           </motion.div>
           
           <motion.div
-            initial={{ opacity: 0, x: "50%" }}
-            animate={{ opacity: 1, x: "0%" }}
-            transition={{ 
-              duration: 1.2, 
-              delay: 0.8,
-              ease: "easeOut"
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
           >
-            <p className="text-lg sm:text-2xl md:text-3xl text-gray-200 mb-4 max-w-4xl mx-auto font-light leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-white mb-2 max-w-3xl mx-auto">
               Experience comfort, security, and community in the heart of Greater Noida
             </p>
             
-            <p className="text-base sm:text-lg text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-sm sm:text-base text-gray-200 mb-6 max-w-2xl mx-auto">
               Premium student accommodation with modern amenities and 24/7 support
             </p>
           </motion.div>
 
           {/* Feature badges */}
           <motion.div 
-            className="flex flex-wrap justify-center gap-3 lg:gap-4 mb-8 px-4"
+            className="flex flex-wrap justify-center gap-3 lg:gap-4 mb-6 px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
+            transition={{ duration: 1, delay: 0.9 }}
           >
             {[
               { icon: Star, text: "4.9★ Rated", color: "from-orange-400 to-orange-500" },
@@ -215,57 +125,45 @@ const Hero = () => {
             ].map((badge, index) => (
               <motion.div 
                 key={index}
-                className="flex items-center bg-white/15 backdrop-blur-md rounded-full px-4 py-3 border border-white/20 hover:bg-white/25 group"
-                initial={{ x: "100%", opacity: 0 }}
-                animate={{ x: "0%", opacity: 1 }}
+                className="flex items-center bg-white/15 backdrop-blur-md rounded-full px-4 py-2 border border-white/20"
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
                 transition={{ 
-                  duration: 0.8,
-                  delay: 1.4 + index * 0.2,
+                  duration: 0.5,
+                  delay: 1 + index * 0.1,
                   ease: "easeOut"
                 }}
-                whileHover={{ scale: 1.05, y: -3 }}
               >
                 <badge.icon className="w-4 h-4 mr-2 text-white" />
-                <span className="text-white font-medium text-sm">{badge.text}</span>
+                <span className="text-white text-sm">{badge.text}</span>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* CTA button - single centered button */}
+          {/* CTA button */}
           <motion.div 
-            className="flex justify-center items-center mb-8 px-4"
-            initial={{ opacity: 0, y: 50 }}
+            className="flex justify-center items-center mb-6"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 1.2, 
-              delay: 2.2,
-              ease: "easeOut"
-            }}
+            transition={{ duration: 1, delay: 1.2 }}
           >
-            <motion.div
-              whileHover={{ scale: 1.08, y: -5 }}
-              whileTap={{ scale: 0.95 }}
+            <Button 
+              onClick={() => scrollToSection('contact')}
+              className="bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white px-10 py-6 text-lg font-semibold rounded-full shadow-lg"
             >
-              <Button 
-                size="lg" 
-                onClick={() => scrollToSection('contact')}
-                className="bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white px-12 py-6 text-xl font-semibold rounded-full shadow-lg border border-white/20 backdrop-blur-sm"
-              >
-                <span className="flex items-center justify-center gap-3">
-                  <Sparkles className="w-6 h-6" />
-                  Book Your Dream Paradise
-                  <Heart className="w-6 h-6" />
-                </span>
-              </Button>
-            </motion.div>
+              <span className="flex items-center justify-center gap-2">
+                <Sparkles className="w-5 h-5" />
+                Book Your Dream Paradise
+              </span>
+            </Button>
           </motion.div>
 
-          {/* Trust indicators */}
+          {/* Stats */}
           <motion.div 
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 opacity-90 px-4"
-            initial={{ opacity: 0, y: 30 }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 opacity-90"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 0.9, y: 0 }}
-            transition={{ duration: 1, delay: 2.8 }}
+            transition={{ duration: 1, delay: 1.5 }}
           >
             {[
               { number: "500+", label: "Happy Students", icon: "🎓" },
@@ -275,15 +173,14 @@ const Hero = () => {
             ].map((stat, index) => (
               <motion.div 
                 key={index}
-                className="text-center group cursor-pointer"
-                whileHover={{ scale: 1.05, y: -3 }}
+                className="text-center"
               >
-                <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 group-hover:bg-white/20 transition-all duration-300">
+                <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
                   <div className="text-2xl mb-2">{stat.icon}</div>
                   <div className="text-2xl font-bold text-white mb-1">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-gray-300 font-medium">
+                  <div className="text-sm text-gray-300">
                     {stat.label}
                   </div>
                 </div>
@@ -295,8 +192,8 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 12, 0] }}
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       >
         <div className="w-8 h-12 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm bg-white/10">

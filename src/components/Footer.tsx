@@ -9,6 +9,19 @@ const Footer = () => {
     }
   };
 
+  const handlePhoneCall = (phoneNumber: string) => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
+
+  const handleEmail = (email: string) => {
+    window.location.href = `mailto:${email}`;
+  };
+
+  const handleLocation = () => {
+    // Replace with your coordinates from Google Maps
+    window.open("https://www.google.com/maps/search/Greater+Noida,+Pari+Chowk,+Behind+Jagat+Farm+Market", "_blank");
+  };
+
   return (
     <footer className="bg-gradient-to-r from-slate-800 to-slate-900 dark:from-slate-900 dark:to-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -23,9 +36,10 @@ const Footer = () => {
                   className="w-full h-full object-contain rounded-lg"
                 />
               </div>
-              <div>
+              <div className="flex flex-col">
                 <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-orange-400">RAKSHA</span>
-                <span className="text-xl font-bold text-orange-400 ml-1">HOSTELS</span>
+                <span className="text-xl font-bold text-orange-400">HOSTEL</span>
+                <span className="text-xs text-gray-400 italic">itself reflects security</span>
               </div>
             </div>
             <p className="text-gray-300 dark:text-gray-400 mb-6 leading-relaxed italic text-sm">
@@ -95,23 +109,41 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-orange-400">Address</h3>
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 cursor-pointer" onClick={handleLocation}>
                 <MapPin className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
                 <span className="text-gray-300 dark:text-gray-400 text-sm leading-relaxed">
                   Greater Noida, Uttar Pradesh<br />
                   Near Pari Chowk, Behind Jagat Farm Market
                 </span>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-teal-400 flex-shrink-0" />
-                <div className="text-gray-300 dark:text-gray-400 text-sm">
-                  <div>+91 8743-836-836</div>
-                  <div>+91 8750-836-836</div>
+              <div className="flex flex-col gap-2">
+                <div 
+                  className="flex items-center gap-3 cursor-pointer hover:text-teal-400 transition-colors" 
+                  onClick={() => handlePhoneCall('8743836836')}
+                >
+                  <Phone className="w-5 h-5 text-teal-400 flex-shrink-0" />
+                  <span className="text-gray-300 dark:text-gray-400 text-sm hover:text-teal-400 transition-colors">
+                    +91 8743-836-836
+                  </span>
+                </div>
+                <div 
+                  className="flex items-center gap-3 cursor-pointer hover:text-teal-400 transition-colors" 
+                  onClick={() => handlePhoneCall('8750836836')}
+                >
+                  <Phone className="w-5 h-5 text-teal-400 flex-shrink-0 opacity-0" />
+                  <span className="text-gray-300 dark:text-gray-400 text-sm hover:text-teal-400 transition-colors">
+                    +91 8750-836-836
+                  </span>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
+              <div 
+                className="flex items-center gap-3 cursor-pointer hover:text-orange-400 transition-colors"
+                onClick={() => handleEmail('Info.rakshahostels@gmail.com')}
+              >
                 <Mail className="w-5 h-5 text-orange-400 flex-shrink-0" />
-                <span className="text-gray-300 dark:text-gray-400 text-sm">Info.rakshahostels@gmail.com</span>
+                <span className="text-gray-300 dark:text-gray-400 text-sm hover:text-orange-400 transition-colors">
+                  Info.rakshahostels@gmail.com
+                </span>
               </div>
             </div>
             
