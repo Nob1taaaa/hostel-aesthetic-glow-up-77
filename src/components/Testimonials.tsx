@@ -1,5 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Star, Quote } from "lucide-react";
 
 const Testimonials = () => {
@@ -24,6 +25,20 @@ const Testimonials = () => {
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
       rating: 5,
       comment: "Living here has been an incredible experience. Made so many friends and the security makes my parents feel safe about me staying here."
+    },
+    {
+      name: "Arjun Singh",
+      role: "MBA Student",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      rating: 5,
+      comment: "Excellent hostel with all modern amenities. The management is very supportive and understanding."
+    },
+    {
+      name: "Kavya Reddy",
+      role: "IT Professional",
+      image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=100&h=100&fit=crop&crop=face",
+      rating: 5,
+      comment: "Perfect place for working professionals. Clean, safe, and well-maintained with great internet connectivity."
     }
   ];
 
@@ -40,7 +55,48 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Mobile: Horizontal scroll, Desktop: Grid */}
+        <div className="md:hidden">
+          <ScrollArea className="w-full whitespace-nowrap">
+            <div className="flex space-x-4 pb-4">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index} className="w-[300px] flex-shrink-0 group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <Quote className="w-8 h-8 text-teal-600 opacity-60" />
+                    </div>
+                    
+                    <p className="text-gray-700 mb-6 italic leading-relaxed">
+                      "{testimonial.comment}"
+                    </p>
+
+                    <div className="flex items-center gap-1 mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full object-cover"
+                      />
+                      <div>
+                        <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
+                        <p className="text-sm text-gray-600">{testimonial.role}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
+        </div>
+
+        {/* Desktop: Grid layout */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
               <CardContent className="p-6">
