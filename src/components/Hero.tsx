@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Star, MapPin, Wifi, Shield, Sparkles, Heart } from "lucide-react";
 import { motion } from "framer-motion";
@@ -12,7 +11,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Clean gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-teal-900 to-orange-800"></div>
       <div className="absolute inset-0 bg-gradient-to-tr from-teal-800/40 via-orange-600/30 to-cyan-600/20"></div>
@@ -25,8 +24,8 @@ const Hero = () => {
             key={i}
             className="absolute border border-white/30 rounded-full"
             style={{
-              width: `${80 + i * 20}px`,
-              height: `${80 + i * 20}px`,
+              width: `${60 + i * 15}px`,
+              height: `${60 + i * 15}px`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
             }}
@@ -70,7 +69,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 relative">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 relative">
                   <img 
                     src="/lovable-uploads/82aba63a-f897-4470-87eb-5eda225868c3.png" 
                     alt="Raksha Hostel Logo"
@@ -88,10 +87,10 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.3 }}
             className="mb-2"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
               RAKSHA HOSTEL
             </h1>
-            <p className="text-xl sm:text-2xl text-green-200 italic mt-1">
+            <p className="text-lg sm:text-xl md:text-2xl text-green-200 italic mt-1">
               itself reflects security
             </p>
           </motion.div>
@@ -101,7 +100,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            <p className="text-lg sm:text-xl md:text-2xl text-white mb-2 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-2 max-w-3xl mx-auto leading-relaxed">
               Experience comfort, security, and community in the heart of Greater Noida
             </p>
             
@@ -112,7 +111,7 @@ const Hero = () => {
 
           {/* Feature badges */}
           <motion.div 
-            className="flex flex-wrap justify-center gap-3 lg:gap-4 mb-6 px-4"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-6 px-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.9 }}
@@ -125,7 +124,7 @@ const Hero = () => {
             ].map((badge, index) => (
               <motion.div 
                 key={index}
-                className="flex items-center bg-white/15 backdrop-blur-md rounded-full px-4 py-2 border border-white/20"
+                className="flex items-center bg-white/15 backdrop-blur-md rounded-full px-3 py-2 border border-white/20"
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ 
@@ -134,8 +133,8 @@ const Hero = () => {
                   ease: "easeOut"
                 }}
               >
-                <badge.icon className="w-4 h-4 mr-2 text-white" />
-                <span className="text-white text-sm">{badge.text}</span>
+                <badge.icon className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-white" />
+                <span className="text-white text-xs sm:text-sm">{badge.text}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -149,18 +148,18 @@ const Hero = () => {
           >
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white px-10 py-6 text-lg font-semibold rounded-full shadow-lg"
+              className="bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white px-6 sm:px-8 lg:px-10 py-4 sm:py-5 lg:py-6 text-base sm:text-lg font-semibold rounded-full shadow-lg"
             >
               <span className="flex items-center justify-center gap-2">
-                <Sparkles className="w-5 h-5" />
-                Book Your Dream Paradise
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="whitespace-nowrap">Book Your Dream Paradise</span>
               </span>
             </Button>
           </motion.div>
 
           {/* Stats */}
           <motion.div 
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 opacity-90"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 opacity-90"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 0.9, y: 0 }}
             transition={{ duration: 1, delay: 1.5 }}
@@ -175,12 +174,12 @@ const Hero = () => {
                 key={index}
                 className="text-center"
               >
-                <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                  <div className="text-2xl mb-2">{stat.icon}</div>
-                  <div className="text-2xl font-bold text-white mb-1">
+                <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 sm:p-4 border border-white/20">
+                  <div className="text-xl sm:text-2xl mb-2">{stat.icon}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-white mb-1">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-gray-300">
+                  <div className="text-xs sm:text-sm text-gray-300">
                     {stat.label}
                   </div>
                 </div>
@@ -192,7 +191,7 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <motion.div 
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hidden sm:block"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       >
