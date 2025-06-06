@@ -10,7 +10,7 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Location",
-      details: "Guntur, Delhi\nNear Heritage College"
+      details: "Greater Noida, Uttar Pradesh\nNear Pari Chowk, Behind Jagat Farm Market"
     },
     {
       icon: <Phone className="w-6 h-6" />,
@@ -123,6 +123,93 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* Terms and Conditions Section */}
+      <section id="terms" className="mt-20 pt-16 border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Terms and Conditions
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mb-6"></div>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-gray-700">
+            <div className="grid md:grid-cols-2 gap-8 text-sm leading-relaxed">
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">1. Booking and Payment</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• Advance payment of 1 month rent is required at the time of booking</li>
+                    <li>• Security deposit of ₹10,000 (refundable) is mandatory</li>
+                    <li>• Monthly rent must be paid by the 5th of each month</li>
+                    <li>• Late payment charges of ₹100 per day will be applicable</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">2. Accommodation Rules</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• No smoking or alcohol consumption in premises</li>
+                    <li>• Visiting hours: 6 AM to 10 PM only</li>
+                    <li>• Overnight guests are not permitted</li>
+                    <li>• Maintain cleanliness in common areas</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">3. Facilities Usage</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• WiFi password will be shared upon check-in</li>
+                    <li>• Mess timings: Breakfast 7-9 AM, Lunch 12-2 PM, Dinner 7-9 PM</li>
+                    <li>• Laundry facilities available twice a week</li>
+                    <li>• Study rooms available 24/7 with prior booking</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">4. Security and Safety</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• 24/7 security personnel on duty</li>
+                    <li>• CCTV surveillance in common areas</li>
+                    <li>• Fire safety equipment installed and maintained</li>
+                    <li>• Emergency contact numbers displayed prominently</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">5. Termination Policy</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• 30 days prior notice required for vacating</li>
+                    <li>• No refund for advance payment if leaving before 30 days</li>
+                    <li>• Room inspection mandatory before check-out</li>
+                    <li>• Damages will be deducted from security deposit</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">6. Management Rights</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• Management reserves right to inspect rooms</li>
+                    <li>• Violation of rules may result in immediate eviction</li>
+                    <li>• Terms and conditions subject to change with notice</li>
+                    <li>• All disputes subject to Greater Noida jurisdiction</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 p-6 bg-gradient-to-r from-teal-50 to-orange-50 rounded-lg border border-gray-200">
+              <p className="text-center text-gray-700 font-medium">
+                By booking with Raksha Hostel, you agree to abide by all terms and conditions mentioned above. 
+                For any queries or clarifications, please contact our management team.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
   );
 };

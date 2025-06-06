@@ -231,9 +231,9 @@ const Hero = () => {
             ))}
           </motion.div>
 
-          {/* CTA buttons */}
+          {/* CTA button - single centered button */}
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 px-4"
+            className="flex justify-center items-center mb-8 px-4"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -249,28 +249,12 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 onClick={() => scrollToSection('contact')}
-                className="bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white px-8 py-4 text-base font-semibold rounded-full shadow-lg border border-white/20 backdrop-blur-sm w-full sm:w-auto"
+                className="bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white px-12 py-6 text-xl font-semibold rounded-full shadow-lg border border-white/20 backdrop-blur-sm"
               >
-                <span className="flex items-center justify-center gap-2">
-                  <Sparkles className="w-5 h-5" />
+                <span className="flex items-center justify-center gap-3">
+                  <Sparkles className="w-6 h-6" />
                   Book Your Dream Paradise
-                  <Heart className="w-5 h-5" />
-                </span>
-              </Button>
-            </motion.div>
-            
-            <motion.div
-              whileHover={{ scale: 1.05, y: -3 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-white/50 text-white hover:bg-white/20 hover:text-white px-8 py-4 text-base font-semibold rounded-full backdrop-blur-md hover:border-white/70 w-full sm:w-auto"
-              >
-                <span className="flex items-center justify-center gap-2">
-                  <Crown className="w-5 h-5" />
-                  Virtual Tour 360°
+                  <Heart className="w-6 h-6" />
                 </span>
               </Button>
             </motion.div>

@@ -2,6 +2,13 @@
 import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Home, User, Users, MessageCircle, FileText, Shield } from "lucide-react";
 
 const Footer = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-gradient-to-r from-slate-800 to-slate-900 dark:from-slate-900 dark:to-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -63,7 +70,12 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Shield className="w-4 h-4 mr-3 text-teal-400" />
-                <a href="#terms" className="text-gray-300 dark:text-gray-400 hover:text-teal-400 transition-colors duration-300">Terms and Conditions</a>
+                <button 
+                  onClick={() => scrollToSection('terms')}
+                  className="text-gray-300 dark:text-gray-400 hover:text-teal-400 transition-colors duration-300 text-left"
+                >
+                  Terms and Conditions
+                </button>
               </li>
             </ul>
           </div>
@@ -86,8 +98,8 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
                 <span className="text-gray-300 dark:text-gray-400 text-sm leading-relaxed">
-                  12A, Raksha Hostels, knowledge park3,<br />
-                  Greater Noida (201310), U.P
+                  Greater Noida, Uttar Pradesh<br />
+                  Near Pari Chowk, Behind Jagat Farm Market
                 </span>
               </div>
               <div className="flex items-center gap-3">

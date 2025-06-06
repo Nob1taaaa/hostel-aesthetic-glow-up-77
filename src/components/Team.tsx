@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
@@ -77,7 +78,6 @@ const Team = () => {
       <div className="absolute inset-0 opacity-40 dark:opacity-20">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-teal-300 to-orange-300 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-orange-300 to-slate-300 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-br from-slate-300 to-teal-300 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse delay-2000"></div>
       </div>
 
       {/* Floating particles */}
@@ -117,76 +117,77 @@ const Team = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: Horizontal scroll */}
+        {/* Mobile: Horizontal scroll with auto-scroll animation */}
         <div className="md:hidden">
-          <ScrollArea className="w-full whitespace-nowrap">
-            <div className="flex space-x-6 pb-4">
-              {teamMembers.map((member, index) => (
-                <motion.div
-                  key={index}
-                  variants={cardVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  whileHover={{ 
-                    y: -20,
-                    scale: 1.05,
-                    transition: { duration: 0.4, ease: "easeOut" }
-                  }}
-                  className="w-[280px] flex-shrink-0"
-                >
-                  <Card className="group relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border-0 shadow-2xl hover:shadow-4xl transition-all duration-700 h-[400px]">
-                    <CardContent className="p-0 relative h-full flex flex-col">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${member.bgColor} opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
-                      
-                      <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-orange-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[2px] rounded-lg">
-                        <div className="w-full h-full bg-white dark:bg-gray-800 rounded-lg"></div>
-                      </div>
-                      
-                      <div className="relative overflow-hidden flex-1 rounded-t-lg">
-                        <div className="w-full h-[280px] relative">
-                          <img 
-                            src={member.image} 
-                            alt={member.name}
-                            className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 filter group-hover:brightness-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                          
-                          <div className="absolute top-4 right-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-500 delay-200">
-                            <div className="w-4 h-4 bg-gradient-to-r from-teal-400 to-orange-500 rounded-full animate-pulse"></div>
-                          </div>
-
-                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                            <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-500 delay-300">
-                              <div className="w-8 h-8 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full"></div>
-                            </div>
-                          </div>
+          <motion.div
+            className="flex space-x-6 pb-4"
+            animate={{
+              x: [0, -1400, 0],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          >
+            {[...teamMembers, ...teamMembers].map((member, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ 
+                  y: -10,
+                  scale: 1.02,
+                  transition: { duration: 0.4, ease: "easeOut" }
+                }}
+                className="w-[260px] flex-shrink-0"
+              >
+                <Card className="group relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border-0 shadow-2xl hover:shadow-4xl transition-all duration-700 h-[380px]">
+                  <CardContent className="p-0 relative h-full flex flex-col">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${member.bgColor} opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
+                    
+                    <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-orange-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[2px] rounded-lg">
+                      <div className="w-full h-full bg-white dark:bg-gray-800 rounded-lg"></div>
+                    </div>
+                    
+                    <div className="relative overflow-hidden flex-1 rounded-t-lg">
+                      <div className="w-full h-[260px] relative">
+                        <img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 filter group-hover:brightness-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div className="absolute top-4 right-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-500 delay-200">
+                          <div className="w-3 h-3 bg-gradient-to-r from-teal-400 to-orange-500 rounded-full animate-pulse"></div>
                         </div>
                       </div>
+                    </div>
+                    
+                    <div className="p-5 text-center relative z-10 bg-white dark:bg-gray-800 flex-shrink-0">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-orange-500 transition-all duration-500 leading-tight">
+                        {member.name}
+                      </h3>
+                      <p className={`font-semibold mb-3 ${member.textColor} dark:text-orange-400 text-sm leading-relaxed`}>
+                        {member.role}
+                      </p>
                       
-                      <div className="p-6 text-center relative z-10 bg-white dark:bg-gray-800 flex-shrink-0">
-                        <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-orange-500 transition-all duration-500 leading-tight">
-                          {member.name}
-                        </h3>
-                        <p className={`font-semibold mb-4 ${member.textColor} dark:text-orange-400 text-base leading-relaxed`}>
-                          {member.role}
-                        </p>
-                        
-                        <div className="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-400">
-                          <div className="w-2 h-2 bg-gradient-to-r from-teal-500 to-orange-400 rounded-full animate-pulse"></div>
-                          <div className="w-2 h-2 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full animate-pulse delay-100"></div>
-                          <div className="w-2 h-2 bg-gradient-to-r from-teal-500 to-orange-400 rounded-full animate-pulse delay-200"></div>
-                        </div>
-                        
-                        <div className="w-0 group-hover:w-20 h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mt-4 transition-all duration-700 rounded-full shadow-lg"></div>
+                      <div className="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-400">
+                        <div className="w-2 h-2 bg-gradient-to-r from-teal-500 to-orange-400 rounded-full animate-pulse"></div>
+                        <div className="w-2 h-2 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full animate-pulse delay-100"></div>
+                        <div className="w-2 h-2 bg-gradient-to-r from-teal-500 to-orange-400 rounded-full animate-pulse delay-200"></div>
                       </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-            <ScrollBar orientation="horizontal" />
-          </ScrollArea>
+                      
+                      <div className="w-0 group-hover:w-16 h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mt-3 transition-all duration-700 rounded-full shadow-lg"></div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
 
         {/* Desktop: Grid layout */}
@@ -223,18 +224,12 @@ const Team = () => {
                       <img 
                         src={member.image} 
                         alt={member.name}
-                        className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 filter group-hover:brightness-110"
+                        className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 filter group-hover:brightness-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                       
                       <div className="absolute top-4 right-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-500 delay-200">
                         <div className="w-4 h-4 bg-gradient-to-r from-teal-400 to-orange-500 rounded-full animate-pulse"></div>
-                      </div>
-
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                        <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-500 delay-300">
-                          <div className="w-8 h-8 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full"></div>
-                        </div>
                       </div>
                     </div>
                   </div>

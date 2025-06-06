@@ -2,6 +2,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Star, Quote } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Testimonials = () => {
   const testimonials = [
@@ -55,44 +56,51 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Mobile: Horizontal scroll, Desktop: Grid */}
+        {/* Mobile: Horizontal scroll with auto-scroll animation */}
         <div className="md:hidden">
-          <ScrollArea className="w-full whitespace-nowrap">
-            <div className="flex space-x-4 pb-4">
-              {testimonials.map((testimonial, index) => (
-                <Card key={index} className="w-[300px] flex-shrink-0 group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
-                  <CardContent className="p-6">
-                    <div className="flex items-center mb-4">
-                      <Quote className="w-8 h-8 text-teal-600 opacity-60" />
-                    </div>
-                    
-                    <p className="text-gray-700 mb-6 italic leading-relaxed">
-                      "{testimonial.comment}"
-                    </p>
+          <motion.div
+            className="flex space-x-4 pb-4"
+            animate={{
+              x: [0, -1200, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          >
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
+              <Card key={index} className="w-[300px] flex-shrink-0 group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <Quote className="w-8 h-8 text-teal-600 opacity-60" />
+                  </div>
+                  
+                  <p className="text-gray-700 mb-6 italic leading-relaxed text-sm">
+                    "{testimonial.comment}"
+                  </p>
 
-                    <div className="flex items-center gap-1 mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
+                  <div className="flex items-center gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
 
-                    <div className="flex items-center gap-3">
-                      <img 
-                        src={testimonial.image} 
-                        alt={testimonial.name}
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                      <div>
-                        <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
-                        <p className="text-sm text-gray-600">{testimonial.role}</p>
-                      </div>
+                  <div className="flex items-center gap-3">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-gray-800 text-sm">{testimonial.name}</h4>
+                      <p className="text-xs text-gray-600">{testimonial.role}</p>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <ScrollBar orientation="horizontal" />
-          </ScrollArea>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </motion.div>
         </div>
 
         {/* Desktop: Grid layout */}
