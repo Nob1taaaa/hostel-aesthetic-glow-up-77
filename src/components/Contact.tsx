@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -10,7 +9,7 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Location",
-      details: "Guntur, Delhi\nNear Heritage College"
+      details: "Greater Noida, Uttar Pradesh\nNear Pari Chowk, Behind Jagat Farm Market"
     },
     {
       icon: <Phone className="w-6 h-6" />,

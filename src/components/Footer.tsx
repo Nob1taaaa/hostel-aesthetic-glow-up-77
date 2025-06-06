@@ -19,6 +19,7 @@ const Footer = () => {
               <div>
                 <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-orange-400">RAKSHA</span>
                 <span className="text-xl font-bold text-orange-400 ml-1">HOSTELS</span>
+                <div className="text-sm text-gray-400 italic font-medium">itself reflects security</div>
               </div>
             </div>
             <p className="text-gray-300 dark:text-gray-400 mb-6 leading-relaxed italic text-sm">
@@ -68,7 +69,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Room Types Section */}
           <div>
             <h3 className="text-lg font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-teal-400">Room Types</h3>
             <ul className="space-y-3">
@@ -79,15 +79,15 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Address Section */}
+          {/* Address Section - Updated */}
           <div>
             <h3 className="text-lg font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-orange-400">Address</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
                 <span className="text-gray-300 dark:text-gray-400 text-sm leading-relaxed">
-                  12A, Raksha Hostels, knowledge park3,<br />
-                  Greater Noida (201310), U.P
+                  Greater Noida, Uttar Pradesh<br />
+                  Near Pari Chowk, Behind Jagat Farm Market
                 </span>
               </div>
               <div className="flex items-center gap-3">

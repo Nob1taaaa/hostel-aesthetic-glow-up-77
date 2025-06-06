@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -44,9 +43,14 @@ const Navigation = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-orange-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <span className="text-sm sm:text-lg lg:text-xl font-bold text-gray-800 dark:text-white transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-orange-500">
-                  RAKSHA HOSTEL
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-sm sm:text-lg lg:text-xl font-bold text-gray-800 dark:text-white transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-orange-500">
+                    RAKSHA HOSTEL
+                  </span>
+                  <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 italic font-medium">
+                    itself reflects security
+                  </span>
+                </div>
               </div>
             </div>
           </div>
