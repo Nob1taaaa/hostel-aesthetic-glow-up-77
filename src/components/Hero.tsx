@@ -50,10 +50,11 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
+          className="flex flex-col items-center justify-center min-h-[80vh]"
         >
           {/* Logo Section */}
           <motion.div
-            className="mb-4 sm:mb-6"
+            className="mb-6"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ 
@@ -70,7 +71,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 relative">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 relative">
                   <img 
                     src="/lovable-uploads/82aba63a-f897-4470-87eb-5eda225868c3.png" 
                     alt="Raksha Hostel Logo"
@@ -86,12 +87,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="mb-2"
+            className="mb-4"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
               RAKSHA HOSTEL
             </h1>
-            <p className="text-xl sm:text-2xl text-green-200 italic mt-1">
+            <p className="text-lg sm:text-xl text-green-200 italic">
               itself reflects security
             </p>
           </motion.div>
@@ -100,19 +101,20 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
+            className="mb-6"
           >
-            <p className="text-lg sm:text-xl md:text-2xl text-white mb-2 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-white mb-2 max-w-3xl mx-auto">
               Experience comfort, security, and community in the heart of Greater Noida
             </p>
             
-            <p className="text-sm sm:text-base text-gray-200 mb-6 max-w-2xl mx-auto">
+            <p className="text-sm text-gray-200 mb-4 max-w-2xl mx-auto">
               Premium student accommodation with modern amenities and 24/7 support
             </p>
           </motion.div>
 
           {/* Feature badges */}
           <motion.div 
-            className="flex flex-wrap justify-center gap-3 lg:gap-4 mb-6 px-4"
+            className="flex flex-wrap justify-center gap-2 lg:gap-3 mb-6 px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.9 }}
@@ -125,7 +127,7 @@ const Hero = () => {
             ].map((badge, index) => (
               <motion.div 
                 key={index}
-                className="flex items-center bg-white/15 backdrop-blur-md rounded-full px-4 py-2 border border-white/20"
+                className="flex items-center bg-white/15 backdrop-blur-md rounded-full px-3 py-1.5 border border-white/20"
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ 
@@ -134,8 +136,8 @@ const Hero = () => {
                   ease: "easeOut"
                 }}
               >
-                <badge.icon className="w-4 h-4 mr-2 text-white" />
-                <span className="text-white text-sm">{badge.text}</span>
+                <badge.icon className="w-3 h-3 mr-1.5 text-white" />
+                <span className="text-white text-xs sm:text-sm">{badge.text}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -149,18 +151,16 @@ const Hero = () => {
           >
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white px-10 py-6 text-lg font-semibold rounded-full shadow-lg"
+              className="bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white px-8 py-4 text-base font-semibold rounded-full shadow-lg flex items-center gap-2"
             >
-              <span className="flex items-center justify-center gap-2">
-                <Sparkles className="w-5 h-5" />
-                Book Your Dream Paradise
-              </span>
+              <Sparkles className="w-4 h-4" />
+              Book Your Dream Paradise
             </Button>
           </motion.div>
 
           {/* Stats */}
           <motion.div 
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 opacity-90"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 opacity-90 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 0.9, y: 0 }}
             transition={{ duration: 1, delay: 1.5 }}
@@ -175,12 +175,12 @@ const Hero = () => {
                 key={index}
                 className="text-center"
               >
-                <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                  <div className="text-2xl mb-2">{stat.icon}</div>
-                  <div className="text-2xl font-bold text-white mb-1">
+                <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20">
+                  <div className="text-lg mb-1">{stat.icon}</div>
+                  <div className="text-lg font-bold text-white mb-1">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-gray-300">
+                  <div className="text-xs text-gray-300">
                     {stat.label}
                   </div>
                 </div>
@@ -196,14 +196,14 @@ const Hero = () => {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       >
-        <div className="w-8 h-12 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm bg-white/10">
+        <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm bg-white/10">
           <motion.div 
-            className="w-1.5 h-4 bg-white rounded-full mt-2"
-            animate={{ y: [0, 8, 0], opacity: [1, 0.3, 1] }}
+            className="w-1 h-3 bg-white rounded-full mt-2"
+            animate={{ y: [0, 6, 0], opacity: [1, 0.3, 1] }}
             transition={{ duration: 1, repeat: Infinity }}
           />
         </div>
-        <p className="text-white/70 text-sm mt-2 font-medium">Scroll to explore</p>
+        <p className="text-white/70 text-xs mt-2 font-medium">Scroll to explore</p>
       </motion.div>
     </section>
   );

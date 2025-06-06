@@ -1,6 +1,5 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 
 const Team = () => {
@@ -42,58 +41,12 @@ const Team = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 60,
-      scale: 0.8,
-      rotateY: -15
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      rotateY: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
   return (
     <section className="py-32 bg-gradient-to-br from-gray-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 relative overflow-hidden">
       {/* Enhanced background decorations */}
       <div className="absolute inset-0 opacity-40 dark:opacity-20">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-teal-300 to-orange-300 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-orange-300 to-slate-300 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2 animate-pulse delay-1000"></div>
-      </div>
-
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-2 h-2 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full opacity-60 animate-bounce`}
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          />
-        ))}
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -133,10 +86,10 @@ const Team = () => {
             {[...teamMembers, ...teamMembers].map((member, index) => (
               <motion.div
                 key={index}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
+                initial={{ opacity: 0, y: 60, scale: 0.8 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                 whileHover={{ 
                   y: -10,
                   scale: 1.02,
@@ -160,10 +113,6 @@ const Team = () => {
                           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 filter group-hover:brightness-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        <div className="absolute top-4 right-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-500 delay-200">
-                          <div className="w-3 h-3 bg-gradient-to-r from-teal-400 to-orange-500 rounded-full animate-pulse"></div>
-                        </div>
                       </div>
                     </div>
                     
@@ -175,12 +124,6 @@ const Team = () => {
                         {member.role}
                       </p>
                       
-                      <div className="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-400">
-                        <div className="w-2 h-2 bg-gradient-to-r from-teal-500 to-orange-400 rounded-full animate-pulse"></div>
-                        <div className="w-2 h-2 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full animate-pulse delay-100"></div>
-                        <div className="w-2 h-2 bg-gradient-to-r from-teal-500 to-orange-400 rounded-full animate-pulse delay-200"></div>
-                      </div>
-                      
                       <div className="w-0 group-hover:w-16 h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mt-3 transition-all duration-700 rounded-full shadow-lg"></div>
                     </div>
                   </CardContent>
@@ -190,30 +133,29 @@ const Team = () => {
           </motion.div>
         </div>
 
-        {/* Desktop: Grid layout */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 justify-items-center"
-        >
+        {/* Desktop: Single row layout */}
+        <div className="hidden md:flex md:justify-center md:space-x-6 lg:space-x-8">
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
-              variants={cardVariants}
+              initial={{ opacity: 0, y: 60, scale: 0.8 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.8, 
+                ease: [0.25, 0.46, 0.45, 0.94],
+                delay: index * 0.1
+              }}
               whileHover={{ 
                 y: -20,
                 scale: 1.05,
-                rotateY: 5,
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full max-w-[280px]"
+              className="w-full max-w-[220px] lg:max-w-[240px]"
             >
-              <Card className="group relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border-0 shadow-2xl hover:shadow-4xl transition-all duration-700 transform perspective-1000 h-[400px]">
+              <Card className="group relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border-0 shadow-2xl hover:shadow-4xl transition-all duration-700 h-[400px] hover:shadow-teal-500/25">
                 <CardContent className="p-0 relative h-full flex flex-col">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${member.bgColor} opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${member.bgColor} opacity-0 group-hover:opacity-30 transition-all duration-500`}></div>
                   
                   <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-orange-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[2px] rounded-lg">
                     <div className="w-full h-full bg-white dark:bg-gray-800 rounded-lg"></div>
@@ -224,7 +166,7 @@ const Team = () => {
                       <img 
                         src={member.image} 
                         alt={member.name}
-                        className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 filter group-hover:brightness-110"
+                        className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 filter group-hover:brightness-110 group-hover:saturate-125"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                       
@@ -235,10 +177,10 @@ const Team = () => {
                   </div>
                   
                   <div className="p-6 text-center relative z-10 bg-white dark:bg-gray-800 flex-shrink-0">
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-orange-500 transition-all duration-500 leading-tight">
+                    <h3 className="text-lg lg:text-xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-orange-500 transition-all duration-500 leading-tight">
                       {member.name}
                     </h3>
-                    <p className={`font-semibold mb-4 ${member.textColor} dark:text-orange-400 text-base leading-relaxed`}>
+                    <p className={`font-semibold mb-4 ${member.textColor} dark:text-orange-400 text-sm lg:text-base leading-relaxed`}>
                       {member.role}
                     </p>
                     
@@ -254,7 +196,7 @@ const Team = () => {
               </Card>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

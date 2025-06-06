@@ -1,10 +1,12 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Star, Quote } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Testimonials = () => {
+  const [isPaused, setIsPaused] = useState(false);
+
   const testimonials = [
     {
       name: "Priya Sharma",
@@ -56,18 +58,20 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Mobile: Horizontal scroll with auto-scroll animation */}
+        {/* Mobile: Horizontal scroll with pause functionality */}
         <div className="md:hidden">
           <motion.div
             className="flex space-x-4 pb-4"
-            animate={{
+            animate={!isPaused ? {
               x: [0, -1200, 0],
-            }}
+            } : {}}
             transition={{
               duration: 20,
               repeat: Infinity,
               ease: "linear"
             }}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
           >
             {[...testimonials, ...testimonials].map((testimonial, index) => (
               <Card key={index} className="w-[300px] flex-shrink-0 group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
@@ -76,7 +80,7 @@ const Testimonials = () => {
                     <Quote className="w-8 h-8 text-teal-600 opacity-60" />
                   </div>
                   
-                  <p className="text-gray-700 mb-6 italic leading-relaxed text-sm">
+                  <p className="text-gray-700 mb-6 italic leading-relaxed text-sm font-medium">
                     "{testimonial.comment}"
                   </p>
 
@@ -94,13 +98,22 @@ const Testimonials = () => {
                     />
                     <div>
                       <h4 className="font-semibold text-gray-800 text-sm">{testimonial.name}</h4>
-                      <p className="text-xs text-gray-600">{testimonial.role}</p>
+                      <p className="text-xs text-gray-600 font-medium">{testimonial.role}</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </motion.div>
+          
+          <div className="text-center mt-4">
+            <button 
+              onClick={() => setIsPaused(!isPaused)}
+              className="text-sm text-teal-600 hover:text-teal-700 font-medium"
+            >
+              {isPaused ? "▶ Resume" : "⏸ Pause"}
+            </button>
+          </div>
         </div>
 
         {/* Desktop: Grid layout */}
