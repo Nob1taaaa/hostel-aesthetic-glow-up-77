@@ -24,8 +24,8 @@ const Hero = () => {
             key={i}
             className="absolute border border-white/30 rounded-full"
             style={{
-              width: `${60 + i * 15}px`,
-              height: `${60 + i * 15}px`,
+              width: `${40 + i * 10}px`,
+              height: `${40 + i * 10}px`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
             }}
@@ -44,7 +44,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ const Hero = () => {
         >
           {/* Logo Section */}
           <motion.div
-            className="mb-4 sm:mb-6"
+            className="mb-3 sm:mb-4 md:mb-6"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ 
@@ -63,17 +63,17 @@ const Hero = () => {
               stiffness: 100
             }}
           >
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center mb-3 sm:mb-4">
               <motion.div 
                 className="relative group"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 relative">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 relative">
                   <img 
                     src="/lovable-uploads/82aba63a-f897-4470-87eb-5eda225868c3.png" 
                     alt="Raksha Hostel Logo"
-                    className="w-full h-full object-contain rounded-3xl shadow-2xl group-hover:shadow-3xl transition-all duration-500"
+                    className="w-full h-full object-contain rounded-2xl sm:rounded-3xl shadow-2xl group-hover:shadow-3xl transition-all duration-500"
                   />
                 </div>
               </motion.div>
@@ -85,12 +85,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="mb-2"
+            className="mb-2 sm:mb-3"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight px-2">
               RAKSHA HOSTEL
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-green-200 italic mt-1">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-green-200 italic mt-1 px-2">
               itself reflects security
             </p>
           </motion.div>
@@ -100,18 +100,18 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-2 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white mb-2 sm:mb-3 max-w-4xl mx-auto leading-relaxed px-3">
               Experience comfort, security, and community in the heart of Greater Noida
             </p>
             
-            <p className="text-sm sm:text-base text-gray-200 mb-6 max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base text-gray-200 mb-4 sm:mb-6 max-w-2xl mx-auto px-3">
               Premium student accommodation with modern amenities and 24/7 support
             </p>
           </motion.div>
 
           {/* Feature badges */}
           <motion.div 
-            className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-6 px-2"
+            className="flex flex-wrap justify-center gap-1.5 sm:gap-2 lg:gap-3 mb-4 sm:mb-6 px-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.9 }}
@@ -124,7 +124,7 @@ const Hero = () => {
             ].map((badge, index) => (
               <motion.div 
                 key={index}
-                className="flex items-center bg-white/15 backdrop-blur-md rounded-full px-3 py-2 border border-white/20"
+                className="flex items-center bg-white/15 backdrop-blur-md rounded-full px-2 sm:px-3 py-1.5 sm:py-2 border border-white/20"
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ 
@@ -133,33 +133,33 @@ const Hero = () => {
                   ease: "easeOut"
                 }}
               >
-                <badge.icon className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-white" />
-                <span className="text-white text-xs sm:text-sm">{badge.text}</span>
+                <badge.icon className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 text-white flex-shrink-0" />
+                <span className="text-white text-xs sm:text-sm whitespace-nowrap">{badge.text}</span>
               </motion.div>
             ))}
           </motion.div>
 
           {/* CTA button */}
           <motion.div 
-            className="flex justify-center items-center mb-6"
+            className="flex justify-center items-center mb-4 sm:mb-6 px-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
           >
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white px-6 sm:px-8 lg:px-10 py-4 sm:py-5 lg:py-6 text-base sm:text-lg font-semibold rounded-full shadow-lg"
+              className="bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 text-sm sm:text-base lg:text-lg font-semibold rounded-full shadow-lg w-full max-w-xs sm:max-w-sm"
             >
               <span className="flex items-center justify-center gap-2">
-                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="whitespace-nowrap">Book Your Dream Paradise</span>
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                <span className="truncate">Book Your Dream Paradise</span>
               </span>
             </Button>
           </motion.div>
 
           {/* Stats */}
           <motion.div 
-            className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 opacity-90"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4 opacity-90 px-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 0.9, y: 0 }}
             transition={{ duration: 1, delay: 1.5 }}
@@ -174,12 +174,12 @@ const Hero = () => {
                 key={index}
                 className="text-center"
               >
-                <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 sm:p-4 border border-white/20">
-                  <div className="text-xl sm:text-2xl mb-2">{stat.icon}</div>
-                  <div className="text-xl sm:text-2xl font-bold text-white mb-1">
+                <div className="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl p-2 sm:p-3 lg:p-4 border border-white/20">
+                  <div className="text-lg sm:text-xl lg:text-2xl mb-1 sm:mb-2">{stat.icon}</div>
+                  <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-1">
                     {stat.number}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-300">
+                  <div className="text-xs sm:text-sm text-gray-300 leading-tight">
                     {stat.label}
                   </div>
                 </div>
@@ -191,18 +191,18 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <motion.div 
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hidden sm:block"
+        className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 hidden sm:block"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       >
-        <div className="w-8 h-12 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm bg-white/10">
+        <div className="w-6 h-10 sm:w-8 sm:h-12 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm bg-white/10">
           <motion.div 
-            className="w-1.5 h-4 bg-white rounded-full mt-2"
+            className="w-1 h-3 sm:w-1.5 sm:h-4 bg-white rounded-full mt-2"
             animate={{ y: [0, 8, 0], opacity: [1, 0.3, 1] }}
             transition={{ duration: 1, repeat: Infinity }}
           />
         </div>
-        <p className="text-white/70 text-sm mt-2 font-medium">Scroll to explore</p>
+        <p className="text-white/70 text-xs sm:text-sm mt-2 font-medium">Scroll to explore</p>
       </motion.div>
     </section>
   );

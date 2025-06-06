@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 
 const Facilities = () => {
@@ -18,28 +17,28 @@ const Facilities = () => {
   ];
 
   return (
-    <section id="facilities" className="py-20 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+    <section id="facilities" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 sm:mb-4 px-2">
             FACILITIES & SERVICES
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mb-4 sm:mb-6 rounded-full"></div>
+          <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 max-w-3xl mx-auto px-3">
             Everything you need for a comfortable and convenient stay
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
           {facilities.map((facility, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
-              <div className="mb-4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl flex items-center justify-center shadow-sm">
-                <div className={`text-teal-600 text-xl sm:text-2xl facility-icon ${facility.icon}`}>
+            <div key={index} className="flex flex-col items-center text-center group hover:transform hover:scale-105 transition-all duration-300">
+              <div className="mb-2 sm:mb-3 lg:mb-4 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-lg transition-shadow duration-300">
+                <div className={`text-teal-600 text-lg sm:text-xl lg:text-2xl facility-icon ${facility.icon}`}>
                   {getIconForFacility(facility.icon)}
                 </div>
               </div>
-              <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1">{facility.title}</h3>
-              <p className="text-xs sm:text-sm text-gray-600">{facility.description}</p>
+              <h3 className="text-xs sm:text-sm lg:text-base xl:text-lg font-semibold text-gray-800 mb-1 sm:mb-2 leading-tight px-1">{facility.title}</h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-tight px-1">{facility.description}</p>
             </div>
           ))}
         </div>

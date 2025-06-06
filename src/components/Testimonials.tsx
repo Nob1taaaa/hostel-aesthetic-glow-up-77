@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Star, Quote } from "lucide-react";
@@ -44,14 +43,14 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 sm:mb-4 px-2">
             WHAT OUR GUESTS SAY
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mb-4 sm:mb-6 rounded-full"></div>
+          <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 max-w-3xl mx-auto px-3">
             Real experiences from our happy residents
           </p>
         </div>
@@ -59,7 +58,7 @@ const Testimonials = () => {
         {/* Mobile: Horizontal scroll with auto-scroll animation */}
         <div className="md:hidden">
           <motion.div
-            className="flex space-x-4 pb-4"
+            className="flex space-x-3 sm:space-x-4 pb-4 overflow-x-auto"
             animate={{
               x: [0, -1200, 0],
             }}
@@ -70,19 +69,19 @@ const Testimonials = () => {
             }}
           >
             {[...testimonials, ...testimonials].map((testimonial, index) => (
-              <Card key={index} className="w-[300px] flex-shrink-0 group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    <Quote className="w-8 h-8 text-teal-600 opacity-60" />
+              <Card key={index} className="w-[280px] sm:w-[300px] flex-shrink-0 group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-center mb-3 sm:mb-4">
+                    <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-teal-600 opacity-60" />
                   </div>
                   
-                  <p className="text-gray-700 mb-6 italic leading-relaxed text-sm">
+                  <p className="text-gray-700 mb-4 sm:mb-6 italic leading-relaxed text-sm">
                     "{testimonial.comment}"
                   </p>
 
-                  <div className="flex items-center gap-1 mb-4">
+                  <div className="flex items-center gap-1 mb-3 sm:mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
 
@@ -90,7 +89,7 @@ const Testimonials = () => {
                     <img 
                       src={testimonial.image} 
                       alt={testimonial.name}
-                      className="w-10 h-10 rounded-full object-cover"
+                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
                     />
                     <div>
                       <h4 className="font-semibold text-gray-800 text-sm">{testimonial.name}</h4>
@@ -104,7 +103,7 @@ const Testimonials = () => {
         </div>
 
         {/* Desktop: Grid layout */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
               <CardContent className="p-6">
