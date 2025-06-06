@@ -1,11 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
 
 const Team = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
   const teamMembers = [
     {
       name: "Mr. MISHAL SINGH",
@@ -44,51 +41,6 @@ const Team = () => {
     }
   ];
 
-  // Auto-scroll functionality
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let animationId: number;
-    let scrollPosition = 0;
-    const scrollSpeed = 0.8;
-
-    const autoScroll = () => {
-      scrollPosition += scrollSpeed;
-      
-      if (scrollPosition >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-        scrollPosition = 0;
-      }
-      
-      scrollContainer.scrollLeft = scrollPosition;
-      animationId = requestAnimationFrame(autoScroll);
-    };
-
-    const startAutoScroll = () => {
-      animationId = requestAnimationFrame(autoScroll);
-    };
-
-    const stopAutoScroll = () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
-    };
-
-    // Start auto-scroll after a delay
-    const timer = setTimeout(startAutoScroll, 3000);
-
-    // Pause on hover
-    scrollContainer.addEventListener('mouseenter', stopAutoScroll);
-    scrollContainer.addEventListener('mouseleave', startAutoScroll);
-
-    return () => {
-      clearTimeout(timer);
-      stopAutoScroll();
-      scrollContainer?.removeEventListener('mouseenter', stopAutoScroll);
-      scrollContainer?.removeEventListener('mouseleave', startAutoScroll);
-    };
-  }, []);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -121,13 +73,14 @@ const Team = () => {
 
   return (
     <section className="py-32 bg-gradient-to-br from-gray-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 relative overflow-hidden">
-      {/* ... keep existing code (background decorations and particles) */}
+      {/* Enhanced background decorations */}
       <div className="absolute inset-0 opacity-40 dark:opacity-20">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-teal-300 to-orange-300 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-orange-300 to-slate-300 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2 animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-br from-slate-300 to-teal-300 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse delay-2000"></div>
       </div>
 
+      {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <div
@@ -164,10 +117,10 @@ const Team = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: Horizontal scroll with auto-scroll */}
+        {/* Mobile: Horizontal scroll */}
         <div className="md:hidden">
           <ScrollArea className="w-full whitespace-nowrap">
-            <div ref={scrollRef} className="flex space-x-6 pb-4">
+            <div className="flex space-x-6 pb-4">
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={index}
@@ -184,7 +137,6 @@ const Team = () => {
                 >
                   <Card className="group relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border-0 shadow-2xl hover:shadow-4xl transition-all duration-700 h-[400px]">
                     <CardContent className="p-0 relative h-full flex flex-col">
-                      {/* ... keep existing code (card content with gradient effects) */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${member.bgColor} opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
                       
                       <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-orange-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[2px] rounded-lg">
@@ -259,7 +211,6 @@ const Team = () => {
               className="w-full max-w-[280px]"
             >
               <Card className="group relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border-0 shadow-2xl hover:shadow-4xl transition-all duration-700 transform perspective-1000 h-[400px]">
-                {/* ... keep existing code (card content identical to mobile) */}
                 <CardContent className="p-0 relative h-full flex flex-col">
                   <div className={`absolute inset-0 bg-gradient-to-br ${member.bgColor} opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
                   
