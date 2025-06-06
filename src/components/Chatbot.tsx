@@ -73,23 +73,28 @@ const Chatbot = () => {
             exit={{ opacity: 0, y: 20, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Header */}
-            <div className="bg-gradient-to-r from-teal-600 to-orange-500 p-4 text-white flex justify-between items-center">
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 rounded-full bg-white/30 flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5" />
+            {/* Header with logo */}
+            <div className="bg-gradient-to-r from-teal-600 to-orange-500 p-4 text-white">
+              <div className="flex items-center space-x-3 mb-2">
+                <div className="w-10 h-10 relative">
+                  <img 
+                    src="/lovable-uploads/a54a5c5d-b32e-46e9-94ef-1eff409c145b.png" 
+                    alt="Raksha Hostel Logo"
+                    className="w-full h-full object-contain rounded-lg"
+                  />
                 </div>
                 <div>
-                  <h3 className="font-semibold">Raksha Support</h3>
-                  <p className="text-xs opacity-80">We typically reply within minutes</p>
+                  <h3 className="font-bold text-lg">RAKSHA HOSTEL</h3>
+                  <p className="text-xs opacity-80 italic">itself reflects security</p>
                 </div>
+                <button 
+                  onClick={() => setIsOpen(false)}
+                  className="ml-auto text-white/80 hover:text-white"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
-              <button 
-                onClick={() => setIsOpen(false)}
-                className="text-white/80 hover:text-white"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <p className="text-xs opacity-90">We typically reply within minutes</p>
             </div>
 
             {/* Message area */}
@@ -112,8 +117,47 @@ const Chatbot = () => {
               ))}
             </div>
 
-            {/* Quick actions */}
+            {/* Facilities section */}
             <div className="bg-gray-50 p-3 border-t border-gray-200">
+              <h4 className="text-sm font-semibold mb-2 text-gray-700">Our Facilities:</h4>
+              <div className="grid grid-cols-2 gap-2 text-xs mb-3">
+                <div className="flex items-center space-x-1">
+                  <span>📶</span>
+                  <span>High-Speed WiFi</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <span>🛡️</span>
+                  <span>24/7 Security</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <span>❄️</span>
+                  <span>AC Rooms</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <span>🍴</span>
+                  <span>Mess Facility</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <span>👕</span>
+                  <span>Laundry Service</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <span>🚗</span>
+                  <span>Parking</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <span>🚌</span>
+                  <span>Bus Service</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <span>🏊</span>
+                  <span>Swimming Pool</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick actions */}
+            <div className="bg-white p-3 border-t border-gray-200">
               <div className="flex space-x-2 mb-3 overflow-x-auto pb-2">
                 <Button 
                   variant="outline" 
@@ -151,7 +195,7 @@ const Chatbot = () => {
                     ]);
                     setTimeout(() => {
                       setMessages(prev => [...prev, { 
-                        text: "We offer high-speed WiFi, 24/7 security, AC rooms, home-style meals, laundry, and much more! Check our facilities section for the full list.", 
+                        text: "We offer high-speed WiFi, 24/7 security, AC rooms, home-style meals, laundry, swimming pool, bus service and much more! Check our facilities section for the full list.", 
                         sender: "bot" 
                       }]);
                     }, 1000);
