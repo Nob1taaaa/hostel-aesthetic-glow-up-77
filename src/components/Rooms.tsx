@@ -46,6 +46,16 @@ const Rooms = () => {
     }
   ];
 
+  const handleBookRoom = (roomTitle: string) => {
+    // WhatsApp booking with room details
+    const message = `Hi! I want to book the ${roomTitle} at Raksha Hostel. Please provide me with availability and booking details.`;
+    window.open(`https://wa.me/918743836836?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
+  const handleCallExpert = () => {
+    window.location.href = "tel:+918743836836";
+  };
+
   return (
     <section id="rooms" className="py-12 sm:py-16 lg:py-20 xl:py-24 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
       {/* Background decorations */}
@@ -122,6 +132,7 @@ const Rooms = () => {
                 </div>
 
                 <Button 
+                  onClick={() => handleBookRoom(room.title)}
                   className={`w-full text-white font-bold py-2 sm:py-3 text-sm sm:text-base lg:text-lg rounded-xl transition-all duration-300 hover:scale-105 shadow-lg ${
                     room.popular 
                       ? 'bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 hover:shadow-orange-500/50' 
@@ -171,16 +182,23 @@ const Rooms = () => {
           </div>
         </div>
 
-        {/* Additional CTA section */}
+        {/* Additional CTA section with working call expert */}
         <div className="text-center mt-8 sm:mt-12 lg:mt-16">
           <div className="bg-gradient-to-r from-purple-50 to-orange-50 rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 border border-purple-100">
             <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3 lg:mb-4 px-2">Can't decide? Let us help!</h3>
             <p className="text-gray-600 mb-3 sm:mb-4 lg:mb-6 text-xs sm:text-sm lg:text-base px-2">Schedule a virtual tour or speak with our accommodation specialist</p>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-4 justify-center max-w-md mx-auto">
-              <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-300 text-sm sm:text-base">
+              <Button 
+                onClick={() => window.open('https://wa.me/918743836836?text=Hi! I would like to schedule a virtual tour of Raksha Hostel facilities.', '_blank')}
+                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-300 text-sm sm:text-base"
+              >
                 Virtual Tour
               </Button>
-              <Button variant="outline" className="border-2 border-purple-300 text-purple-700 hover:bg-purple-50 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 text-sm sm:text-base">
+              <Button 
+                onClick={handleCallExpert}
+                variant="outline" 
+                className="border-2 border-purple-300 text-purple-700 hover:bg-purple-50 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 text-sm sm:text-base"
+              >
                 Call Expert
               </Button>
             </div>

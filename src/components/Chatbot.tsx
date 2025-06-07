@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -55,7 +54,6 @@ const Chatbot = () => {
     switch (action) {
       case 'booking':
         addMessage("Let's get you booked! Please provide your preferred dates and contact details.", true, [
-          { text: "📅 Submit Booking Form", action: "booking_form" },
           { text: "📱 WhatsApp Booking", action: "whatsapp_booking" },
           { text: "📞 Call Now", action: "call_booking" }
         ]);
@@ -67,9 +65,9 @@ const Chatbot = () => {
         ]);
         break;
 
-      case 'open_whatsapp':
-        window.open('https://wa.me/918743836836?text=Hi! I want to book a room at Raksha Hostel', '_blank');
-        addMessage("Thank you! Your request has been received. We'll confirm within 2 hours via WhatsApp/SMS.", true);
+      case 'call_booking':
+        window.location.href = "tel:+918743836836";
+        addMessage("Calling our booking team now! You can also WhatsApp us for instant response.", true);
         break;
 
       case 'parent':

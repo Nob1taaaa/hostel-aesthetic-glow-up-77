@@ -47,19 +47,19 @@ const Testimonials = () => {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 sm:mb-4 px-2">
             WHAT OUR GUESTS SAY
           </h2>
-          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mb-4 sm:mb-6 rounded-full"></div>
-          <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 max-w-3xl mx-auto px-3">
+          <div className="w-16 sm:w-24 lg:w-32 h-1 sm:h-1.5 lg:h-2 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mb-4 sm:mb-6 rounded-full"></div>
+          <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto px-3">
             Real experiences from our happy residents
           </p>
         </div>
 
-        {/* Mobile: Improved horizontal scroll with pause functionality */}
-        <div className="md:hidden relative">
+        {/* Mobile: Horizontal scroll with pause functionality */}
+        <div className="md:hidden">
           <div className="flex justify-center mb-4">
             <button
               onClick={() => setIsPaused(!isPaused)}
@@ -72,49 +72,56 @@ const Testimonials = () => {
             </button>
           </div>
 
-          <motion.div
-            className="flex space-x-4 pb-4 overflow-x-auto"
-            animate={isPaused ? {} : {
-              x: [0, -1000, 0],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          >
-            {[...testimonials, ...testimonials].map((testimonial, index) => (
-              <Card key={index} className="w-80 flex-shrink-0 group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
-                <CardContent className="p-5">
-                  <div className="flex items-center mb-4">
-                    <Quote className="w-7 h-7 text-teal-600 opacity-60" />
-                  </div>
-                  
-                  <p className="text-gray-700 mb-5 italic leading-relaxed text-sm font-medium">
-                    "{testimonial.comment}"
-                  </p>
+          <div className="overflow-x-auto pb-4">
+            <motion.div
+              className="flex space-x-4 px-2"
+              style={{ width: 'max-content' }}
+              animate={isPaused ? {} : {
+                x: [0, -1200, 0],
+              }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            >
+              {[...testimonials, ...testimonials].map((testimonial, index) => (
+                <div key={index} className="w-72 flex-shrink-0">
+                  <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 h-80">
+                    <CardContent className="p-4 h-full flex flex-col">
+                      <div className="flex items-center mb-3">
+                        <Quote className="w-6 h-6 text-teal-600 opacity-60" />
+                      </div>
+                      
+                      <p className="text-gray-700 mb-4 italic leading-relaxed text-sm font-medium flex-grow">
+                        "{testimonial.comment}"
+                      </p>
 
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
+                      <div className="mt-auto">
+                        <div className="flex items-center gap-1 mb-3">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
 
-                  <div className="flex items-center gap-3">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
-                    />
-                    <div>
-                      <h4 className="font-semibold text-gray-800 text-base">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-600 font-medium">{testimonial.role}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </motion.div>
+                        <div className="flex items-center gap-3">
+                          <img 
+                            src={testimonial.image} 
+                            alt={testimonial.name}
+                            className="w-10 h-10 rounded-full object-cover border-2 border-gray-200"
+                          />
+                          <div>
+                            <h4 className="font-semibold text-gray-800 text-sm">{testimonial.name}</h4>
+                            <p className="text-xs text-gray-600 font-medium">{testimonial.role}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
         {/* Desktop: Grid layout */}
