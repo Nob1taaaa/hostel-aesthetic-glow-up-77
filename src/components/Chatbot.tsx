@@ -61,7 +61,7 @@ const Chatbot = () => {
 
       case 'whatsapp_booking':
   const whatsappNumber = "918743836836"; // WhatsApp number without + sign
-  const message = encodeURIComponent("Asking about availability: "Hello! I am interested in booking a room at Raksha Hostel. Is there any availability?");
+  const message = encodeURIComponent("Hello! I am interested in booking a room at Raksha Hostel. Is there any availability?");
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
   window.open(whatsappLink, "_blank");
   addMessage("Tap to book instantly via WhatsApp:", true, [
