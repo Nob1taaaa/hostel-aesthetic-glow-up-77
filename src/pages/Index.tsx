@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
+import WelcomePopup from "@/components/WelcomePopup";
 import { Helmet } from "react-helmet-async";
 
 const Index = () => {
@@ -59,6 +60,7 @@ const Index = () => {
       
       <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
         <Navigation />
+        <WelcomePopup />
         <Hero />
         <About />
         <Rooms />

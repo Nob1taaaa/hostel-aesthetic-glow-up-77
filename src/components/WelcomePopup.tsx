@@ -1,27 +1,30 @@
 
-import { useState } from "react";
-import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/dialog";
+import { useState, useEffect } from "react";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeOff, X, User } from "lucide-react";
 
-const LoginPopup = () => {
+const WelcomePopup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    // Show popup after 2 seconds when page loads
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>
-        <Button variant="outline" className="flex items-center gap-2 text-xs sm:text-sm px-2 sm:px-3">
-          <User className="w-3 h-3 sm:w-4 sm:h-4" />
-          <span className="hidden sm:inline">Login</span>
-        </Button>
-      </DialogTrigger>
       <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-white border-0 shadow-2xl">
-        <DialogTitle className="sr-only">Login to Raksha Hostel</DialogTitle>
+        <DialogTitle className="sr-only">Welcome to Raksha Hostel - Sign In</DialogTitle>
         <DialogDescription className="sr-only">
-          Sign in to your Raksha Hostel account to access premium features
+          Welcome popup for signing in to your Raksha Hostel account
         </DialogDescription>
         
         <div className="relative p-8">
@@ -46,34 +49,34 @@ const LoginPopup = () => {
           
           <div className="space-y-6">
             <div className="space-y-2">
-              <label htmlFor="login-username" className="text-gray-700 text-base font-medium block">
+              <label htmlFor="welcome-username" className="text-gray-700 text-base font-medium">
                 Username
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-3 flex items-center text-gray-400 pointer-events-none z-10">
+                <div className="absolute inset-y-0 left-3 flex items-center text-gray-400 pointer-events-none">
                   <User size={18} />
                 </div>
                 <Input 
-                  id="login-username" 
+                  id="welcome-username" 
                   placeholder="Enter your username" 
-                  className="pl-10 border rounded-md w-full py-3 px-3 text-gray-700 focus:ring-2 focus:ring-teal-500 focus:border-transparent relative z-0" 
+                  className="pl-10 border rounded-md w-full py-3 px-3 text-gray-700 focus:ring-2 focus:ring-teal-500 focus:border-transparent" 
                 />
               </div>
             </div>
             
             <div className="space-y-2">
-              <label htmlFor="login-password" className="text-gray-700 text-base font-medium block">
+              <label htmlFor="welcome-password" className="text-gray-700 text-base font-medium">
                 Password
               </label>
               <div className="relative">
                 <Input 
-                  id="login-password" 
+                  id="welcome-password" 
                   type={showPassword ? "text" : "password"} 
                   placeholder="Enter your password" 
                   className="pr-10 border rounded-md w-full py-3 px-3 text-gray-700 focus:ring-2 focus:ring-teal-500 focus:border-transparent" 
                 />
                 <div 
-                  className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-gray-400 hover:text-gray-600 z-10"
+                  className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-gray-400 hover:text-gray-600"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
@@ -83,8 +86,8 @@ const LoginPopup = () => {
             
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Checkbox id="login-remember" />
-                <label htmlFor="login-remember" className="text-sm text-gray-600">
+                <Checkbox id="welcome-remember" />
+                <label htmlFor="welcome-remember" className="text-sm text-gray-600">
                   Remember me
                 </label>
               </div>
@@ -111,4 +114,4 @@ const LoginPopup = () => {
   );
 };
 
-export default LoginPopup;
+export default WelcomePopup;
