@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,13 +28,23 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
+  const scrollToHome = () => {
+    const element = document.getElementById('home');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm shadow-sm border-b border-gray-200/50 dark:border-slate-700/50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 xl:px-8">
         <div className="flex justify-between items-center h-12 sm:h-16">
           <div className="flex items-center min-w-0 flex-1">
             <div className="flex-shrink-0">
-              <div className="flex items-center space-x-1.5 sm:space-x-3">
+              <button 
+                onClick={scrollToHome}
+                className="flex items-center space-x-1.5 sm:space-x-3 group cursor-pointer"
+              >
                 {/* Hostel Logo - Mobile optimized */}
                 <div className="w-6 h-6 sm:w-10 sm:h-10 lg:w-12 lg:h-12 relative group flex-shrink-0">
                   <img 
@@ -49,9 +58,10 @@ const Navigation = () => {
                   <span className="text-xs sm:text-base lg:text-lg xl:text-xl font-bold text-gray-800 dark:text-white transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-orange-500 truncate">
                     RAKSHA HOSTEL
                   </span>
-                  <span className="text-[10px] sm:text-sm text-gray-500 italic hidden sm:block">itself reflects security</span>
+                  {/* Mobile tagline - now visible */}
+                  <span className="text-[8px] sm:text-sm text-gray-500 italic">itself reflects security</span>
                 </div>
-              </div>
+              </button>
             </div>
           </div>
           

@@ -1,11 +1,14 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Contact = () => {
+  const [isPaused, setIsPaused] = useState(false);
+
   const contactInfo = [
     {
       icon: <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />,
@@ -29,6 +32,63 @@ const Contact = () => {
       icon: <Clock className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: "Office Hours",
       details: "Mon - Sun: 8AM - 10PM\n24/7 Support Available"
+    }
+  ];
+
+  const termsData = [
+    {
+      title: "1. Booking and Payment",
+      items: [
+        "• Advance payment of 1 month rent is required at the time of booking",
+        "• Security deposit of ₹10,000 (refundable) is mandatory",
+        "• Monthly rent must be paid by the 5th of each month",
+        "• Late payment charges of ₹100 per day will be applicable"
+      ]
+    },
+    {
+      title: "2. Accommodation Rules",
+      items: [
+        "• No smoking or alcohol consumption in premises",
+        "• Visiting hours: 6 AM to 10 PM only",
+        "• Overnight guests are not permitted",
+        "• Maintain cleanliness in common areas"
+      ]
+    },
+    {
+      title: "3. Facilities Usage",
+      items: [
+        "• WiFi password will be shared upon check-in",
+        "• Mess timings: Breakfast 7-9 AM, Lunch 12-2 PM, Dinner 7-9 PM",
+        "• Laundry facilities available twice a week",
+        "• Study rooms available 24/7 with prior booking"
+      ]
+    },
+    {
+      title: "4. Security and Safety",
+      items: [
+        "• 24/7 security personnel on duty",
+        "• CCTV surveillance in common areas",
+        "• Fire safety equipment installed and maintained",
+        "• Emergency contact numbers displayed prominently"
+      ]
+    },
+    {
+      title: "5. Termination Policy",
+      items: [
+        "• 30 days prior notice required for vacating",
+        "• No refund for advance payment if leaving before 30 days",
+        "• Room inspection mandatory before check-out",
+        "• Damages will be deducted from security deposit"
+      ]
+    },
+    {
+      title: "6. Management Rights",
+      items: [
+        "• Management reserves right to inspect rooms",
+        "• Violation of rules may result in immediate eviction",
+        "• Terms and conditions subject to change with notice",
+        "• All disputes subject to Greater Noida jurisdiction"
+      ]
     }
   ];
 
@@ -134,78 +194,59 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Terms and Conditions Section - Mobile optimized */}
+      {/* Terms and Conditions Section with animations */}
       <section id="terms" className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-12 lg:pt-16 border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
-          <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 sm:mb-10 lg:mb-12"
+          >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-3 sm:mb-4 px-2">
               Terms and Conditions
             </h2>
             <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mb-4 sm:mb-6 rounded-full"></div>
-          </div>
+          </motion.div>
 
-          {/* Mobile: Horizontal scroll layout */}
+          {/* Mobile: Horizontal scroll with pause functionality and animations */}
           <div className="md:hidden">
+            <div className="flex justify-center mb-4">
+              <button
+                onClick={() => setIsPaused(!isPaused)}
+                className="flex items-center gap-2 bg-gradient-to-r from-teal-500 to-orange-400 text-white px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
+              >
+                {isPaused ? '▶️' : '⏸️'}
+                <span className="text-sm font-medium">
+                  {isPaused ? 'Play' : 'Pause'} Animation
+                </span>
+              </button>
+            </div>
+
             <div className="overflow-x-auto pb-4">
-              <div className="flex space-x-4 px-2" style={{ width: 'max-content' }}>
-                {[
-                  {
-                    title: "1. Booking and Payment",
-                    items: [
-                      "• Advance payment of 1 month rent is required at the time of booking",
-                      "• Security deposit of ₹10,000 (refundable) is mandatory",
-                      "• Monthly rent must be paid by the 5th of each month",
-                      "• Late payment charges of ₹100 per day will be applicable"
-                    ]
-                  },
-                  {
-                    title: "2. Accommodation Rules",
-                    items: [
-                      "• No smoking or alcohol consumption in premises",
-                      "• Visiting hours: 6 AM to 10 PM only",
-                      "• Overnight guests are not permitted",
-                      "• Maintain cleanliness in common areas"
-                    ]
-                  },
-                  {
-                    title: "3. Facilities Usage",
-                    items: [
-                      "• WiFi password will be shared upon check-in",
-                      "• Mess timings: Breakfast 7-9 AM, Lunch 12-2 PM, Dinner 7-9 PM",
-                      "• Laundry facilities available twice a week",
-                      "• Study rooms available 24/7 with prior booking"
-                    ]
-                  },
-                  {
-                    title: "4. Security and Safety",
-                    items: [
-                      "• 24/7 security personnel on duty",
-                      "• CCTV surveillance in common areas",
-                      "• Fire safety equipment installed and maintained",
-                      "• Emergency contact numbers displayed prominently"
-                    ]
-                  },
-                  {
-                    title: "5. Termination Policy",
-                    items: [
-                      "• 30 days prior notice required for vacating",
-                      "• No refund for advance payment if leaving before 30 days",
-                      "• Room inspection mandatory before check-out",
-                      "• Damages will be deducted from security deposit"
-                    ]
-                  },
-                  {
-                    title: "6. Management Rights",
-                    items: [
-                      "• Management reserves right to inspect rooms",
-                      "• Violation of rules may result in immediate eviction",
-                      "• Terms and conditions subject to change with notice",
-                      "• All disputes subject to Greater Noida jurisdiction"
-                    ]
-                  }
-                ].map((section, index) => (
-                  <div key={index} className="w-72 flex-shrink-0">
-                    <Card className="h-80 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <motion.div
+                className="flex space-x-4 px-2"
+                style={{ width: 'max-content' }}
+                animate={isPaused ? {} : {
+                  x: [0, -1200, 0],
+                }}
+                transition={{
+                  duration: 25,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              >
+                {[...termsData, ...termsData].map((section, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="w-72 flex-shrink-0"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: (index % termsData.length) * 0.1 }}
+                  >
+                    <Card className="h-80 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50">
                       <CardContent className="p-4 h-full flex flex-col">
                         <h3 className="text-base font-semibold text-gray-800 mb-3 leading-tight">
                           {section.title}
@@ -221,9 +262,9 @@ const Contact = () => {
                         </div>
                       </CardContent>
                     </Card>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
 

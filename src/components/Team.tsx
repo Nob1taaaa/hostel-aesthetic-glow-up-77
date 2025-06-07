@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
@@ -66,21 +65,35 @@ const Team = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: Horizontal scroll with proper spacing */}
+        {/* Mobile: Horizontal scroll with animations */}
         <div className="md:hidden">
           <div className="overflow-x-auto pb-4">
-            <div className="flex space-x-4 px-2" style={{ width: 'max-content' }}>
+            <motion.div 
+              className="flex space-x-4 px-2" 
+              style={{ width: 'max-content' }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  whileHover={{ 
+                    y: -8,
+                    scale: 1.02,
+                    transition: { duration: 0.3 }
+                  }}
                   className="w-64 flex-shrink-0"
                 >
                   <Card className="group relative overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 h-80">
                     <CardContent className="p-0 relative h-full flex flex-col">
+                      <div className={`absolute inset-0 bg-gradient-to-br ${member.bgColor} opacity-0 group-hover:opacity-10 transition-all duration-500`}></div>
+                      
                       <div className="relative overflow-hidden flex-1">
                         <div className="w-full h-52 relative">
                           <img 
@@ -92,7 +105,7 @@ const Team = () => {
                       </div>
                       
                       <div className="p-4 text-center bg-white flex-shrink-0">
-                        <h3 className="text-base font-bold text-gray-800 mb-2 leading-tight">
+                        <h3 className="text-base font-bold text-gray-800 mb-2 leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-orange-500 transition-all duration-500">
                           {member.name}
                         </h3>
                         <p className={`font-semibold text-sm ${member.textColor} leading-relaxed`}>
@@ -103,7 +116,7 @@ const Team = () => {
                   </Card>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
 
