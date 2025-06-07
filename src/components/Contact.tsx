@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -133,7 +134,7 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Terms and Conditions Section */}
+      {/* Terms and Conditions Section - Mobile optimized */}
       <section id="terms" className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-12 lg:pt-16 border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
           <div className="text-center mb-8 sm:mb-10 lg:mb-12">
@@ -143,79 +144,165 @@ const Contact = () => {
             <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mb-4 sm:mb-6 rounded-full"></div>
           </div>
 
-          <div className="prose prose-lg max-w-none text-gray-700">
-            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 text-sm leading-relaxed">
-              <div className="space-y-4 sm:space-y-6">
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">1. Booking and Payment</h3>
-                  <ul className="space-y-1 sm:space-y-2 text-gray-600">
-                    <li>• Advance payment of 1 month rent is required at the time of booking</li>
-                    <li>• Security deposit of ₹10,000 (refundable) is mandatory</li>
-                    <li>• Monthly rent must be paid by the 5th of each month</li>
-                    <li>• Late payment charges of ₹100 per day will be applicable</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">2. Accommodation Rules</h3>
-                  <ul className="space-y-1 sm:space-y-2 text-gray-600">
-                    <li>• No smoking or alcohol consumption in premises</li>
-                    <li>• Visiting hours: 6 AM to 10 PM only</li>
-                    <li>• Overnight guests are not permitted</li>
-                    <li>• Maintain cleanliness in common areas</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">3. Facilities Usage</h3>
-                  <ul className="space-y-1 sm:space-y-2 text-gray-600">
-                    <li>• WiFi password will be shared upon check-in</li>
-                    <li>• Mess timings: Breakfast 7-9 AM, Lunch 12-2 PM, Dinner 7-9 PM</li>
-                    <li>• Laundry facilities available twice a week</li>
-                    <li>• Study rooms available 24/7 with prior booking</li>
-                  </ul>
-                </div>
+          {/* Mobile: Horizontal scroll layout */}
+          <div className="md:hidden">
+            <div className="overflow-x-auto pb-4">
+              <div className="flex space-x-4 px-2" style={{ width: 'max-content' }}>
+                {[
+                  {
+                    title: "1. Booking and Payment",
+                    items: [
+                      "• Advance payment of 1 month rent is required at the time of booking",
+                      "• Security deposit of ₹10,000 (refundable) is mandatory",
+                      "• Monthly rent must be paid by the 5th of each month",
+                      "• Late payment charges of ₹100 per day will be applicable"
+                    ]
+                  },
+                  {
+                    title: "2. Accommodation Rules",
+                    items: [
+                      "• No smoking or alcohol consumption in premises",
+                      "• Visiting hours: 6 AM to 10 PM only",
+                      "• Overnight guests are not permitted",
+                      "• Maintain cleanliness in common areas"
+                    ]
+                  },
+                  {
+                    title: "3. Facilities Usage",
+                    items: [
+                      "• WiFi password will be shared upon check-in",
+                      "• Mess timings: Breakfast 7-9 AM, Lunch 12-2 PM, Dinner 7-9 PM",
+                      "• Laundry facilities available twice a week",
+                      "• Study rooms available 24/7 with prior booking"
+                    ]
+                  },
+                  {
+                    title: "4. Security and Safety",
+                    items: [
+                      "• 24/7 security personnel on duty",
+                      "• CCTV surveillance in common areas",
+                      "• Fire safety equipment installed and maintained",
+                      "• Emergency contact numbers displayed prominently"
+                    ]
+                  },
+                  {
+                    title: "5. Termination Policy",
+                    items: [
+                      "• 30 days prior notice required for vacating",
+                      "• No refund for advance payment if leaving before 30 days",
+                      "• Room inspection mandatory before check-out",
+                      "• Damages will be deducted from security deposit"
+                    ]
+                  },
+                  {
+                    title: "6. Management Rights",
+                    items: [
+                      "• Management reserves right to inspect rooms",
+                      "• Violation of rules may result in immediate eviction",
+                      "• Terms and conditions subject to change with notice",
+                      "• All disputes subject to Greater Noida jurisdiction"
+                    ]
+                  }
+                ].map((section, index) => (
+                  <div key={index} className="w-72 flex-shrink-0">
+                    <Card className="h-80 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                      <CardContent className="p-4 h-full flex flex-col">
+                        <h3 className="text-base font-semibold text-gray-800 mb-3 leading-tight">
+                          {section.title}
+                        </h3>
+                        <div className="flex-1 overflow-y-auto">
+                          <ul className="space-y-2 text-gray-600">
+                            {section.items.map((item, itemIndex) => (
+                              <li key={itemIndex} className="text-sm leading-relaxed">
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
               </div>
+            </div>
+          </div>
 
-              <div className="space-y-4 sm:space-y-6">
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">4. Security and Safety</h3>
-                  <ul className="space-y-1 sm:space-y-2 text-gray-600">
-                    <li>• 24/7 security personnel on duty</li>
-                    <li>• CCTV surveillance in common areas</li>
-                    <li>• Fire safety equipment installed and maintained</li>
-                    <li>• Emergency contact numbers displayed prominently</li>
-                  </ul>
+          {/* Desktop: Grid layout */}
+          <div className="hidden md:block">
+            <div className="prose prose-lg max-w-none text-gray-700">
+              <div className="grid md:grid-cols-2 gap-6 sm:gap-8 text-sm leading-relaxed">
+                <div className="space-y-4 sm:space-y-6">
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">1. Booking and Payment</h3>
+                    <ul className="space-y-1 sm:space-y-2 text-gray-600">
+                      <li>• Advance payment of 1 month rent is required at the time of booking</li>
+                      <li>• Security deposit of ₹10,000 (refundable) is mandatory</li>
+                      <li>• Monthly rent must be paid by the 5th of each month</li>
+                      <li>• Late payment charges of ₹100 per day will be applicable</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">2. Accommodation Rules</h3>
+                    <ul className="space-y-1 sm:space-y-2 text-gray-600">
+                      <li>• No smoking or alcohol consumption in premises</li>
+                      <li>• Visiting hours: 6 AM to 10 PM only</li>
+                      <li>• Overnight guests are not permitted</li>
+                      <li>• Maintain cleanliness in common areas</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">3. Facilities Usage</h3>
+                    <ul className="space-y-1 sm:space-y-2 text-gray-600">
+                      <li>• WiFi password will be shared upon check-in</li>
+                      <li>• Mess timings: Breakfast 7-9 AM, Lunch 12-2 PM, Dinner 7-9 PM</li>
+                      <li>• Laundry facilities available twice a week</li>
+                      <li>• Study rooms available 24/7 with prior booking</li>
+                    </ul>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">5. Termination Policy</h3>
-                  <ul className="space-y-1 sm:space-y-2 text-gray-600">
-                    <li>• 30 days prior notice required for vacating</li>
-                    <li>• No refund for advance payment if leaving before 30 days</li>
-                    <li>• Room inspection mandatory before check-out</li>
-                    <li>• Damages will be deducted from security deposit</li>
-                  </ul>
-                </div>
+                <div className="space-y-4 sm:space-y-6">
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">4. Security and Safety</h3>
+                    <ul className="space-y-1 sm:space-y-2 text-gray-600">
+                      <li>• 24/7 security personnel on duty</li>
+                      <li>• CCTV surveillance in common areas</li>
+                      <li>• Fire safety equipment installed and maintained</li>
+                      <li>• Emergency contact numbers displayed prominently</li>
+                    </ul>
+                  </div>
 
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">6. Management Rights</h3>
-                  <ul className="space-y-1 sm:space-y-2 text-gray-600">
-                    <li>• Management reserves right to inspect rooms</li>
-                    <li>• Violation of rules may result in immediate eviction</li>
-                    <li>• Terms and conditions subject to change with notice</li>
-                    <li>• All disputes subject to Greater Noida jurisdiction</li>
-                  </ul>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">5. Termination Policy</h3>
+                    <ul className="space-y-1 sm:space-y-2 text-gray-600">
+                      <li>• 30 days prior notice required for vacating</li>
+                      <li>• No refund for advance payment if leaving before 30 days</li>
+                      <li>• Room inspection mandatory before check-out</li>
+                      <li>• Damages will be deducted from security deposit</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">6. Management Rights</h3>
+                    <ul className="space-y-1 sm:space-y-2 text-gray-600">
+                      <li>• Management reserves right to inspect rooms</li>
+                      <li>• Violation of rules may result in immediate eviction</li>
+                      <li>• Terms and conditions subject to change with notice</li>
+                      <li>• All disputes subject to Greater Noida jurisdiction</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gradient-to-r from-teal-50 to-orange-50 rounded-lg border border-gray-200">
-              <p className="text-center text-gray-700 font-medium text-sm sm:text-base">
-                By booking with Raksha Hostel, you agree to abide by all terms and conditions mentioned above. 
-                For any queries or clarifications, please contact our management team.
-              </p>
-            </div>
+          <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gradient-to-r from-teal-50 to-orange-50 rounded-lg border border-gray-200">
+            <p className="text-center text-gray-700 font-medium text-sm sm:text-base">
+              By booking with Raksha Hostel, you agree to abide by all terms and conditions mentioned above. 
+              For any queries or clarifications, please contact our management team.
+            </p>
           </div>
         </div>
       </section>
