@@ -1,5 +1,5 @@
+
 import { Card, CardContent } from "@/components/ui/card";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 
 const Team = () => {
@@ -41,219 +41,114 @@ const Team = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 60,
-      scale: 0.8,
-      rotateY: -15
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      rotateY: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
   return (
-    <section className="py-16 sm:py-20 lg:py-24 xl:py-32 bg-gradient-to-br from-gray-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 relative overflow-hidden">
-      {/* Enhanced background decorations */}
-      <div className="absolute inset-0 opacity-40 dark:opacity-20">
-        <div className="absolute top-0 left-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-gradient-to-br from-teal-300 to-orange-300 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-gradient-to-br from-orange-300 to-slate-300 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2 animate-pulse delay-1000"></div>
+    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-orange-50 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-teal-300 to-orange-300 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-gradient-to-br from-orange-300 to-slate-300 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
       </div>
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full opacity-60 animate-bounce`}
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 relative z-10">
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="text-center mb-12 sm:mb-16 lg:mb-20 xl:mb-24"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <div className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-teal-100 to-orange-100 dark:from-teal-900/40 dark:to-orange-900/40 rounded-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3 mb-4 sm:mb-6 lg:mb-8 backdrop-blur-sm border border-white/20">
-            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-teal-500 to-orange-500 rounded-full animate-pulse"></div>
-            <span className="text-teal-800 dark:text-teal-300 font-bold text-sm sm:text-base lg:text-lg">Leadership Excellence</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-800 via-teal-600 to-orange-500 dark:from-white dark:via-teal-400 dark:to-orange-400 mb-4 sm:mb-6 lg:mb-8 tracking-tight px-2">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-800 via-teal-600 to-orange-500 mb-4 sm:mb-6 lg:mb-8 tracking-tight px-2">
             OUR TEAM
           </h2>
           <div className="w-20 sm:w-32 lg:w-40 h-2 sm:h-3 bg-gradient-to-r from-teal-500 via-orange-400 to-orange-500 mx-auto mb-6 sm:mb-8 lg:mb-10 rounded-full shadow-lg"></div>
-          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-light px-3">
-            Meet the visionary leaders who transform <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-orange-500 font-bold text-xl sm:text-2xl lg:text-3xl">Raksha Hostel</span> into your dream home
+          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light px-3">
+            Meet the visionary leaders who transform <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-orange-500 font-bold">Raksha Hostel</span> into your dream home
           </p>
         </motion.div>
 
-        {/* Mobile: Horizontal scroll with auto-scroll animation */}
+        {/* Mobile: Simple horizontal scroll */}
         <div className="md:hidden">
           <motion.div
-            className="flex space-x-4 sm:space-x-6 pb-4 overflow-x-auto"
-            animate={{
-              x: [0, -1400, 0],
-            }}
+            className="flex space-x-4 pb-4 overflow-x-auto"
+            animate={{ x: [0, -800, 0] }}
             transition={{
-              duration: 25,
+              duration: 15,
               repeat: Infinity,
               ease: "linear"
             }}
           >
             {[...teamMembers, ...teamMembers].map((member, index) => (
-              <motion.div
-                key={index}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{ 
-                  y: -10,
-                  scale: 1.02,
-                  transition: { duration: 0.4, ease: "easeOut" }
-                }}
-                className="w-[240px] sm:w-[260px] flex-shrink-0"
-              >
-                <Card className="group relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border-0 shadow-2xl hover:shadow-4xl transition-all duration-700 h-[340px] sm:h-[380px]">
+              <div key={index} className="w-60 flex-shrink-0">
+                <Card className="group relative overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 h-80">
                   <CardContent className="p-0 relative h-full flex flex-col">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${member.bgColor} opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
-                    
-                    <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-orange-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[2px] rounded-lg">
-                      <div className="w-full h-full bg-white dark:bg-gray-800 rounded-lg"></div>
-                    </div>
-                    
-                    <div className="relative overflow-hidden flex-1 rounded-t-lg">
-                      <div className="w-full h-[240px] sm:h-[260px] relative">
+                    <div className="relative overflow-hidden flex-1">
+                      <div className="w-full h-52 relative">
                         <img 
                           src={member.image} 
                           alt={member.name}
-                          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 filter group-hover:brightness-110"
+                          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-full p-2 sm:p-3 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-500 delay-200">
-                          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-teal-400 to-orange-500 rounded-full animate-pulse"></div>
-                        </div>
                       </div>
                     </div>
                     
-                    <div className="p-4 sm:p-5 text-center relative z-10 bg-white dark:bg-gray-800 flex-shrink-0">
-                      <h3 className="text-base sm:text-lg font-bold text-gray-800 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-orange-500 transition-all duration-500 leading-tight">
+                    <div className="p-4 text-center bg-white flex-shrink-0">
+                      <h3 className="text-lg font-bold text-gray-800 mb-2 leading-tight">
                         {member.name}
                       </h3>
-                      <p className={`font-semibold mb-3 ${member.textColor} dark:text-orange-400 text-xs sm:text-sm leading-relaxed`}>
+                      <p className={`font-semibold text-sm ${member.textColor} leading-relaxed`}>
                         {member.role}
                       </p>
-                      
-                      <div className="flex justify-center space-x-1 sm:space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-400">
-                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-teal-500 to-orange-400 rounded-full animate-pulse"></div>
-                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full animate-pulse delay-100"></div>
-                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-teal-500 to-orange-400 rounded-full animate-pulse delay-200"></div>
-                      </div>
-                      
-                      <div className="w-0 group-hover:w-12 sm:group-hover:w-16 h-0.5 sm:h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mt-2 sm:mt-3 transition-all duration-700 rounded-full shadow-lg"></div>
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </div>
 
-        {/* Desktop: Grid layout */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8 justify-items-center"
-        >
+        {/* Desktop: Single row layout */}
+        <div className="hidden md:flex md:justify-center md:space-x-6 lg:space-x-8">
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
-              variants={cardVariants}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ 
-                y: -20,
-                scale: 1.05,
-                rotateY: 5,
-                transition: { duration: 0.4, ease: "easeOut" }
+                y: -10,
+                scale: 1.02,
+                transition: { duration: 0.3 }
               }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full max-w-[280px]"
+              className="w-full max-w-64"
             >
-              <Card className="group relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border-0 shadow-2xl hover:shadow-4xl transition-all duration-700 transform perspective-1000 h-[400px]">
+              <Card className="group relative overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-500 h-96">
                 <CardContent className="p-0 relative h-full flex flex-col">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${member.bgColor} opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${member.bgColor} opacity-0 group-hover:opacity-10 transition-all duration-500`}></div>
                   
-                  <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-orange-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[2px] rounded-lg">
-                    <div className="w-full h-full bg-white dark:bg-gray-800 rounded-lg"></div>
-                  </div>
-                  
-                  <div className="relative overflow-hidden flex-1 rounded-t-lg">
-                    <div className="w-full h-[280px] relative">
+                  <div className="relative overflow-hidden flex-1">
+                    <div className="w-full h-72 relative">
                       <img 
                         src={member.image} 
                         alt={member.name}
-                        className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 filter group-hover:brightness-110"
+                        className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      
-                      <div className="absolute top-4 right-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-500 delay-200">
-                        <div className="w-4 h-4 bg-gradient-to-r from-teal-400 to-orange-500 rounded-full animate-pulse"></div>
-                      </div>
                     </div>
                   </div>
                   
-                  <div className="p-6 text-center relative z-10 bg-white dark:bg-gray-800 flex-shrink-0">
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-orange-500 transition-all duration-500 leading-tight">
+                  <div className="p-5 text-center bg-white flex-shrink-0">
+                    <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-600 group-hover:to-orange-500 transition-all duration-500 leading-tight">
                       {member.name}
                     </h3>
-                    <p className={`font-semibold mb-4 ${member.textColor} dark:text-orange-400 text-base leading-relaxed`}>
+                    <p className={`font-semibold ${member.textColor} text-base leading-relaxed`}>
                       {member.role}
                     </p>
-                    
-                    <div className="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-400">
-                      <div className="w-2 h-2 bg-gradient-to-r from-teal-500 to-orange-400 rounded-full animate-pulse"></div>
-                      <div className="w-2 h-2 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full animate-pulse delay-100"></div>
-                      <div className="w-2 h-2 bg-gradient-to-r from-teal-500 to-orange-400 rounded-full animate-pulse delay-200"></div>
-                    </div>
-                    
-                    <div className="w-0 group-hover:w-20 h-1 bg-gradient-to-r from-teal-500 to-orange-400 mx-auto mt-4 transition-all duration-700 rounded-full shadow-lg"></div>
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
