@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -13,67 +13,55 @@ const LoginPopup = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" className="flex items-center gap-2 text-xs sm:text-sm px-2 sm:px-3">
-          <User className="w-3 h-3 sm:w-4 sm:h-4" />
-          <span className="hidden sm:inline">Login</span>
+        <Button variant="outline" className="flex items-center gap-2">
+          <User className="w-4 h-4" />
+          Login
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-white border-0 shadow-2xl">
-        <DialogTitle className="sr-only">Login to Raksha Hostel</DialogTitle>
-        <DialogDescription className="sr-only">
-          Sign in to your Raksha Hostel account to access premium features
-        </DialogDescription>
-        
+      <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-white">
         <div className="relative p-8">
           <button 
             onClick={() => setIsOpen(false)}
-            className="absolute right-5 top-5 text-gray-400 hover:text-gray-600 transition-colors z-10"
+            className="absolute right-5 top-5 text-gray-400 hover:text-gray-600"
           >
             <X size={24} />
           </button>
           
-          <div className="mb-8 text-center">
-            <div className="flex items-center justify-center mb-4">
-              <img 
-                src="/lovable-uploads/a54a5c5d-b32e-46e9-94ef-1eff409c145b.png" 
-                alt="Raksha Hostel Logo"
-                className="w-16 h-16 object-contain rounded-lg shadow-lg"
-              />
-            </div>
+          <div className="mb-8">
             <h2 className="text-3xl font-bold text-gray-800 mb-2">Welcome Back</h2>
             <p className="text-gray-600 text-lg">Sign in to your account</p>
           </div>
           
           <div className="space-y-6">
             <div className="space-y-2">
-              <label htmlFor="login-username" className="text-gray-700 text-base font-medium block">
+              <label htmlFor="username" className="text-gray-700 text-base font-medium">
                 Username
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-3 flex items-center text-gray-400 pointer-events-none z-10">
+                <div className="absolute inset-y-0 left-3 flex items-center text-gray-400">
                   <User size={18} />
                 </div>
                 <Input 
-                  id="login-username" 
+                  id="username" 
                   placeholder="Enter your username" 
-                  className="pl-10 border rounded-md w-full py-3 px-3 text-gray-700 focus:ring-2 focus:ring-teal-500 focus:border-transparent relative z-0" 
+                  className="pl-10 border rounded-md w-full py-2 px-3 text-gray-700" 
                 />
               </div>
             </div>
             
             <div className="space-y-2">
-              <label htmlFor="login-password" className="text-gray-700 text-base font-medium block">
+              <label htmlFor="password" className="text-gray-700 text-base font-medium">
                 Password
               </label>
               <div className="relative">
                 <Input 
-                  id="login-password" 
+                  id="password" 
                   type={showPassword ? "text" : "password"} 
                   placeholder="Enter your password" 
-                  className="pr-10 border rounded-md w-full py-3 px-3 text-gray-700 focus:ring-2 focus:ring-teal-500 focus:border-transparent" 
+                  className="pr-10 border rounded-md w-full py-2 px-3 text-gray-700" 
                 />
                 <div 
-                  className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-gray-400 hover:text-gray-600 z-10"
+                  className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-gray-400"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
@@ -83,8 +71,8 @@ const LoginPopup = () => {
             
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Checkbox id="login-remember" />
-                <label htmlFor="login-remember" className="text-sm text-gray-600">
+                <Checkbox id="remember" />
+                <label htmlFor="remember" className="text-sm text-gray-600">
                   Remember me
                 </label>
               </div>
@@ -95,8 +83,7 @@ const LoginPopup = () => {
             </div>
             
             <Button 
-              className="w-full py-6 text-lg bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 transition-all duration-300 transform hover:scale-105"
-              onClick={() => setIsOpen(false)}
+              className="w-full py-6 text-lg bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600"
             >
               Sign In
             </Button>
