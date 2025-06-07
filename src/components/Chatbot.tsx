@@ -34,7 +34,7 @@ const Chatbot = () => {
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
-
+  
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
@@ -60,10 +60,14 @@ const Chatbot = () => {
         break;
 
       case 'whatsapp_booking':
-        addMessage("Tap to book instantly via WhatsApp:", true, [
-          { text: "💬 WhatsApp +91 8743-836-836", action: "open_whatsapp" }
-        ]);
-        break;
+  const whatsappNumber = "918743836836"; // WhatsApp number without + sign
+  const message = encodeURIComponent("Hi, my name is [Your Name]. I want to book a room at Raksha Hostel. Please share the details.");
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+  window.open(whatsappLink, "_blank");
+  addMessage("Tap to book instantly via WhatsApp:", true, [
+    { text: "💬 WhatsApp +91 8743-836-836", action: "open_whatsapp" }
+  ]);
+  break;
 
       case 'call_booking':
         window.location.href = "tel:+918743836836";
