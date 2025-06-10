@@ -1,3 +1,4 @@
+
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -9,7 +10,7 @@ import * as THREE from 'three';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// 3D Floating Elements with proper error handling
+// Simplified 3D Floating Elements
 function FloatingElement({ position, color, scale = 1 }: { position: [number, number, number], color: string, scale?: number }) {
   const meshRef = useRef<THREE.Mesh>(null);
   
@@ -28,11 +29,8 @@ function FloatingElement({ position, color, scale = 1 }: { position: [number, nu
   return (
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
       <Sphere ref={meshRef} args={[0.5 * scale, 32, 32]} position={position}>
-        <MeshDistortMaterial
+        <meshStandardMaterial
           color={color}
-          attach="material"
-          distort={0.4}
-          speed={1.5}
           roughness={0.1}
           metalness={0.9}
         />
@@ -41,7 +39,7 @@ function FloatingElement({ position, color, scale = 1 }: { position: [number, nu
   );
 }
 
-// Simplified Scene3D component
+// Minimal Scene3D component
 function Scene3D() {
   return (
     <>
@@ -60,7 +58,7 @@ function Scene3D() {
   );
 }
 
-// Error boundary for 3D Canvas
+// Safe 3D Canvas with comprehensive error handling
 function Safe3DCanvas() {
   const [hasError, setHasError] = useState(false);
 
@@ -70,7 +68,12 @@ function Safe3DCanvas() {
 
   try {
     return (
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }} onError={() => setHasError(true)}>
+      <Canvas 
+        camera={{ position: [0, 0, 5], fov: 75 }} 
+        onError={() => setHasError(true)}
+        gl={{ antialias: false, alpha: true }}
+        dpr={1}
+      >
         <Scene3D />
       </Canvas>
     );

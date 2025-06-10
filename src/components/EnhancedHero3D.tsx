@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Star, Shield, Wifi, Heart, Sparkles as SparklesIcon, Zap, Rocket, Crown, Building, Users, Award } from "lucide-react";
 import Interactive3DBackground from './Interactive3DBackground';
 
-// 3D Logo Component
+// Simplified 3D Logo Component
 function Logo3D() {
   const logoRef = useRef<THREE.Group>(null);
   
@@ -24,32 +24,22 @@ function Logo3D() {
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
       <group ref={logoRef}>
         <Center>
-          <Text3D
-            font="/fonts/helvetiker_regular.typeface.json"
-            size={2}
-            height={0.5}
-            curveSegments={12}
-            bevelEnabled
-            bevelThickness={0.02}
-            bevelSize={0.02}
-            bevelOffset={0}
-            bevelSegments={5}
-          >
-            RAKSHA
+          <mesh>
+            <boxGeometry args={[2, 0.5, 0.2]} />
             <meshStandardMaterial
               color="#00ffff"
               metalness={0.8}
               roughness={0.2}
               emissive="#004444"
             />
-          </Text3D>
+          </mesh>
         </Center>
       </group>
     </Float>
   );
 }
 
-// Animated Building Model
+// Simplified Building Model
 function BuildingModel() {
   const buildingRef = useRef<THREE.Group>(null);
   
@@ -85,7 +75,7 @@ function BuildingModel() {
   );
 }
 
-// Enhanced Scene
+// Minimal Enhanced Scene
 function EnhancedScene() {
   return (
     <>
@@ -109,6 +99,38 @@ function EnhancedScene() {
       />
     </>
   );
+}
+
+// Safe Canvas wrapper
+function Safe3DCanvas() {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    return <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-purple-900"></div>;
+  }
+
+  try {
+    return (
+      <Canvas 
+        camera={{ position: [0, 0, 8], fov: 75 }}
+        gl={{ antialias: false, alpha: true }}
+        dpr={1}
+        onError={() => setHasError(true)}
+      >
+        <EnhancedScene />
+        <OrbitControls
+          enableZoom={false}
+          enablePan={false}
+          autoRotate
+          autoRotateSpeed={0.5}
+        />
+      </Canvas>
+    );
+  } catch (error) {
+    console.log('Hero Canvas error:', error);
+    setHasError(true);
+    return <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-purple-900"></div>;
+  }
 }
 
 // Floating Card Component
@@ -219,15 +241,7 @@ const EnhancedHero3D = () => {
 
       {/* Main 3D Canvas */}
       <div className="absolute inset-0 z-10">
-        <Canvas camera={{ position: [0, 0, 8], fov: 75 }}>
-          <EnhancedScene />
-          <OrbitControls
-            enableZoom={false}
-            enablePan={false}
-            autoRotate
-            autoRotateSpeed={0.5}
-          />
-        </Canvas>
+        <Safe3DCanvas />
       </div>
 
       {/* Content Overlay */}
