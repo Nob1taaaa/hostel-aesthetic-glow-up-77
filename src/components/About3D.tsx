@@ -1,4 +1,3 @@
-
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -10,15 +9,19 @@ import * as THREE from 'three';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// 3D Floating Elements
+// 3D Floating Elements with proper error handling
 function FloatingElement({ position, color, scale = 1 }: { position: [number, number, number], color: string, scale?: number }) {
   const meshRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
-      meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.3) * 0.3;
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime + position[0]) * 0.2;
+    if (meshRef.current && meshRef.current.rotation && meshRef.current.position) {
+      try {
+        meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
+        meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.3) * 0.3;
+        meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime + position[0]) * 0.2;
+      } catch (error) {
+        console.log('3D animation error:', error);
+      }
     }
   });
 
@@ -38,6 +41,7 @@ function FloatingElement({ position, color, scale = 1 }: { position: [number, nu
   );
 }
 
+// Simplified Scene3D component
 function Scene3D() {
   return (
     <>
@@ -54,6 +58,27 @@ function Scene3D() {
       <pointLight position={[-5, -5, -5]} intensity={0.5} color="#4ecdc4" />
     </>
   );
+}
+
+// Error boundary for 3D Canvas
+function Safe3DCanvas() {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    return <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-purple-900"></div>;
+  }
+
+  try {
+    return (
+      <Canvas camera={{ position: [0, 0, 5], fov: 75 }} onError={() => setHasError(true)}>
+        <Scene3D />
+      </Canvas>
+    );
+  } catch (error) {
+    console.log('Canvas error:', error);
+    setHasError(true);
+    return <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-purple-900"></div>;
+  }
 }
 
 // Holographic Card Component
@@ -231,11 +256,9 @@ const About3D = () => {
       style={{ opacity }}
       className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-purple-900 overflow-hidden"
     >
-      {/* 3D Background */}
+      {/* 3D Background with error handling */}
       <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-          <Scene3D />
-        </Canvas>
+        <Safe3DCanvas />
       </div>
 
       {/* Animated Background Overlay */}
