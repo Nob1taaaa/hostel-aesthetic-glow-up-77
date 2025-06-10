@@ -1,6 +1,5 @@
-
-import Hero from "@/components/Hero";
-import About from "@/components/About";
+import Hero3D from "@/components/Hero3D";
+import About3D from "@/components/About3D";
 import Rooms from "@/components/Rooms";
 import Facilities from "@/components/Facilities";
 import Testimonials from "@/components/Testimonials";
@@ -57,10 +56,10 @@ const Index = () => {
         </script>
       </Helmet>
       
-      <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
+      <div className="min-h-screen bg-black transition-colors duration-300">
         <Navigation />
-        <Hero />
-        <About />
+        <Hero3D />
+        <About3D />
         <Rooms />
         <Facilities />
         <Testimonials />

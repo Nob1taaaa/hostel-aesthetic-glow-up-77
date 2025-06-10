@@ -1,7 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Team = () => {
+  const [isPaused, setIsPaused] = useState(false);
+
   const teamMembers = [
     {
       name: "Mr. MISHAL SINGH",
@@ -48,7 +51,7 @@ const Team = () => {
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-gradient-to-br from-orange-300 to-slate-300 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,24 +68,40 @@ const Team = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: Horizontal scroll with animations */}
+        {/* Mobile: Horizontal scroll with animations and pause functionality */}
         <div className="md:hidden">
+          <div className="flex justify-center mb-4">
+            <button
+              onClick={() => setIsPaused(!isPaused)}
+              className="flex items-center gap-2 bg-gradient-to-r from-teal-500 to-orange-400 text-white px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              {isPaused ? '▶️' : '⏸️'}
+              <span className="text-sm font-medium">
+                {isPaused ? 'Play' : 'Pause'} Animation
+              </span>
+            </button>
+          </div>
+
           <div className="overflow-x-auto pb-4">
             <motion.div 
               className="flex space-x-4 px-2" 
               style={{ width: 'max-content' }}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              animate={isPaused ? {} : {
+                x: [0, -1200, 0],
+              }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                ease: "linear"
+              }}
             >
-              {teamMembers.map((member, index) => (
+              {[...teamMembers, ...teamMembers].map((member, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  transition={{ duration: 0.6, delay: (index % teamMembers.length) * 0.15 }}
                   whileHover={{ 
                     y: -8,
                     scale: 1.02,

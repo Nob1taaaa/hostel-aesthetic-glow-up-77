@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -72,6 +71,10 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			perspective: {
+				'1000': '1000px',
+				'2000': '2000px',
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -134,6 +137,64 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'hologram': {
+					'0%, 100%': {
+						transform: 'rotateY(0deg) rotateX(0deg)',
+						filter: 'hue-rotate(0deg)'
+					},
+					'25%': {
+						transform: 'rotateY(5deg) rotateX(2deg)',
+						filter: 'hue-rotate(90deg)'
+					},
+					'50%': {
+						transform: 'rotateY(0deg) rotateX(5deg)',
+						filter: 'hue-rotate(180deg)'
+					},
+					'75%': {
+						transform: 'rotateY(-5deg) rotateX(2deg)',
+						filter: 'hue-rotate(270deg)'
+					}
+				},
+				'matrix': {
+					'0%': {
+						transform: 'translateY(0px)',
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateY(-100vh)',
+						opacity: '0'
+					}
+				},
+				'neon-pulse': {
+					'0%, 100%': {
+						textShadow: '0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor, 0 0 20px currentColor'
+					},
+					'50%': {
+						textShadow: '0 0 2px currentColor, 0 0 5px currentColor, 0 0 8px currentColor, 0 0 12px currentColor'
+					}
+				},
+				'cyber-glitch': {
+					'0%, 100%': {
+						transform: 'translate(0)',
+						filter: 'hue-rotate(0deg)'
+					},
+					'20%': {
+						transform: 'translate(-2px, 2px)',
+						filter: 'hue-rotate(90deg)'
+					},
+					'40%': {
+						transform: 'translate(-2px, -2px)',
+						filter: 'hue-rotate(180deg)'
+					},
+					'60%': {
+						transform: 'translate(2px, 2px)',
+						filter: 'hue-rotate(270deg)'
+					},
+					'80%': {
+						transform: 'translate(2px, -2px)',
+						filter: 'hue-rotate(360deg)'
+					}
 				}
 			},
 			animation: {
@@ -143,7 +204,11 @@ export default {
 				'slide-up': 'slide-up 0.6s ease-out',
 				'scale-in': 'scale-in 0.5s ease-out',
 				'glow': 'glow 2s ease-in-out infinite',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'hologram': 'hologram 4s ease-in-out infinite',
+				'matrix': 'matrix 3s linear infinite',
+				'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
+				'cyber-glitch': 'cyber-glitch 0.3s ease-in-out infinite'
 			}
 		}
 	},
@@ -167,6 +232,21 @@ export default {
 					'background': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
 					'-webkit-background-clip': 'text',
 					'-webkit-text-fill-color': 'transparent'
+				},
+				'.perspective-1000': {
+					'perspective': '1000px'
+				},
+				'.perspective-2000': {
+					'perspective': '2000px'
+				},
+				'.transform-gpu': {
+					'transform': 'translateZ(0)'
+				},
+				'.backface-hidden': {
+					'backface-visibility': 'hidden'
+				},
+				'.preserve-3d': {
+					'transform-style': 'preserve-3d'
 				}
 			}
 			addUtilities(newUtilities)
