@@ -1,4 +1,5 @@
-import { useRef, useEffect } from 'react';
+
+import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial, Float, Text3D, Environment, Sparkles } from '@react-three/drei';
@@ -99,7 +100,7 @@ function HolographicCard({ feature, index, delay = 0 }: { feature: any, index: n
           <p className="text-cyan-300/80 leading-relaxed group-hover:text-white/90 transition-colors duration-300">
             {feature.description}
           </p>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );
