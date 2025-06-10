@@ -1,88 +1,11 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Float, Text3D, Environment, Sparkles } from '@react-three/drei';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CheckCircle, Users, Shield, Heart, Award, Star, Zap, Crown, Gem } from "lucide-react";
-import * as THREE from 'three';
 
 gsap.registerPlugin(ScrollTrigger);
-
-// Simplified 3D Floating Elements
-function FloatingElement({ position, color, scale = 1 }: { position: [number, number, number], color: string, scale?: number }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  
-  useFrame((state) => {
-    if (meshRef.current && meshRef.current.rotation && meshRef.current.position) {
-      try {
-        meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
-        meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.3) * 0.3;
-        meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime + position[0]) * 0.2;
-      } catch (error) {
-        console.log('3D animation error:', error);
-      }
-    }
-  });
-
-  return (
-    <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
-      <Sphere ref={meshRef} args={[0.5 * scale, 32, 32]} position={position}>
-        <meshStandardMaterial
-          color={color}
-          roughness={0.1}
-          metalness={0.9}
-        />
-      </Sphere>
-    </Float>
-  );
-}
-
-// Minimal Scene3D component
-function Scene3D() {
-  return (
-    <>
-      <Environment preset="night" />
-      <Sparkles count={50} scale={5} size={1} speed={0.3} />
-      
-      <FloatingElement position={[-2, 1, -2]} color="#ff6b6b" scale={0.8} />
-      <FloatingElement position={[2, -1, -1]} color="#4ecdc4" scale={1.2} />
-      <FloatingElement position={[0, 2, -3]} color="#45b7d1" scale={0.6} />
-      <FloatingElement position={[-1, -1, -2]} color="#f9ca24" scale={0.9} />
-      
-      <ambientLight intensity={0.3} />
-      <pointLight position={[5, 5, 5]} intensity={0.8} />
-      <pointLight position={[-5, -5, -5]} intensity={0.5} color="#4ecdc4" />
-    </>
-  );
-}
-
-// Safe 3D Canvas with comprehensive error handling
-function Safe3DCanvas() {
-  const [hasError, setHasError] = useState(false);
-
-  if (hasError) {
-    return <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-purple-900"></div>;
-  }
-
-  try {
-    return (
-      <Canvas 
-        camera={{ position: [0, 0, 5], fov: 75 }} 
-        onError={() => setHasError(true)}
-        gl={{ antialias: false, alpha: true }}
-        dpr={1}
-      >
-        <Scene3D />
-      </Canvas>
-    );
-  } catch (error) {
-    console.log('Canvas error:', error);
-    setHasError(true);
-    return <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-purple-900"></div>;
-  }
-}
 
 // Holographic Card Component
 function HolographicCard({ feature, index, delay = 0 }: { feature: any, index: number, delay?: number }) {
@@ -259,11 +182,6 @@ const About3D = () => {
       style={{ opacity }}
       className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-purple-900 overflow-hidden"
     >
-      {/* 3D Background with error handling */}
-      <div className="absolute inset-0 z-0">
-        <Safe3DCanvas />
-      </div>
-
       {/* Animated Background Overlay */}
       <div className="absolute inset-0 z-10 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-pink-500/5"></div>
       
@@ -321,7 +239,7 @@ const About3D = () => {
             </div>
           </motion.div>
 
-          {/* 3D Visual Element */}
+          {/* Visual Element */}
           <motion.div 
             className="relative h-96"
             initial={{ opacity: 0, scale: 0.8 }}

@@ -1,5 +1,5 @@
 
-import EnhancedHero3D from "@/components/EnhancedHero3D";
+import Hero from "@/components/Hero";
 import About3D from "@/components/About3D";
 import Rooms from "@/components/Rooms";
 import Facilities from "@/components/Facilities";
@@ -62,7 +62,7 @@ const Index = () => {
       <div className="min-h-screen bg-black transition-colors duration-300">
         <ScrollAnimations />
         <Navigation />
-        <EnhancedHero3D />
+        <Hero />
         <div className="fade-in-up">
           <About3D />
         </div>
