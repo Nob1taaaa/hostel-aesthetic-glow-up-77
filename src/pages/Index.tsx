@@ -1,4 +1,5 @@
-import Hero3D from "@/components/Hero3D";
+
+import EnhancedHero3D from "@/components/EnhancedHero3D";
 import About3D from "@/components/About3D";
 import Rooms from "@/components/Rooms";
 import Facilities from "@/components/Facilities";
@@ -8,6 +9,8 @@ import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
+import SmoothScroll from "@/components/SmoothScroll";
+import ScrollAnimations from "@/components/ScrollAnimations";
 import { Helmet } from "react-helmet-async";
 
 const Index = () => {
@@ -57,14 +60,27 @@ const Index = () => {
       </Helmet>
       
       <div className="min-h-screen bg-black transition-colors duration-300">
+        <ScrollAnimations />
         <Navigation />
-        <Hero3D />
-        <About3D />
-        <Rooms />
-        <Facilities />
-        <Testimonials />
-        <Team />
-        <Contact />
+        <EnhancedHero3D />
+        <div className="fade-in-up">
+          <About3D />
+        </div>
+        <div className="scale-in">
+          <Rooms />
+        </div>
+        <div className="fade-in-up">
+          <Facilities />
+        </div>
+        <div className="stagger-children">
+          <Testimonials />
+        </div>
+        <div className="rotate-in">
+          <Team />
+        </div>
+        <div className="fade-in-up">
+          <Contact />
+        </div>
         <Footer />
         <Chatbot />
       </div>
