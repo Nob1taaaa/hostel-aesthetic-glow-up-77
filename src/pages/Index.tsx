@@ -1,5 +1,6 @@
 
-import AppleStyleHero from "@/components/AppleStyleHero";
+import StunningHero from "@/components/StunningHero";
+import VisualShowcase from "@/components/VisualShowcase";
 import SamsungStyleRooms from "@/components/SamsungStyleRooms";
 import About3D from "@/components/About3D";
 import Facilities from "@/components/Facilities";
@@ -61,7 +62,10 @@ const Index = () => {
       <div className="min-h-screen bg-black transition-colors duration-300">
         <PremiumScrollEffects />
         <Navigation />
-        <AppleStyleHero />
+        <StunningHero />
+        <div className="premium-section">
+          <VisualShowcase />
+        </div>
         <div className="premium-section">
           <About3D />
         </div>
