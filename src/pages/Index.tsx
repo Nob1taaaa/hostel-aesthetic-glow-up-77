@@ -1,7 +1,7 @@
 
-import Hero from "@/components/Hero";
-import About3D from "@/components/About3D";
-import Rooms from "@/components/Rooms";
+import VisualHero from "@/components/VisualHero";
+import ImageShowcase from "@/components/ImageShowcase";
+import Visual3DRooms from "@/components/Visual3DRooms";
 import Facilities from "@/components/Facilities";
 import Testimonials from "@/components/Testimonials";
 import Team from "@/components/Team";
@@ -9,7 +9,6 @@ import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
-import SmoothScroll from "@/components/SmoothScroll";
 import ScrollAnimations from "@/components/ScrollAnimations";
 import { Helmet } from "react-helmet-async";
 
@@ -62,12 +61,12 @@ const Index = () => {
       <div className="min-h-screen bg-black transition-colors duration-300">
         <ScrollAnimations />
         <Navigation />
-        <Hero />
+        <VisualHero />
         <div className="fade-in-up">
-          <About3D />
+          <ImageShowcase />
         </div>
         <div className="scale-in">
-          <Rooms />
+          <Visual3DRooms />
         </div>
         <div className="fade-in-up">
           <Facilities />
