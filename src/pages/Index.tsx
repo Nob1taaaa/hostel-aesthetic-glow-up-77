@@ -1,6 +1,5 @@
 
-import RevolutionaryHero from "@/components/RevolutionaryHero";
-import PremiumVisualShowcase from "@/components/PremiumVisualShowcase";
+import UltimateHero from "@/components/UltimateHero";
 import SamsungStyleRooms from "@/components/SamsungStyleRooms";
 import About3D from "@/components/About3D";
 import Facilities from "@/components/Facilities";
@@ -62,10 +61,7 @@ const Index = () => {
       <div className="min-h-screen bg-black transition-colors duration-300">
         <NextLevelScrollEffects />
         <Navigation />
-        <RevolutionaryHero />
-        <div className="premium-section">
-          <PremiumVisualShowcase />
-        </div>
+        <UltimateHero />
         <div className="premium-section">
           <About3D />
         </div>
