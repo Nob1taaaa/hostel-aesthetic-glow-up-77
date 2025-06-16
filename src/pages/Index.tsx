@@ -1,6 +1,6 @@
 
-import StunningHero from "@/components/StunningHero";
-import VisualShowcase from "@/components/VisualShowcase";
+import RevolutionaryHero from "@/components/RevolutionaryHero";
+import PremiumVisualShowcase from "@/components/PremiumVisualShowcase";
 import SamsungStyleRooms from "@/components/SamsungStyleRooms";
 import About3D from "@/components/About3D";
 import Facilities from "@/components/Facilities";
@@ -10,7 +10,7 @@ import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
-import PremiumScrollEffects from "@/components/PremiumScrollEffects";
+import NextLevelScrollEffects from "@/components/NextLevelScrollEffects";
 import { Helmet } from "react-helmet-async";
 
 const Index = () => {
@@ -60,11 +60,11 @@ const Index = () => {
       </Helmet>
       
       <div className="min-h-screen bg-black transition-colors duration-300">
-        <PremiumScrollEffects />
+        <NextLevelScrollEffects />
         <Navigation />
-        <StunningHero />
+        <RevolutionaryHero />
         <div className="premium-section">
-          <VisualShowcase />
+          <PremiumVisualShowcase />
         </div>
         <div className="premium-section">
           <About3D />
