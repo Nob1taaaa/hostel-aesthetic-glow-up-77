@@ -1,9 +1,9 @@
 
 import CuteHero from "@/components/CuteHero";
-import SamsungStyleRooms from "@/components/SamsungStyleRooms";
-import About3D from "@/components/About3D";
-import Facilities from "@/components/Facilities";
-import Testimonials from "@/components/Testimonials";
+import CuteSamsungStyleRooms from "@/components/CuteSamsungStyleRooms";
+import CuteAbout3D from "@/components/CuteAbout3D";
+import CuteFacilities from "@/components/CuteFacilities";
+import CuteTestimonials from "@/components/CuteTestimonials";
 import Team from "@/components/Team";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
@@ -63,16 +63,16 @@ const Index = () => {
         <Navigation />
         <CuteHero />
         <div className="premium-section">
-          <About3D />
+          <CuteAbout3D />
         </div>
         <div className="premium-section">
-          <SamsungStyleRooms />
+          <CuteSamsungStyleRooms />
         </div>
         <div className="premium-section">
-          <Facilities />
+          <CuteFacilities />
         </div>
         <div className="premium-section">
-          <Testimonials />
+          <CuteTestimonials />
         </div>
         <div className="premium-section">
           <Team />
