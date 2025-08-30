@@ -1,5 +1,5 @@
 
-import UltimateHero from "@/components/UltimateHero";
+import CuteHero from "@/components/CuteHero";
 import SamsungStyleRooms from "@/components/SamsungStyleRooms";
 import About3D from "@/components/About3D";
 import Facilities from "@/components/Facilities";
@@ -58,10 +58,10 @@ const Index = () => {
         </script>
       </Helmet>
       
-      <div className="min-h-screen bg-black transition-colors duration-300">
+      <div className="min-h-screen bg-background transition-colors duration-300">
         <NextLevelScrollEffects />
         <Navigation />
-        <UltimateHero />
+        <CuteHero />
         <div className="premium-section">
           <About3D />
         </div>
