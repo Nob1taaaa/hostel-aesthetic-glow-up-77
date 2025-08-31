@@ -92,7 +92,16 @@ const CuteTeam = () => {
         </div>
 
         {/* Team Cards - Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 justify-items-center">
+        <div className="hidden lg:flex lg:justify-center lg:items-center lg:gap-6 xl:gap-8 flex-wrap max-w-6xl mx-auto">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="flex-shrink-0">
+              <Cute3DTeamCard member={member} index={index} />
+            </div>
+          ))}
+        </div>
+
+        {/* Team Cards - Tablet Grid */}
+        <div className="hidden md:grid lg:hidden grid-cols-2 gap-8 justify-items-center max-w-2xl mx-auto">
           {teamMembers.map((member, index) => (
             <Cute3DTeamCard key={index} member={member} index={index} />
           ))}

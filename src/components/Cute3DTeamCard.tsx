@@ -98,46 +98,45 @@ const Cute3DTeamCard = ({ member, index }: Cute3DTeamCardProps) => {
           </svg>
         </motion.div>
 
-        {/* Animated logo circles */}
+        {/* Member Image - Centered and Visible */}
+        <div className="absolute inset-0 flex items-center justify-center" style={{ transform: "translate3d(0, 0, 30px)" }}>
+          <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl bg-white">
+            <img 
+              src={member.image} 
+              alt={member.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Animated decorative circles */}
         <div className="absolute right-0 top-0" style={{ transformStyle: "preserve-3d" }}>
           {[
-            { size: 170, z: 20, delay: 0, blur: "blur-sm" },
-            { size: 140, z: 40, delay: 0.4, blur: "blur-[1px]" },
-            { size: 110, z: 60, delay: 0.8, blur: "" },
-            { size: 80, z: 80, delay: 1.2, blur: "" },
-            { size: 50, z: 100, delay: 1.6, blur: "" }
+            { size: 60, z: 15, delay: 0 },
+            { size: 45, z: 25, delay: 0.2 },
+            { size: 30, z: 35, delay: 0.4 }
           ].map((circle, idx) => (
             <motion.div
               key={idx}
-              className={`absolute rounded-full bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md shadow-lg ${circle.blur}`}
+              className="absolute rounded-full bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm shadow-lg"
               style={{
                 width: circle.size,
                 height: circle.size,
-                top: 8 + idx * 5,
-                right: 8 + idx * 5,
+                top: 15 + idx * 10,
+                right: 15 + idx * 10,
                 transform: `translate3d(0, 0, ${circle.z}px)`,
                 transitionDelay: `${circle.delay}s`
               }}
               animate={{
                 rotate: [0, 360],
-                scale: [1, 1.1, 1]
+                scale: [0.9, 1.1, 0.9]
               }}
               transition={{
-                duration: 8 + idx * 2,
+                duration: 6 + idx * 2,
                 repeat: Infinity,
                 ease: "linear"
               }}
-            >
-              {idx === 4 && (
-                <div className="w-full h-full flex items-center justify-center">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-8 h-8 rounded-full object-cover border-2 border-white/30 shadow-lg"
-                  />
-                </div>
-              )}
-            </motion.div>
+            />
           ))}
         </div>
 
