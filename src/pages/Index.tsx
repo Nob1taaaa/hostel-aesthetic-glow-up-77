@@ -4,7 +4,7 @@ import CuteSamsungStyleRooms from "@/components/CuteSamsungStyleRooms";
 import CuteAbout3D from "@/components/CuteAbout3D";
 import CuteFacilities from "@/components/CuteFacilities";
 import CuteTestimonials from "@/components/CuteTestimonials";
-import Team from "@/components/Team";
+import CuteTeam from "@/components/CuteTeam";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -75,7 +75,7 @@ const Index = () => {
           <CuteTestimonials />
         </div>
         <div className="premium-section">
-          <Team />
+          <CuteTeam />
         </div>
         <div className="premium-section">
           <Contact />

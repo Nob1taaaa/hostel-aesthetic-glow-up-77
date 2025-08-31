@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Users, Shield, Heart, Award, Star } from "lucide-react";
+import CuteAnimatedCard from './CuteAnimatedCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -253,33 +254,16 @@ const CuteAbout3D = () => {
             </div>
           </motion.div>
 
-          {/* Visual Element */}
-          <motion.div 
-            className="relative h-96"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl"></div>
-            <div className="relative h-full rounded-3xl overflow-hidden border border-primary/30 backdrop-blur-sm shadow-xl">
-              <img 
-                src="/lovable-uploads/ddbc9905-e1c3-4fd3-8e0b-9d9c26953481.png" 
-                alt="Raksha Hostel Building" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-              
-              {/* Floating Stats */}
-              <div className="absolute top-6 left-6">
-                <StatsCounter number="4.9" label="Rating" icon="⭐" delay={0.5} />
-              </div>
-              
-              <div className="absolute bottom-6 right-6">
-                <StatsCounter number="500+" label="Happy Residents" icon="🏠" delay={1} />
-              </div>
-            </div>
-          </motion.div>
+        {/* Visual Element - Animated Card */}
+        <motion.div 
+          className="relative h-96"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <CuteAnimatedCard />
+        </motion.div>
         </div>
 
         {/* Features Grid */}
