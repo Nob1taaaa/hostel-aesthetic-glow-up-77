@@ -204,8 +204,8 @@ const CuteTestimonials = () => {
             >
               <Card className="group h-80 shadow-lg hover:shadow-xl transition-all duration-500 bg-gradient-to-br from-card to-card/80 border border-primary/20 hover:border-primary/40 relative overflow-hidden">
                 <CardContent className="p-6 h-full flex flex-col">
-                  {/* Rotating gradient border animation */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  {/* Rotating gradient border animation - Always visible */}
+                  <div className="absolute inset-0">
                     <div 
                       className="absolute inset-0 rounded-xl"
                       style={{
