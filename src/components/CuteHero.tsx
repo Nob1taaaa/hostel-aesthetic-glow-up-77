@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { Heart, Star, Sparkles, Home, Users, ShieldCheck } from 'lucide-react';
+import { Heart, Star, Sparkles, Home, Users, ShieldCheck, MessageCircle } from 'lucide-react';
 
 const CuteHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -36,7 +36,7 @@ const CuteHero = () => {
   return (
     <motion.section
       ref={containerRef}
-      style={{ y, opacity }}
+      style={{ y, opacity }} id="home"
       className="relative min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/10 flex items-center justify-center overflow-hidden"
     >
       {/* Cute floating elements */}
@@ -114,6 +114,11 @@ const CuteHero = () => {
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground/80 mb-6">
             Your Home Away From Home
           </h2>
+          <div className="inline-flex items-center gap-2 bg-white/70 dark:bg-white/10 backdrop-blur-sm border border-white/40 dark:border-white/20 text-foreground px-5 py-2 rounded-full shadow-sm">
+            <span className="text-xl">✨</span>
+            <span className="text-sm font-medium">India's cutest, coziest student stay</span>
+            <span className="text-xl">💕</span>
+          </div>
         </motion.div>
 
         {/* Rotating feature showcase */}
@@ -197,10 +202,11 @@ const CuteHero = () => {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button
             size="lg"
-            className="bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white px-12 py-6 text-xl font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+            className="bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white px-10 py-6 text-lg md:text-xl font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
             onClick={scrollToRooms}
           >
             <span className="flex items-center gap-3">
@@ -209,9 +215,19 @@ const CuteHero = () => {
                 animate={{ x: [0, 5, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Heart className="w-6 h-6 group-hover:fill-current transition-all duration-300" />
+                <Heart className="w-5 h-5 md:w-6 md:h-6 group-hover:fill-current transition-all duration-300" />
               </motion.span>
             </span>
+          </Button>
+          <Button
+            size="lg"
+            variant="secondary"
+            className="px-10 py-6 text-lg md:text-xl rounded-full border border-white/40 dark:border-white/10 bg-white/70 dark:bg-white/10 backdrop-blur-md hover:bg-white/90 dark:hover:bg-white/20"
+            asChild
+          >
+            <a href="https://wa.me/918743836836" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+              <MessageCircle className="w-5 h-5 md:w-6 md:h-6" /> Chat on WhatsApp
+            </a>
           </Button>
         </motion.div>
       </div>
