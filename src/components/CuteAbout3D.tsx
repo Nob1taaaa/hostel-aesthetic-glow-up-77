@@ -333,6 +333,11 @@ const CuteAbout3D = () => {
                     </h4>
                     <p className="text-primary-foreground/90">{item.description}</p>
                   </div>
+
+                  <div className="absolute bottom-4 right-4 z-30">
+                    {/* Super cute rotating gradient badge */}
+                    <div className="cute-rot-badge"><h2>LOVE</h2></div>
+                  </div>
                 </div>
               </motion.div>
             ))}
