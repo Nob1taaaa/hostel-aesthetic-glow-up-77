@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Quote, Play, Pause, Heart } from "lucide-react";
+import { Star, Quote, Play, Pause, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -12,7 +12,7 @@ const CuteTestimonials = () => {
       role: "Engineering Student",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b47b?w=100&h=100&fit=crop&crop=face",
       rating: 5,
-      comment: "Amazing hostel with great facilities! The staff is very friendly and the rooms are always clean. Perfect for students like me. 💕"
+      comment: "Amazing hostel with great facilities! The staff is very friendly and the rooms are always clean. Perfect for students like me."
     },
     {
       name: "Rahul Kumar",
@@ -40,7 +40,7 @@ const CuteTestimonials = () => {
       role: "IT Professional",
       image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=100&h=100&fit=crop&crop=face",
       rating: 5,
-      comment: "Perfect place for working professionals. Clean, safe, and well-maintained with great internet connectivity. 💖"
+      comment: "Perfect place for working professionals. Clean, safe, and well-maintained with great internet connectivity."
     }
   ];
 
@@ -65,7 +65,7 @@ const CuteTestimonials = () => {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <Heart className="w-5 h-5 text-primary" />
+            <Sparkles className="w-5 h-5 text-primary" />
             <span className="text-primary font-bold">Happy Stories</span>
           </motion.div>
 
@@ -74,7 +74,7 @@ const CuteTestimonials = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6 rounded-full"></div>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Real experiences from our happy residents 💕
+            Real experiences from our happy residents
           </p>
         </motion.div>
 
@@ -128,8 +128,8 @@ const CuteTestimonials = () => {
                           repeat: Infinity,
                           delay: index * 0.2
                         }}
-                      >
-                        💕
+>
+                        ✨
                       </motion.div>
 
                       <div className="flex items-center mb-4">
@@ -310,7 +310,7 @@ const CuteTestimonials = () => {
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full px-8 py-4 backdrop-blur-sm border border-primary/20">
             <span className="text-2xl">🌟</span>
             <span className="text-foreground font-semibold text-lg">Join our happy family today!</span>
-            <span className="text-2xl">💖</span>
+            <span className="text-2xl">✨</span>
           </div>
         </motion.div>
       </div>
