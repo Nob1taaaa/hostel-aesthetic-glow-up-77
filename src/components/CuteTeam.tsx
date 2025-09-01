@@ -129,7 +129,7 @@ const CuteTeam = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[
               { icon: "🏆", number: "15+", label: "Years Combined Experience" },
-              { icon: "💖", number: "500+", label: "Happy Students" },
+              { icon: "✨", number: "500+", label: "Happy Students" },
               { icon: "🌟", number: "4.9", label: "Average Rating" },
               { icon: "🎯", number: "24/7", label: "Dedicated Support" }
             ].map((stat, index) => (
