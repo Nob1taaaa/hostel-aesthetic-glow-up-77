@@ -171,7 +171,7 @@ const CuteAbout3D = () => {
   return (
     <motion.section 
       ref={containerRef}
-      style={{ opacity }}
+      style={{ opacity }} id="about"
       className="relative py-20 bg-gradient-to-br from-background via-primary/5 to-secondary/5 overflow-hidden"
     >
       {/* Cute floating elements */}
