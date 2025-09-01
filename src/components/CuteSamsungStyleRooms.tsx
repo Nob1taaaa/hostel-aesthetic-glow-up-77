@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Star, Crown } from 'lucide-react';
+import { Sparkles, Star, Crown } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +40,7 @@ const CuteSamsungStyleRooms = () => {
       features: ["👥 Twin Comfort", "📚 Study Zone", "⚡ Ultra WiFi", "🎛️ Smart AC", "✨ Designer Bath", "🔒 Secure Lockers"],
       color: "from-brand-green to-brand-green/80",
       popular: true,
-      icon: Heart
+      icon: Sparkles
     },
     {
       id: 3,
@@ -209,7 +209,7 @@ const CuteSamsungStyleRooms = () => {
                     transition={{ duration: 2, repeat: Infinity }}
                   >
                     <Badge className="bg-gradient-to-r from-primary to-secondary text-white font-bold px-3 py-1 text-sm shadow-md">
-                      💖 Most Popular
+                      Most Popular ✨
                     </Badge>
                   </motion.div>
                 )}
@@ -289,8 +289,8 @@ const CuteSamsungStyleRooms = () => {
                       <motion.span
                         animate={{ x: [0, 3, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        💕
+>
+                        ✨
                       </motion.span>
                     </span>
                   </Button>
