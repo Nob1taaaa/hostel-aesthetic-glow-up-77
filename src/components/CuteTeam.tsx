@@ -77,7 +77,15 @@ const CuteTeam = () => {
               OUR TEAM
             </h2>
             
-            <div className="w-32 h-2 bg-gradient-to-r from-primary via-secondary to-accent mx-auto mb-8 rounded-full"></div>
+            <div className="w-32 h-2 bg-gradient-to-r from-primary via-secondary to-accent mx-auto mb-2 rounded-full"></div>
+            <motion.div
+              className="mx-auto text-xl text-primary/60"
+              initial={{ opacity: 0.8, y: 0 }}
+              animate={{ y: [0, -4, 0], opacity: [0.8, 1, 0.8] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              ✨
+            </motion.div>
           </motion.div>
           
           <motion.p 
@@ -87,7 +95,7 @@ const CuteTeam = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">visionary leaders</span> who make Raksha Hostel your perfect home! ✨
+            Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">visionary leaders</span> who make Raksha Hostel your perfect home!
           </motion.p>
         </div>
 
