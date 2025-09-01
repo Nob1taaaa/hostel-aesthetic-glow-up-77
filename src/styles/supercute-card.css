@@ -13,8 +13,7 @@
 .sc-cardBox:hover::after{background:radial-gradient(900px circle at var(--x,50%) var(--y,50%),rgba(255,255,255,.12),transparent 40%),#000814}
 
 /* Lightweight ring wrapper to add animation only on the border */
-.sc-ring{position:relative;border-radius:22px;isolation:isolate}
-.sc-ring::before{content:"";position:absolute;inset:-2px;border-radius:inherit;padding:2px;background:conic-gradient(from 0deg,#FF0080,#FF8C00,#40E0D0,#FF0080);animation:sc-glow-rot 4s linear infinite;filter:brightness(1.3) saturate(1.2);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none; z-index:1}
+.sc-ring{position:relative;border-radius:22px;padding:2px}
+.sc-ring::before{content:"";position:absolute;inset:0;border-radius:inherit;background:conic-gradient(from 0deg,#FF0080,#FF8C00,#40E0D0,#FF0080);animation:sc-glow-rot 4s linear infinite;filter:brightness(1.25) saturate(1.15);z-index:0}
+.sc-ring>*{position:relative;z-index:1;border-radius:20px;overflow:hidden}
 @keyframes sc-glow-rot{to{transform:rotate(360deg)}}
