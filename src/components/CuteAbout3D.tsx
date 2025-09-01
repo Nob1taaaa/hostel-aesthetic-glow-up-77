@@ -336,7 +336,7 @@ const CuteAbout3D = () => {
 
                   <div className="absolute bottom-4 right-4 z-30">
                     {/* Super cute rotating gradient badge */}
-                    <div className="cute-rot-badge"><h2>LOVE</h2></div>
+                    <div className="cute-rot-badge"><h2>CARD</h2></div>
                   </div>
                 </div>
               </motion.div>
