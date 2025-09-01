@@ -60,6 +60,21 @@ const Index = () => {
         <Navigation />
         <div id="home" />
         <CuteAbout3D />
+        <div className="premium-section">
+          <CuteSamsungStyleRooms />
+        </div>
+        <div className="premium-section">
+          <CuteFacilities />
+        </div>
+        <div className="premium-section">
+          <CuteTestimonials />
+        </div>
+        <div className="premium-section">
+          <CuteTeam />
+        </div>
+        <div className="premium-section">
+          <Contact />
+        </div>
         <Footer />
         <Chatbot />
       </div>
