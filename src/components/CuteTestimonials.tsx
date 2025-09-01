@@ -204,8 +204,27 @@ const CuteTestimonials = () => {
             >
               <Card className="group h-80 shadow-lg hover:shadow-xl transition-all duration-500 bg-gradient-to-br from-card to-card/80 border border-primary/20 hover:border-primary/40 relative overflow-hidden">
                 <CardContent className="p-6 h-full flex flex-col">
-                  {/* Cute background pattern */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  {/* Rotating gradient border animation */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div 
+                      className="absolute inset-0 rounded-xl"
+                      style={{
+                        background: 'linear-gradient(180deg, #ea641d, #218a9e, #34424d)',
+                        animation: 'rotBorder 3s linear infinite',
+                        width: '100px',
+                        height: '130%',
+                        left: '50%',
+                        top: '50%',
+                        transform: 'translate(-50%, -50%)'
+                      }}
+                    />
+                    <div 
+                      className="absolute inset-1 rounded-lg z-10"
+                      style={{
+                        background: 'hsl(var(--card))'
+                      }}
+                    />
+                  </div>
                   
                   {/* Cute floating hearts */}
                   <motion.div 
