@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Users, Shield, Heart, Award, Star } from "lucide-react";
 import CuteAnimatedCard from './CuteAnimatedCard';
-import SuperCuteCard from './SuperCuteCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -268,9 +267,11 @@ const CuteAbout3D = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20 place-items-center">
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
           {features.map((feature, index) => (
-            <SuperCuteCard key={index} title={feature.title} description={feature.description} />
+            <div key={index} className="sc-ring rounded-3xl overflow-hidden">
+              <CuteCard feature={feature} index={index} delay={0.3} />
+            </div>
           ))}
         </div>
 
