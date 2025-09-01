@@ -30,7 +30,7 @@ function CuteCard({ feature, index, delay = 0 }: { feature: any, index: number, 
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl blur-xl group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-500"></div>
       
-      <div className="relative bg-card backdrop-blur-sm border border-primary/20 rounded-3xl p-8 group-hover:border-primary/40 transition-all duration-500 shadow-lg hover:shadow-xl">
+      <div className="relative bg-card border border-primary/20 rounded-3xl p-8 group-hover:border-primary/40 transition-all duration-500 shadow-lg hover:shadow-xl">
         <motion.div 
           className="text-center"
           whileHover={{ scale: 1.05 }}
@@ -210,7 +210,7 @@ const CuteAbout3D = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="inline-flex items-center gap-3 bg-primary/10 rounded-full px-6 py-3 mb-6 backdrop-blur-sm border border-primary/20">
+            <div className="inline-flex items-center gap-3 bg-primary/10 rounded-full px-6 py-3 mb-6 border border-primary/20">
               <Award className="w-6 h-6 text-primary" />
               <span className="text-primary font-semibold">Award-Winning Experience</span>
             </div>
@@ -242,7 +242,7 @@ const CuteAbout3D = () => {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl blur-xl"></div>
-              <div className="relative bg-card/80 backdrop-blur-sm border border-primary/20 rounded-3xl p-8">
+              <div className="relative bg-card/90 border border-primary/20 rounded-3xl p-8">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   Raksha Hostels stands as one of Delhi's most <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">luxurious yet affordable</span> accommodations, strategically located in the heart of Greater Noida. We take immense pride in our proximity to prestigious institutions like Heritage College and Red Square.
                 </p>

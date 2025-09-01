@@ -36,7 +36,7 @@ const Cute3DTeamCard = ({ member, index }: Cute3DTeamCardProps) => {
       >
         {/* Glass overlay */}
         <div 
-          className="absolute inset-2 rounded-[45px] bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm border-l border-b border-white/20 transition-all duration-500"
+          className="absolute inset-2 rounded-[45px] bg-gradient-to-br from-white/20 to-white/5 border-l border-b border-white/10 transition-all duration-500"
           style={{ transform: "translate3d(0px, 0px, 25px)" }}
         />
 
@@ -94,7 +94,7 @@ const Cute3DTeamCard = ({ member, index }: Cute3DTeamCardProps) => {
           ].map((circle, idx) => (
             <motion.div
               key={idx}
-              className="absolute rounded-full bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm shadow-lg"
+              className="absolute rounded-full bg-gradient-to-br from-white/20 to-white/5 shadow-lg"
               style={{
                 width: circle.size,
                 height: circle.size,

@@ -9,7 +9,6 @@ import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
-import NextLevelScrollEffects from "@/components/NextLevelScrollEffects";
 import { Helmet } from "react-helmet-async";
 
 const Index = () => {
@@ -59,7 +58,6 @@ const Index = () => {
       </Helmet>
       
       <div className="min-h-screen bg-background transition-colors duration-300">
-        <NextLevelScrollEffects />
         <Navigation />
         <CuteHero />
         <div className="premium-section">
