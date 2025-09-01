@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Quote, Play, Pause, Sparkles } from "lucide-react";
+import { Star, Quote, Play, Pause } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -59,13 +59,12 @@ const CuteTestimonials = () => {
             animate={{
               boxShadow: [
                 "0 0 20px rgba(234, 100, 29, 0.1)",
-                "0 0 30px rgba(33, 138, 158, 0.1)", 
+                "0 0 30px rgba(33, 138, 158, 0.1)",
                 "0 0 20px rgba(234, 100, 29, 0.1)"
               ]
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <Sparkles className="w-5 h-5 text-primary" />
             <span className="text-primary font-bold">Happy Stories</span>
           </motion.div>
 
@@ -116,22 +115,7 @@ const CuteTestimonials = () => {
                 >
                   <Card className="group h-96 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-card to-card/80 border border-primary/20 hover:border-primary/40">
                     <CardContent className="p-6 h-full flex flex-col">
-                      {/* Cute floating hearts */}
-                      <motion.div 
-                        className="absolute top-2 right-2 text-primary/60 opacity-0 group-hover:opacity-100"
-                        animate={{ 
-                          y: [0, -5, 0],
-                          rotate: [0, 10, 0]
-                        }}
-                        transition={{ 
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: index * 0.2
-                        }}
->
-                        ✨
-                      </motion.div>
-
+    
                       <div className="flex items-center mb-4">
                         <Quote className="w-8 h-8 text-primary/60" />
                       </div>
@@ -310,7 +294,6 @@ const CuteTestimonials = () => {
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full px-8 py-4 backdrop-blur-sm border border-primary/20">
             <span className="text-2xl">🌟</span>
             <span className="text-foreground font-semibold text-lg">Join our happy family today!</span>
-            <span className="text-2xl">✨</span>
           </div>
         </motion.div>
       </div>
