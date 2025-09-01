@@ -117,3 +117,5 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+
+@import url('./styles/cute-glow-search.css');

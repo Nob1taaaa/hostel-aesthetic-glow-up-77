@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Users, Shield, Heart, Award, Star } from "lucide-react";
 import CuteAnimatedCard from './CuteAnimatedCard';
+import CuteGlowSearch from './CuteGlowSearch';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -315,14 +316,18 @@ const CuteAbout3D = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 
                 <div className="relative rounded-3xl overflow-hidden border border-primary/30 group-hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  <img 
-                    src={item.image} 
+                  <img
+                    src={item.image}
                     alt={item.title}
                     className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  
-                  <div className="absolute bottom-6 left-6 text-white">
+
+                  <div className="absolute top-6 right-6 hidden md:block z-20">
+                    <CuteGlowSearch />
+                  </div>
+
+                  <div className="absolute bottom-6 left-6 text-white z-10">
                     <h4 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-primary-foreground to-secondary-foreground">
                       {item.title}
                     </h4>
