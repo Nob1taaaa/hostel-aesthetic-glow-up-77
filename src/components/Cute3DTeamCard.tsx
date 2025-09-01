@@ -40,73 +40,49 @@ const Cute3DTeamCard = ({ member, index }: Cute3DTeamCardProps) => {
           style={{ transform: "translate3d(0px, 0px, 25px)" }}
         />
 
-        {/* Content */}
-        <div 
-          className="absolute top-[100px] left-8 right-16"
-          style={{ transform: "translate3d(0, 0, 26px)" }}
-        >
-          <span className="block text-white font-black text-xl mb-4 drop-shadow-lg">
-            {member.name} 💫
-          </span>
-          <span className="block text-white/90 text-sm leading-relaxed drop-shadow">
-            {member.role}
-          </span>
-        </div>
-
-        {/* Social buttons */}
-        <div 
-          className="absolute bottom-5 left-5 flex gap-2"
-          style={{ 
-            transformStyle: "preserve-3d",
-            transform: "translate3d(0, 0, 26px)" 
-          }}
-        >
-          {[
-            { icon: "📧", delay: "0.4s" },
-            { icon: "📱", delay: "0.6s" }, 
-            { icon: "💼", delay: "0.8s" }
-          ].map((social, idx) => (
-            <motion.button
-              key={idx}
-              className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-sm shadow-md hover:shadow-lg transition-all duration-300 hover:bg-primary hover:text-white"
-              whileHover={{ 
-                scale: 1.2,
-                rotate: 15,
-                transform: "translate3d(0, 0, 50px)"
-              }}
-              style={{
-                transitionDelay: social.delay
-              }}
-            >
-              {social.icon}
-            </motion.button>
-          ))}
-        </div>
-
-        {/* View more */}
-        <motion.div 
-          className="absolute bottom-5 right-5 flex items-center text-white/80 text-xs font-bold cursor-pointer"
-          style={{ transform: "translate3d(0, 0, 26px)" }}
-          whileHover={{ 
-            scale: 1.1,
-            transform: "translate3d(0, 0, 10px)"
-          }}
-        >
-          <span className="mr-1">View more</span>
-          <svg className="w-3 h-3 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
-            <path d="m6 9 6 6 6-6" />
-          </svg>
-        </motion.div>
-
-        {/* Member Image - Centered and Visible */}
-        <div className="absolute inset-0 flex items-center justify-center" style={{ transform: "translate3d(0, 0, 30px)" }}>
-          <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl bg-white">
+        {/* Member Image - Top Center */}
+        <div className="absolute top-8 left-1/2 transform -translate-x-1/2" style={{ transform: "translate(-50%, 0) translate3d(0, 0, 30px)" }}>
+          <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white/40 shadow-2xl bg-white">
             <img 
               src={member.image} 
               alt={member.name}
               className="w-full h-full object-cover"
             />
           </div>
+        </div>
+
+        {/* Content - Centered below image */}
+        <div 
+          className="absolute top-36 left-4 right-4 text-center"
+          style={{ transform: "translate3d(0, 0, 26px)" }}
+        >
+          <h3 className="text-white font-black text-lg mb-3 drop-shadow-lg leading-tight">
+            {member.name}
+          </h3>
+          <p className="text-white/90 text-sm leading-relaxed drop-shadow px-2">
+            {member.role}
+          </p>
+        </div>
+
+        {/* Cute heart at bottom */}
+        <div 
+          className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
+          style={{ transform: "translate(-50%, 0) translate3d(0, 0, 26px)" }}
+        >
+          <motion.div
+            className="text-2xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 10, -10, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            💖
+          </motion.div>
         </div>
 
         {/* Animated decorative circles */}
