@@ -46,7 +46,7 @@ const CuteFacilities = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6 rounded-full"></div>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Everything you need for a comfortable and happy stay 💖
+            Everything you need for a comfortable and happy stay ✨
           </p>
         </motion.div>
 
@@ -92,7 +92,7 @@ const CuteFacilities = () => {
                   {facility.description}
                 </p>
 
-                {/* Cute floating hearts */}
+                {/* Cute floating sparkles */}
                 <motion.div
                   className="absolute -top-1 -right-1 text-primary/60 opacity-0 group-hover:opacity-100"
                   animate={{ 
@@ -105,7 +105,7 @@ const CuteFacilities = () => {
                     delay: index * 0.3
                   }}
                 >
-                  💕
+                  ✨
                 </motion.div>
               </div>
             </motion.div>
@@ -123,7 +123,7 @@ const CuteFacilities = () => {
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full px-8 py-4 backdrop-blur-sm border border-primary/20">
             <span className="text-2xl">🏠</span>
             <span className="text-foreground font-semibold text-lg">Your comfort is our priority!</span>
-            <span className="text-2xl">💖</span>
+            <span className="text-2xl">✨</span>
           </div>
         </motion.div>
       </div>
