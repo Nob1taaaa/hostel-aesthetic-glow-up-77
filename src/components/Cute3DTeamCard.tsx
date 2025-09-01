@@ -13,7 +13,7 @@ interface Cute3DTeamCardProps {
 
 const Cute3DTeamCard = ({ member, index }: Cute3DTeamCardProps) => {
   return (
-    <div className="relative w-[290px] h-[300px] perspective-1000">
+    <div className="relative w-[290px] h-[320px] perspective-1000">
       <motion.div 
         className="relative h-full rounded-[50px] bg-gradient-to-br from-primary via-secondary to-accent transition-all duration-500 shadow-lg hover:shadow-2xl"
         style={{
