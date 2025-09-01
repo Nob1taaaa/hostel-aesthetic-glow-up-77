@@ -229,7 +229,7 @@ const CuteAbout3D = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Come, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">"Experience the new way of living."</span> ✨
+            Come, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">"Experience the new way of living."</span>
           </motion.p>
         </div>
 
