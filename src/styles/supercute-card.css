@@ -11,3 +11,8 @@
 @keyframes sc-glowing{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
 .sc-cardBox::after{content:"";position:absolute;inset:4px;border-radius:18px;background:radial-gradient(1200px circle at var(--x,50%) var(--y,50%),rgba(255,255,255,.08),transparent 40%),#000814;z-index:1}
 .sc-cardBox:hover::after{background:radial-gradient(900px circle at var(--x,50%) var(--y,50%),rgba(255,255,255,.12),transparent 40%),#000814}
+
+/* Lightweight ring wrapper to add animation without changing inner content */
+.sc-ring{position:relative;overflow:hidden;border-radius:20px}
+.sc-ring::before{content:"";position:absolute;inset:auto;left:50%;top:50%;width:45%;height:160%;transform:translate(-50%,-50%);background:linear-gradient(to right,#FF0080,#FF8C00,#40E0D0);animation:sc-glowing 4s linear infinite;filter:brightness(1.2) saturate(1.1);z-index:0}
+.sc-ring::after{content:"";position:absolute;inset:2px;border-radius:18px;background:transparent;z-index:0}
