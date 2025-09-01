@@ -323,7 +323,7 @@ const CuteAbout3D = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
-                  <div className="absolute top-6 right-6 hidden md:block z-20">
+                  <div className="absolute top-4 right-4 z-20">
                     <CuteGlowSearch />
                   </div>
 
