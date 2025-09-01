@@ -5,7 +5,7 @@ const CuteAnimatedCard = () => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="relative flex justify-center items-center min-h-[500px] p-8">
+    <div className="relative flex justify-center items-center min-h-[500px] p-8 -mt-6 md:-mt-10">
       <div className="relative w-[360px] h-[260px] sm:w-[480px] sm:h-[340px] md:w-[560px] md:h-[400px] lg:w-[680px] lg:h-[460px] rounded-2xl">
         {/* SVG Filters */}
         <svg style={{ position: "absolute", width: 0, height: 0 }}>
