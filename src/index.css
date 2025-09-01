@@ -106,12 +106,14 @@
   body {
     @apply bg-background text-foreground;
   }
-  /* Rotating border animation for testimonials */
-  @keyframes rotBorder {
-    from {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-      transform: translate(-50%, -50%) rotate(360deg);
-    }
+}
+
+/* Rotating border animation for testimonials */
+@keyframes rotBorder {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
