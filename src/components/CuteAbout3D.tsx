@@ -229,7 +229,7 @@ const CuteAbout3D = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Come, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">"Experience the new way of living."</span> 💖
+            Come, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">"Experience the new way of living."</span> ✨
           </motion.p>
         </div>
 
@@ -350,7 +350,7 @@ const CuteAbout3D = () => {
           <StatsCounter number="500+" label="Happy Students" icon="🎓" delay={0.2} />
           <StatsCounter number="5" label="Years Experience" icon="🏆" delay={0.4} />
           <StatsCounter number="24" label="Hour Support" icon="💎" delay={0.6} />
-          <StatsCounter number="100%" label="Satisfaction" icon="💖" delay={0.8} />
+          <StatsCounter number="100%" label="Satisfaction" icon="✨" delay={0.8} />
         </motion.div>
       </div>
     </motion.section>
