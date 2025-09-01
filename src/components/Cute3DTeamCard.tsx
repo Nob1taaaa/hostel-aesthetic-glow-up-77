@@ -81,7 +81,7 @@ const Cute3DTeamCard = ({ member, index }: Cute3DTeamCardProps) => {
               ease: "easeInOut"
             }}
           >
-            💖
+            ✨
           </motion.div>
         </div>
 
@@ -137,7 +137,7 @@ const Cute3DTeamCard = ({ member, index }: Cute3DTeamCardProps) => {
                 delay: Math.random() * 2,
               }}
             >
-              {i % 2 === 0 ? "✨" : "💖"}
+              {i % 2 === 0 ? "✨" : "✨"}
             </motion.div>
           ))}
         </div>
