@@ -171,7 +171,7 @@ const CuteAbout3D = () => {
   return (
     <motion.section 
       ref={containerRef}
-      style={{ opacity }}
+      style={{ opacity }} id="about"
       className="relative py-20 bg-gradient-to-br from-background via-primary/5 to-secondary/5 overflow-hidden"
     >
       {/* Cute floating elements */}
@@ -229,7 +229,7 @@ const CuteAbout3D = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Come, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">"Experience the new way of living."</span> 💖
+            Come, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">"Experience the new way of living."</span>
           </motion.p>
         </div>
 
@@ -269,12 +269,9 @@ const CuteAbout3D = () => {
         {/* Features Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-20">
           {features.map((feature, index) => (
-            <CuteCard 
-              key={index} 
-              feature={feature} 
-              index={index} 
-              delay={0.3}
-            />
+            <div key={index} className="sc-ring rounded-3xl overflow-hidden">
+              <CuteCard feature={feature} index={index} delay={0.3} />
+            </div>
           ))}
         </div>
 
@@ -315,18 +312,23 @@ const CuteAbout3D = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 
                 <div className="relative rounded-3xl overflow-hidden border border-primary/30 group-hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  <img 
-                    src={item.image} 
+                  <img
+                    src={item.image}
                     alt={item.title}
                     className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  
-                  <div className="absolute bottom-6 left-6 text-white">
+
+                  <div className="absolute bottom-6 left-6 text-white z-10">
                     <h4 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-primary-foreground to-secondary-foreground">
                       {item.title}
                     </h4>
                     <p className="text-primary-foreground/90">{item.description}</p>
+                  </div>
+
+                  <div className="absolute bottom-4 right-4 z-30">
+                    {/* Super cute rotating gradient badge */}
+                    <div className="cute-rot-badge"><h2>CARD</h2></div>
                   </div>
                 </div>
               </motion.div>
@@ -345,7 +347,7 @@ const CuteAbout3D = () => {
           <StatsCounter number="500+" label="Happy Students" icon="🎓" delay={0.2} />
           <StatsCounter number="5" label="Years Experience" icon="🏆" delay={0.4} />
           <StatsCounter number="24" label="Hour Support" icon="💎" delay={0.6} />
-          <StatsCounter number="100%" label="Satisfaction" icon="💖" delay={0.8} />
+          <StatsCounter number="100%" label="Satisfaction" icon="✨" delay={0.8} />
         </motion.div>
       </div>
     </motion.section>

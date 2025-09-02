@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Star, Crown } from 'lucide-react';
+import { Home as HomeIcon, Users, Crown } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +40,7 @@ const CuteSamsungStyleRooms = () => {
       features: ["👥 Twin Comfort", "📚 Study Zone", "⚡ Ultra WiFi", "🎛️ Smart AC", "✨ Designer Bath", "🔒 Secure Lockers"],
       color: "from-brand-green to-brand-green/80",
       popular: true,
-      icon: Heart
+      icon: Users
     },
     {
       id: 3,
@@ -51,7 +51,7 @@ const CuteSamsungStyleRooms = () => {
       features: ["👫 Triple Joy", "📖 Common Study", "📶 Free WiFi", "🌪️ AC/Fan Options", "🚿 Shared Facilities", "📦 Storage Space"],
       color: "from-brand-grey to-brand-grey/80",
       popular: false,
-      icon: Star
+      icon: HomeIcon
     }
   ];
 
@@ -209,7 +209,7 @@ const CuteSamsungStyleRooms = () => {
                     transition={{ duration: 2, repeat: Infinity }}
                   >
                     <Badge className="bg-gradient-to-r from-primary to-secondary text-white font-bold px-3 py-1 text-sm shadow-md">
-                      💖 Most Popular
+                      Most Popular ✨
                     </Badge>
                   </motion.div>
                 )}
@@ -235,19 +235,12 @@ const CuteSamsungStyleRooms = () => {
                     <div className="text-muted-foreground text-xs text-center">per month</div>
                   </motion.div>
 
-                  {/* Cute icon */}
-                  <motion.div
-                    className="absolute bottom-4 right-4"
-                    animate={{ 
-                      rotate: [0, 10, -10, 0],
-                      scale: [1, 1.1, 1]
-                    }}
-                    transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
-                  >
-                    <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
-                      <room.icon className="w-6 h-6 text-primary" />
+                  {/* Minimal icon */}
+                  <div className="absolute bottom-4 right-4">
+                    <div className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
+                      <room.icon className="w-5 h-5 text-primary" />
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Room content */}
@@ -284,15 +277,7 @@ const CuteSamsungStyleRooms = () => {
                         repeatDelay: 2
                       }}
                     />
-                    <span className="relative flex items-center justify-center gap-2">
-                      <span>Book This Room</span>
-                      <motion.span
-                        animate={{ x: [0, 3, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        💕
-                      </motion.span>
-                    </span>
+                    <span className="relative flex items-center justify-center">Book This Room</span>
                   </Button>
                 </div>
               </div>

@@ -64,26 +64,6 @@ const Cute3DTeamCard = ({ member, index }: Cute3DTeamCardProps) => {
           </p>
         </div>
 
-        {/* Cute heart at bottom */}
-        <div 
-          className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
-          style={{ transform: "translate(-50%, 0) translate3d(0, 0, 26px)" }}
-        >
-          <motion.div
-            className="text-2xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 10, -10, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            💖
-          </motion.div>
-        </div>
 
         {/* Animated decorative circles */}
         <div className="absolute right-0 top-0" style={{ transformStyle: "preserve-3d" }}>
@@ -116,31 +96,6 @@ const Cute3DTeamCard = ({ member, index }: Cute3DTeamCardProps) => {
           ))}
         </div>
 
-        {/* Cute floating elements */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[50px]">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute text-lg"
-              style={{
-                left: `${20 + Math.random() * 60}%`,
-                top: `${20 + Math.random() * 60}%`,
-              }}
-              animate={{
-                y: [0, -15, 0],
-                rotate: [0, 180, 360],
-                opacity: [0.3, 0.8, 0.3],
-              }}
-              transition={{
-                duration: 4 + Math.random() * 3,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            >
-              {i % 2 === 0 ? "✨" : "💖"}
-            </motion.div>
-          ))}
-        </div>
       </motion.div>
     </div>
   );

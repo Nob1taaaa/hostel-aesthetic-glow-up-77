@@ -5,8 +5,8 @@ const CuteAnimatedCard = () => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="relative flex justify-center items-center min-h-[400px] p-8">
-      <div className="relative w-[400px] h-[300px] rounded-2xl">
+    <div className="relative flex justify-center items-center min-h-[500px] p-8 -mt-12 md:-mt-20 lg:-mt-24">
+      <div className="relative w-[360px] h-[260px] sm:w-[480px] sm:h-[340px] md:w-[560px] md:h-[400px] lg:w-[680px] lg:h-[460px] rounded-2xl">
         {/* SVG Filters */}
         <svg style={{ position: "absolute", width: 0, height: 0 }}>
           <filter id="unopaq" y="-100%" height="300%" x="-100%" width="300%">

@@ -1,0 +1,8 @@
+.cute-rot-badge{width:160px;height:80px;background:#07182E;position:relative;display:flex;place-content:center;place-items:center;overflow:hidden;border-radius:16px;pointer-events:none;z-index:40;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+@media (min-width:640px){.cute-rot-badge{width:190px;height:96px;border-radius:20px}}
+.cute-rot-badge h2{z-index:1;color:#fff;font-size:20px;letter-spacing:.08em;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+@media (min-width:640px){.cute-rot-badge h2{font-size:24px}}
+.cute-rot-badge::before{content:"";position:absolute;width:160px;height:160%;background-image:linear-gradient(180deg,rgb(0,183,255),rgb(255,48,255));animation:rotBGimg 2.2s linear infinite;transition:all .2s linear;filter:brightness(1.5) saturate(1.3)}
+@keyframes rotBGimg{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.cute-rot-badge::after{content:"";position:absolute;background:#07182E;inset:3px;border-radius:14px}
+@media (min-width:640px){.cute-rot-badge::after{inset:4px;border-radius:16px}}
