@@ -222,15 +222,29 @@ const CuteAbout3D = () => {
             <div className="w-32 h-2 bg-gradient-to-r from-primary via-secondary to-accent mx-auto mb-8 rounded-full"></div>
           </motion.div>
           
-          <motion.p 
-            className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed"
+          <motion.div 
+            className="max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Come, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">"Experience the new way of living."</span>
-          </motion.p>
+            <p className="text-3xl text-muted-foreground leading-relaxed mb-4">
+              Come, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">"Experience the new way of living."</span>
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <div className="bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full px-6 py-3 border border-primary/30">
+                <span className="text-lg font-semibold text-primary">🏠 Your Home Away From Home</span>
+              </div>
+              <div className="bg-gradient-to-r from-secondary/20 to-accent/20 rounded-full px-6 py-3 border border-secondary/30">
+                <span className="text-lg font-semibold text-secondary">💫 Premium Student Living</span>
+              </div>
+              <div className="bg-gradient-to-r from-accent/20 to-primary/20 rounded-full px-6 py-3 border border-accent/30">
+                <span className="text-lg font-semibold text-accent">🎓 Study & Success Hub</span>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Main Content Grid */}
@@ -283,11 +297,15 @@ const CuteAbout3D = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4">
-              Beautiful Spaces & Common Areas 🏡
+            <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full px-8 py-4 mb-6 border border-primary/30">
+              <span className="text-3xl">🏡</span>
+              <span className="text-primary font-bold text-lg">Beautiful Living Spaces</span>
+            </div>
+            <h3 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-4">
+              Your Dream Hostel Experience
             </h3>
-            <p className="text-xl text-muted-foreground">Experience comfort from the moment you step in</p>
+            <p className="text-2xl text-muted-foreground max-w-3xl mx-auto">Experience comfort, luxury & friendship from the moment you step in ✨</p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -303,11 +321,9 @@ const CuteAbout3D = () => {
                 description: "Comfortable spaces for focused learning"
               }
             ].map((item, index) => (
-              <motion.div 
+              <div 
                 key={index}
                 className="group relative"
-                whileHover={{ scale: 1.02, y: -5 }}
-                transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 
@@ -315,7 +331,7 @@ const CuteAbout3D = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-80 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
@@ -331,7 +347,7 @@ const CuteAbout3D = () => {
                     <div className="cute-rot-badge"><h2>CARD</h2></div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </motion.div>
