@@ -223,27 +223,15 @@ const CuteAbout3D = () => {
           </motion.div>
           
           <motion.div 
-            className="max-w-5xl mx-auto"
+            className="max-w-3xl mx-auto text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <p className="text-3xl text-muted-foreground leading-relaxed mb-4">
-              Come, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">"Experience the new way of living."</span>
+            <p className="text-2xl text-muted-foreground mb-6">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">"Experience the new way of living"</span> ✨
             </p>
-            
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <div className="bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full px-6 py-3 border border-primary/30">
-                <span className="text-lg font-semibold text-primary">🏠 Your Home Away From Home</span>
-              </div>
-              <div className="bg-gradient-to-r from-secondary/20 to-accent/20 rounded-full px-6 py-3 border border-secondary/30">
-                <span className="text-lg font-semibold text-secondary">💫 Premium Student Living</span>
-              </div>
-              <div className="bg-gradient-to-r from-accent/20 to-primary/20 rounded-full px-6 py-3 border border-accent/30">
-                <span className="text-lg font-semibold text-accent">🎓 Study & Success Hub</span>
-              </div>
-            </div>
           </motion.div>
         </div>
 
@@ -251,21 +239,23 @@ const CuteAbout3D = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           {/* Text Content */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-6"
             style={{ y }}
           >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl blur-xl"></div>
-              <div className="relative bg-card/90 border border-primary/20 rounded-3xl p-8">
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Raksha Hostels stands as one of Delhi's most <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">luxurious yet affordable</span> accommodations, strategically located in the heart of Greater Noida. We take immense pride in our proximity to prestigious institutions like Heritage College and Red Square.
-                </p>
-                
+            <motion.div 
+              className="relative"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl blur-xl"></div>
+              <div className="relative bg-card/90 border border-primary/20 rounded-3xl p-6">
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  We deliver exceptional amenities that every modern youth desires, combining <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent font-bold">comfort, technology, and style</span> in ways that redefine student living standards. ✨
+                  Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">student living</span> in Greater Noida ✨
                 </p>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
         {/* Visual Element - Animated Card */}
@@ -297,15 +287,10 @@ const CuteAbout3D = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-            <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full px-8 py-4 mb-6 border border-primary/30">
-              <span className="text-3xl">🏡</span>
-              <span className="text-primary font-bold text-lg">Beautiful Living Spaces</span>
-            </div>
-            <h3 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-4">
-              Your Dream Hostel Experience
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-4">
+              Beautiful Spaces 🏡
             </h3>
-            <p className="text-2xl text-muted-foreground max-w-3xl mx-auto">Experience comfort, luxury & friendship from the moment you step in ✨</p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -321,9 +306,14 @@ const CuteAbout3D = () => {
                 description: "Comfortable spaces for focused learning"
               }
             ].map((item, index) => (
-              <div 
+              <motion.div 
                 key={index}
                 className="group relative"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                viewport={{ once: true }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 
@@ -347,7 +337,7 @@ const CuteAbout3D = () => {
                     <div className="cute-rot-badge"><h2>CARD</h2></div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
