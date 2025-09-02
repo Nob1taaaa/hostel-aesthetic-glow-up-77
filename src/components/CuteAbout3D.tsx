@@ -203,56 +203,63 @@ const CuteAbout3D = () => {
       
       <div className="relative z-20 max-w-7xl mx-auto px-4">
         {/* Header Section */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="inline-flex items-center gap-3 bg-primary/10 rounded-full px-6 py-3 mb-6 border border-primary/20">
-              <Award className="w-6 h-6 text-primary" />
-              <span className="text-primary font-semibold">Award-Winning Experience</span>
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-full px-8 py-4 mb-8 border border-primary/20 shadow-lg">
+              <Award className="w-7 h-7 text-primary" />
+              <span className="text-primary font-bold text-xl">Premium Student Living</span>
+              <span className="text-2xl">✨</span>
             </div>
             
-            <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-6">
-              WELCOME HOME
-            </h1>
-            
-            <div className="w-32 h-2 bg-gradient-to-r from-primary via-secondary to-accent mx-auto mb-8 rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary via-secondary to-accent mx-auto mb-6 rounded-full"></div>
           </motion.div>
           
           <motion.div 
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-4xl mx-auto text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <p className="text-2xl text-muted-foreground mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">"Experience the new way of living"</span> ✨
+            <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-6 leading-tight">
+              Experience the New Way of Living
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Discover premium student accommodation where <span className="text-primary font-semibold">comfort meets community</span> in the heart of Greater Noida
             </p>
           </motion.div>
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Text Content */}
           <motion.div 
             className="space-y-6"
             style={{ y }}
           >
             <motion.div 
-              className="relative"
+              className="relative group"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl blur-xl"></div>
-              <div className="relative bg-card/90 border border-primary/20 rounded-3xl p-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl blur-xl group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-500"></div>
+              <div className="relative bg-card/90 border border-primary/20 rounded-3xl p-8 group-hover:border-primary/40 transition-all duration-300">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center">
+                    <span className="text-2xl">🏠</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-primary">Your Home Away From Home</h3>
+                </div>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">student living</span> in Greater Noida ✨
+                  Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">student living</span> in Greater Noida with modern amenities, 24/7 security, and a vibrant community atmosphere.
                 </p>
               </div>
             </motion.div>
@@ -271,7 +278,7 @@ const CuteAbout3D = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           {features.map((feature, index) => (
             <div key={index} className="sc-ring rounded-3xl overflow-hidden">
               <CuteCard feature={feature} index={index} delay={0.3} />
