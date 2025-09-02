@@ -215,9 +215,9 @@ const CuteAbout3D = () => {
               <span className="text-primary font-semibold">Award-Winning Experience</span>
             </div>
             
-            <h2 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-6">
-              ABOUT US
-            </h2>
+            <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-6">
+              WELCOME HOME
+            </h1>
             
             <div className="w-32 h-2 bg-gradient-to-r from-primary via-secondary to-accent mx-auto mb-8 rounded-full"></div>
           </motion.div>
