@@ -6,7 +6,7 @@ interface AnimatedBookButtonProps {
 const AnimatedBookButton = ({ onClick, className = "" }: AnimatedBookButtonProps) => {
   return (
     <div className={`animated-book-button-wrapper ${className}`}>
-      <div className="grid"></div>
+      <div className="grid" style={{ display: 'none' }}></div>
       <div id="poda">
         <div className="glow"></div>
         <div className="darkBorderBg"></div>
