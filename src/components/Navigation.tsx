@@ -3,6 +3,8 @@ import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "./ThemeProvider";
 import LoginPopup from "./LoginPopup";
+import AnimatedBookButton from "./AnimatedBookButton";
+import "../styles/animated-book-button.css";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const {
@@ -80,9 +82,10 @@ const Navigation = () => {
             <Button onClick={toggleTheme} variant="outline" size="sm" className="w-8 h-8 lg:w-10 lg:h-10 rounded-full p-0 border-gray-300 dark:border-slate-600 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors duration-300 flex-shrink-0">
               {theme === "light" ? <Moon className="h-3 w-3 lg:h-4 lg:w-4 text-gray-600 dark:text-gray-400" /> : <Sun className="h-3 w-3 lg:h-4 lg:w-4 text-gray-600 dark:text-gray-400" />}
             </Button>
-            <Button onClick={() => scrollToSection('contact')} className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-sm lg:text-base px-3 sm:px-4 lg:px-6 whitespace-nowrap">
-              Book Now
-            </Button>
+            <AnimatedBookButton 
+              onClick={() => scrollToSection('contact')} 
+              className="text-sm lg:text-base whitespace-nowrap"
+            />
           </div>
 
           <div className="md:hidden flex items-center space-x-1.5 flex-shrink-0">

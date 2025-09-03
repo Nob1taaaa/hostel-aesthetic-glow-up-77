@@ -1,0 +1,272 @@
+.animated-book-button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-book-button-wrapper .grid {
+  height: 200px;
+  width: 200px;
+  background-image: linear-gradient(to right, #0f0f10 1px, transparent 1px),
+    linear-gradient(to bottom, #0f0f10 1px, transparent 1px);
+  background-size: 1rem 1rem;
+  background-position: center center;
+  position: absolute;
+  z-index: -1;
+  filter: blur(1px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.animated-book-button-wrapper .white,
+.animated-book-button-wrapper .border,
+.animated-book-button-wrapper .darkBorderBg,
+.animated-book-button-wrapper .glow {
+  max-height: 44px;
+  max-width: 120px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  border-radius: 12px;
+  filter: blur(3px);
+}
+
+.animated-book-button-wrapper .book-button {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  border: none;
+  width: 110px;
+  height: 36px;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+}
+
+.animated-book-button-wrapper .book-button:hover {
+  background: linear-gradient(135deg, #ea580c, #dc2626);
+  transform: scale(1.05);
+}
+
+.animated-book-button-wrapper #poda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.animated-book-button-wrapper #input-mask {
+  pointer-events: none;
+  width: 40px;
+  height: 20px;
+  position: absolute;
+  background: linear-gradient(90deg, transparent, black);
+  top: 8px;
+  left: 30px;
+  z-index: 1;
+}
+
+.animated-book-button-wrapper #pink-mask {
+  pointer-events: none;
+  width: 20px;
+  height: 15px;
+  position: absolute;
+  background: #cf30aa;
+  top: 5px;
+  left: 5px;
+  filter: blur(15px);
+  opacity: 0.8;
+  transition: all 2s;
+  z-index: 1;
+}
+
+.animated-book-button-wrapper #main:hover > #pink-mask {
+  opacity: 0;
+}
+
+.animated-book-button-wrapper .white {
+  max-height: 40px;
+  max-width: 115px;
+  border-radius: 10px;
+  filter: blur(2px);
+}
+
+.animated-book-button-wrapper .white::before {
+  content: "";
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(83deg);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  filter: brightness(1.4);
+  background-image: conic-gradient(
+    rgba(0, 0, 0, 0) 0%,
+    #a099d8,
+    rgba(0, 0, 0, 0) 8%,
+    rgba(0, 0, 0, 0) 50%,
+    #dfa2da,
+    rgba(0, 0, 0, 0) 58%
+  );
+  transition: all 2s;
+}
+
+.animated-book-button-wrapper .border {
+  max-height: 38px;
+  max-width: 112px;
+  border-radius: 11px;
+  filter: blur(0.5px);
+}
+
+.animated-book-button-wrapper .border::before {
+  content: "";
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(70deg);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  filter: brightness(1.3);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-image: conic-gradient(
+    #1c191c,
+    #402fb5 5%,
+    #1c191c 14%,
+    #1c191c 50%,
+    #cf30aa 60%,
+    #1c191c 64%
+  );
+  transition: all 2s;
+}
+
+.animated-book-button-wrapper .darkBorderBg {
+  max-height: 42px;
+  max-width: 118px;
+}
+
+.animated-book-button-wrapper .darkBorderBg::before {
+  content: "";
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(82deg);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-image: conic-gradient(
+    rgba(0, 0, 0, 0),
+    #18116a,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(0, 0, 0, 0) 50%,
+    #6e1b60,
+    rgba(0, 0, 0, 0) 60%
+  );
+  transition: all 2s;
+}
+
+.animated-book-button-wrapper #poda:hover > .darkBorderBg::before {
+  transform: translate(-50%, -50%) rotate(-98deg);
+}
+
+.animated-book-button-wrapper #poda:hover > .glow::before {
+  transform: translate(-50%, -50%) rotate(-120deg);
+}
+
+.animated-book-button-wrapper #poda:hover > .white::before {
+  transform: translate(-50%, -50%) rotate(-97deg);
+}
+
+.animated-book-button-wrapper #poda:hover > .border::before {
+  transform: translate(-50%, -50%) rotate(-110deg);
+}
+
+.animated-book-button-wrapper .glow {
+  overflow: hidden;
+  filter: blur(20px);
+  opacity: 0.4;
+  max-height: 50px;
+  max-width: 130px;
+}
+
+.animated-book-button-wrapper .glow:before {
+  content: "";
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(60deg);
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-image: conic-gradient(
+    #000,
+    #402fb5 5%,
+    #000 38%,
+    #000 50%,
+    #cf30aa 60%,
+    #000 87%
+  );
+  transition: all 2s;
+}
+
+.animated-book-button-wrapper .filterBorder {
+  height: 40px;
+  width: 115px;
+  position: absolute;
+  overflow: hidden;
+  top: -2px;
+  left: -2.5px;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.animated-book-button-wrapper .filterBorder::before {
+  content: "";
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  filter: brightness(1.35);
+  background-image: conic-gradient(
+    rgba(0, 0, 0, 0),
+    #3d3a4f,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0) 50%,
+    #3d3a4f,
+    rgba(0, 0, 0, 0) 100%
+  );
+  animation: rotate 4s linear infinite;
+}
+
+.animated-book-button-wrapper #main {
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes rotate {
+  100% {
+    transform: translate(-50%, -50%) rotate(450deg);
+  }
+}
