@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import Cute3DTeamCard from "./Cute3DTeamCard";
+import AnimatedTeamCard from "./AnimatedTeamCard";
+import "../styles/animated-team-card.css";
 
 const CuteTeam = () => {
   const teamMembers = [
@@ -103,7 +104,7 @@ const CuteTeam = () => {
         <div className="hidden lg:flex lg:justify-center lg:items-center lg:gap-6 xl:gap-8 flex-wrap max-w-6xl mx-auto">
           {teamMembers.map((member, index) => (
             <div key={index} className="flex-shrink-0">
-              <Cute3DTeamCard member={member} index={index} />
+              <AnimatedTeamCard member={member} index={index} />
             </div>
           ))}
         </div>
@@ -111,7 +112,7 @@ const CuteTeam = () => {
         {/* Team Cards - Tablet Grid */}
         <div className="hidden md:grid lg:hidden grid-cols-2 gap-8 justify-items-center max-w-2xl mx-auto">
           {teamMembers.map((member, index) => (
-            <Cute3DTeamCard key={index} member={member} index={index} />
+            <AnimatedTeamCard key={index} member={member} index={index} />
           ))}
         </div>
 
@@ -120,7 +121,7 @@ const CuteTeam = () => {
           <div className="overflow-x-auto pb-6">
             <div className="flex gap-6 px-4" style={{ width: 'max-content' }}>
               {teamMembers.map((member, index) => (
-                <Cute3DTeamCard key={index} member={member} index={index} />
+                <AnimatedTeamCard key={index} member={member} index={index} />
               ))}
             </div>
           </div>
