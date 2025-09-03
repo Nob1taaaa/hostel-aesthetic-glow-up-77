@@ -161,7 +161,7 @@
 }
 
 .animated-team-card:hover .profile-pic img {
-  transform: scale(2.5);
-  object-position: 0px 25px;
+  transform: scale(1.2);
+  object-position: center center;
   transition: all 0.5s ease-in-out 0.5s;
 }
