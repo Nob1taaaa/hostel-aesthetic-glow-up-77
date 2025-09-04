@@ -19,66 +19,83 @@ function CuteCard({
     once: true,
     margin: "-100px"
   });
-  return <motion.div ref={cardRef} initial={{
-    opacity: 0,
-    y: 50,
-    scale: 0.9
-  }} animate={isInView ? {
-    opacity: 1,
-    y: 0,
-    scale: 1
-  } : {}} transition={{
-    duration: 0.8,
-    delay: delay + index * 0.2,
-    type: "spring",
-    stiffness: 100
-  }} whileHover={{
-    scale: 1.03,
-    y: -8
-  }} className="group relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl blur-xl group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-500"></div>
-      
-      <div className="relative bg-card border border-primary/20 rounded-3xl p-8 group-hover:border-primary/40 transition-all duration-500 shadow-lg hover:shadow-xl">
-        <motion.div className="text-center" whileHover={{
-        scale: 1.05
-      }} transition={{
+  
+  return (
+    <motion.div 
+      ref={cardRef} 
+      initial={{
+        opacity: 0,
+        y: 50,
+        scale: 0.9
+      }} 
+      animate={isInView ? {
+        opacity: 1,
+        y: 0,
+        scale: 1
+      } : {}} 
+      transition={{
+        duration: 0.8,
+        delay: delay + index * 0.2,
         type: "spring",
-        stiffness: 400,
-        damping: 10
-      }}>
-          <motion.div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl mb-6 group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-300" animate={{
-          rotate: [0, 10, -10, 0],
-          scale: [1, 1.1, 1]
-        }} transition={{
-          duration: 4,
-          repeat: Infinity,
-          delay: index * 0.5
-        }}>
-            <feature.icon className="w-10 h-10 text-primary group-hover:text-secondary transition-colors duration-300" />
-          </motion.div>
-          
-          <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
-            {feature.title}
-          </h3>
-          
-          <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300">
-            {feature.description}
-          </p>
+        stiffness: 100
+      }}
+      className="cute-3d-card-parent group"
+    >
+      <div className="cute-3d-card">
+        {/* Decorative circles - logo area */}
+        <div className="cute-logo">
+          <span className="cute-circle cute-circle1"></span>
+          <span className="cute-circle cute-circle2"></span>
+          <span className="cute-circle cute-circle3"></span>
+          <span className="cute-circle cute-circle4"></span>
+          <span className="cute-circle cute-circle5">
+            <feature.icon className="w-6 h-6 text-white" />
+          </span>
+        </div>
 
-          {/* Cute floating element */}
-          <motion.div className="absolute -top-2 -right-2 text-2xl opacity-0 group-hover:opacity-100" animate={{
-          y: [0, -5, 0],
-          rotate: [0, 15, 0]
-        }} transition={{
-          duration: 2,
-          repeat: Infinity,
-          delay: index * 0.3
-        }}>
+        {/* Glass morphism effect */}
+        <div className="cute-glass"></div>
+
+        {/* Main content */}
+        <div className="cute-content">
+          <h3 className="cute-title">{feature.title}</h3>
+          <p className="cute-text">{feature.description}</p>
+        </div>
+
+        {/* Bottom floating elements */}
+        <div className="cute-bottom">
+          <div className="cute-social-buttons">
+            <div className="cute-social-button">
+              <div className="w-3 h-3 rounded-full bg-primary/60"></div>
+            </div>
+            <div className="cute-social-button">
+              <div className="w-3 h-3 rounded-full bg-secondary/60"></div>
+            </div>
+            <div className="cute-social-button">
+              <div className="w-3 h-3 rounded-full bg-accent/60"></div>
+            </div>
+          </div>
+          
+          {/* Floating sparkle */}
+          <motion.div 
+            className="cute-sparkle"
+            animate={{
+              y: [0, -5, 0],
+              rotate: [0, 15, 0],
+              scale: [1, 1.2, 1]
+            }} 
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              delay: index * 0.3
+            }}
+          >
             ✨
           </motion.div>
-        </motion.div>
+        </div>
       </div>
-    </motion.div>;
+    </motion.div>
+  );
 }
 function StatsCounter({
   number,
