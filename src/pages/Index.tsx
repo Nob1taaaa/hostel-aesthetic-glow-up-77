@@ -8,10 +8,6 @@ import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
-import ScrollAnimations from "@/components/ScrollAnimations";
-import PremiumScrollEffects from "@/components/PremiumScrollEffects";
-import EnhancedScrollAnimations from "@/components/EnhancedScrollAnimations";
-import HostelScrollEffects from "@/components/HostelScrollEffects";
 import { Helmet } from "react-helmet-async";
 
 const Index = () => {
@@ -62,50 +58,25 @@ const Index = () => {
       
       <div className="min-h-screen bg-background transition-colors duration-300">
         <Navigation />
-        
-        {/* Hero Section */}
-        <section id="home" className="premium-section parallax-element">
-          <CuteHero />
-        </section>
-        
-        {/* About Section */}
-        <section id="about" className="premium-section fade-in-up scale-in">
-          <CuteAbout3D />
-        </section>
-        
-        {/* Rooms Section */}
-        <section id="rooms" className="premium-section stagger-children parallax-element">
+        <div id="home" />
+        <CuteAbout3D />
+        <div className="premium-section">
           <CuteSamsungStyleRooms />
-        </section>
-        
-        {/* Facilities Section */}
-        <section id="facilities" className="premium-section fade-in-up rotate-in">
+        </div>
+        <div className="premium-section">
           <CuteFacilities />
-        </section>
-        
-        {/* Testimonials Section */}
-        <section id="testimonials" className="premium-section scale-in parallax-element">
+        </div>
+        <div className="premium-section">
           <CuteTestimonials />
-        </section>
-        
-        {/* Team Section */}
-        <section id="team" className="premium-section fade-in-up stagger-children">
+        </div>
+        <div className="premium-section">
           <CuteTeam />
-        </section>
-        
-        {/* Contact Section */}
-        <section id="contact" className="premium-section scale-in">
+        </div>
+        <div className="premium-section">
           <Contact />
-        </section>
-        
+        </div>
         <Footer />
         <Chatbot />
-        
-        {/* Animation Controllers */}
-        <ScrollAnimations />
-        <PremiumScrollEffects />
-        <EnhancedScrollAnimations />
-        <HostelScrollEffects />
       </div>
     </>
   );
