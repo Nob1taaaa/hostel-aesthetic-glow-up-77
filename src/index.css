@@ -15,7 +15,6 @@
 
     --primary: 20 100% 51%;
     --primary-foreground: 0 0% 100%;
-    --primary-rgb: 255, 128, 0;
 
     --secondary: 189 65% 37%;
     --secondary-foreground: 0 0% 100%;
@@ -68,7 +67,6 @@
 
     --primary: 20 100% 51%;
     --primary-foreground: 0 0% 100%;
-    --primary-rgb: 255, 128, 0;
 
     --secondary: 189 65% 37%;
     --secondary-foreground: 0 0% 100%;
@@ -123,4 +121,3 @@
 @import url('./styles/cute-glow-search.css');
 @import url('./styles/cute-rot-badge.css');
 @import url('./styles/supercute-card.css');
-@import url('./styles/cute-3d-cards.css');
