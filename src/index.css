@@ -121,3 +121,95 @@
 @import url('./styles/cute-glow-search.css');
 @import url('./styles/cute-rot-badge.css');
 @import url('./styles/supercute-card.css');
+
+/* Smooth scrolling for entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced scroll animations */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Page transitions */
+body {
+  overflow-x: hidden;
+}
+
+/* Section spacing for better visual hierarchy */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Parallax base class */
+.parallax-element {
+  will-change: transform;
+}
+
+/* Animation enhancement classes */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.rotate-in {
+  opacity: 0;
+  transform: rotate(5deg) translateY(20px);
+}
+
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Hover animations for interactive elements */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading animation */
+.page-loader {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navigation scroll effect */
+nav {
+  transition: transform 0.3s ease;
+}
+
+/* Image loading animations */
+img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+/* Button animations */
+button, .btn {
+  transition: all 0.3s ease;
+}
