@@ -1,4 +1,4 @@
-import CuteHero from "@/components/CuteHero";
+import HostelHero from "@/components/HostelHero";
 import CuteSamsungStyleRooms from "@/components/CuteSamsungStyleRooms";
 import CuteAbout3D from "@/components/CuteAbout3D";
 import CuteFacilities from "@/components/CuteFacilities";
@@ -59,8 +59,9 @@ const Index = () => {
       <div className="min-h-screen bg-background transition-colors duration-300">
         <Navigation />
         <div id="home" />
+        <HostelHero />
         <CuteAbout3D />
-        <div className="premium-section">
+        <div id="rooms" className="premium-section">
           <CuteSamsungStyleRooms />
         </div>
         <div className="premium-section">
