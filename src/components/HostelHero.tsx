@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Shield, Wifi, UtensilsCrossed, MapPin, Phone } from "lucide-react";
 import { useRef } from "react";
-import hostelImage from "@/assets/hostel-building.jpg";
+import hostelImage from "@/assets/hostel-front-view.jpg";
 
 const HostelHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -44,13 +44,14 @@ const HostelHero = () => {
         {/* Dark elegant overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-background z-10" />
         
-        {/* Enhanced Image with filters */}
+        {/* Enhanced Image - No zoom, crisp quality */}
         <img
           src={hostelImage}
           alt="Raksha Hostel Building - Premium Student Accommodation"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
           style={{
-            filter: 'brightness(1.15) contrast(1.2) saturate(1.1)',
+            filter: 'brightness(1.1) contrast(1.1)',
+            imageRendering: 'crisp-edges',
           }}
         />
         
