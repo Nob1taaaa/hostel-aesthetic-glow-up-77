@@ -60,7 +60,6 @@ const Index = () => {
         <Navigation />
         <div id="home" />
         <HostelHero />
-        <CuteAbout3D />
         <div id="rooms" className="premium-section">
           <CuteSamsungStyleRooms />
         </div>

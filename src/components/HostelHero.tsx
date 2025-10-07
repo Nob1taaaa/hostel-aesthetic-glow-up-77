@@ -27,17 +27,35 @@ const HostelHero = () => {
       className="relative min-h-screen w-full overflow-hidden"
       style={{ opacity }}
     >
-      {/* Parallax Background Image */}
+      {/* Enhanced Parallax Background Image with Glow Effects */}
       <motion.div
         className="absolute inset-0 w-full h-full"
         style={{ y }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background z-10" />
+        {/* Multiple layered glows for depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-background/50 z-[5] mix-blend-overlay" />
+        <div className="absolute inset-0 bg-gradient-radial from-primary/30 via-transparent to-transparent z-[6] animate-pulse" />
+        
+        {/* Sharp edge glow */}
+        <div className="absolute inset-0 z-[7]" style={{
+          boxShadow: 'inset 0 0 100px 20px hsl(var(--primary) / 0.3)',
+        }} />
+        
+        {/* Dark elegant overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-background z-10" />
+        
+        {/* Enhanced Image with filters */}
         <img
           src={hostelImage}
           alt="Raksha Hostel Building - Premium Student Accommodation"
           className="w-full h-full object-cover"
+          style={{
+            filter: 'brightness(1.15) contrast(1.2) saturate(1.1)',
+          }}
         />
+        
+        {/* Ambient light effect */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-primary/20 to-transparent z-[8] blur-3xl" />
       </motion.div>
 
       {/* Content Overlay */}
@@ -48,26 +66,29 @@ const HostelHero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
-          {/* Badge */}
+          {/* Enhanced Badge with Glow */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 mb-6"
+            className="relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/30 backdrop-blur-md border border-primary/50 mb-6 shadow-[0_0_30px_rgba(var(--primary-rgb),0.5)]"
           >
-            <Shield className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-white">Premium Student Accommodation</span>
+            <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl" />
+            <Shield className="w-5 h-5 text-primary relative z-10 drop-shadow-[0_0_8px_hsl(var(--primary))]" />
+            <span className="text-sm font-semibold text-white relative z-10 drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">Premium Student Accommodation</span>
           </motion.div>
 
-          {/* Main Heading */}
+          {/* Enhanced Main Heading with Sharp Glow */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-white"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6"
           >
-            <span className="block mb-2">Welcome to</span>
-            <span className="block bg-gradient-to-r from-primary via-primary-foreground to-primary bg-clip-text text-transparent animate-pulse">
+            <span className="block mb-2 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">Welcome to</span>
+            <span className="block bg-gradient-to-r from-primary via-primary-foreground to-primary bg-clip-text text-transparent drop-shadow-[0_0_40px_hsl(var(--primary))] animate-pulse" style={{
+              filter: 'drop-shadow(0 0 20px hsl(var(--primary))) drop-shadow(0 0 40px hsl(var(--primary)))',
+            }}>
               RAKSHA HOSTEL
             </span>
           </motion.h1>
@@ -113,7 +134,7 @@ const HostelHero = () => {
             ))}
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* Enhanced CTA Buttons with Glow Effects */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,18 +143,20 @@ const HostelHero = () => {
           >
             <button
               onClick={scrollToRooms}
-              className="group relative px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-2"
+              className="group relative px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 flex items-center gap-2 shadow-[0_0_30px_hsl(var(--primary)/0.6)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.8)]"
             >
-              <span>Explore Rooms</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <div className="absolute inset-0 rounded-full bg-primary blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
+              <span className="relative z-10">Explore Rooms</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
             </button>
 
             <button
               onClick={handleWhatsApp}
-              className="px-8 py-4 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 rounded-full font-semibold text-lg hover:bg-white/20 transition-all duration-300 hover:scale-105 flex items-center gap-2"
+              className="group relative px-8 py-4 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 rounded-full font-semibold text-lg hover:bg-white/20 transition-all duration-300 hover:scale-105 flex items-center gap-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
             >
-              <Phone className="w-5 h-5" />
-              <span>Contact Us</span>
+              <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/10 blur-xl transition-all" />
+              <Phone className="w-5 h-5 relative z-10" />
+              <span className="relative z-10">Contact Us</span>
             </button>
           </motion.div>
 
