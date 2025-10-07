@@ -59,14 +59,56 @@ const HostelHero = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-primary/20 to-transparent z-[8] blur-3xl" />
       </motion.div>
 
-      {/* Content Overlay - Minimalist */}
+      {/* Content Overlay - Beautiful Text Card */}
       <div className="relative z-20 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2 }}
-          className="w-full h-full"
-        />
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl w-full"
+        >
+          {/* Elegant Card with Content */}
+          <div className="relative bg-white/95 backdrop-blur-lg rounded-3xl p-8 sm:p-12 shadow-[0_8px_40px_rgba(0,0,0,0.12)] border border-white/20">
+            {/* Decorative corner accent */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-[100px] rounded-tr-3xl" />
+            
+            {/* Icon and Heading */}
+            <div className="flex items-start gap-4 sm:gap-6 mb-6">
+              {/* House Icon */}
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.3, type: "spring" }}
+                className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-2xl flex items-center justify-center"
+              >
+                <span className="text-4xl sm:text-5xl">🏠</span>
+              </motion.div>
+              
+              {/* Heading */}
+              <motion.h1
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight"
+              >
+                Your Home Away From Home
+              </motion.h1>
+            </div>
+            
+            {/* Description Text */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed"
+            >
+              Premium <span className="font-semibold text-primary">student living</span> in Greater Noida with modern amenities, 24/7 security, and a vibrant community atmosphere.
+            </motion.p>
+            
+            {/* Subtle bottom decoration */}
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/5 rounded-tr-[100px] rounded-bl-3xl" />
+          </div>
+        </motion.div>
       </div>
 
       {/* Scroll Indicator */}
